@@ -20,6 +20,25 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 					var tableTemplate = _.template($(templates[0]).html(), {columnNames: ['First Name', 'Last Name', 'Age', 'Email', 'Projects'], objects: _.toArray(UsersCollection)});
 					self.el.addClass('container').removeClass('main-banner');
 					self.el.html(tableTemplate);
+					self.el.find('input').each(function(i, elem){
+						$(elem).hide();
+					});
+					
+					$('.editable').each(function(i, elem) {
+						$(elem).bind('click', function(){
+							var currentValue = $(elem).html();
+							$(elem).html('<input class="large" size="30" type="text" />');
+							
+							var firstChild = $(elem).children(':first-child')[0];
+							firstChild.focus();
+							$(firstChild).keypress(function(e){
+								if(e.which == 13) {
+									newName = firstChild.value;
+									$(elem).html(newName);
+								}
+							});
+						});
+					});
 				}
 			});
 			

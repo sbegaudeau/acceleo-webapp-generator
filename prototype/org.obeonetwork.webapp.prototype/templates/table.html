@@ -39,7 +39,7 @@
 				<tr>
 					<td><input type="checkbox" name="checkBoxDelete" value="option"></td>
 					<% for (var attr in objects[i].attributes) { %>
-					<td><%= objects[i].attributes[attr] %></td>
+					<td class="editable"><%=objects[i].attributes[attr]%></td>
 					<% }; %>
 				</tr>
 				<% }; %>

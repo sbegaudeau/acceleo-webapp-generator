@@ -19,6 +19,10 @@ define(['jQuery','Underscore','Backbone'], function($, _, Backbone){
 			
 			$('.active').removeClass('active');
 			$('#projects-tab').addClass('active');
+			
+			$('#main_form').bind('submit', function() {
+				return self.mainFormSubmit();
+			});
 		}
 	});
 	return new EditProject;
