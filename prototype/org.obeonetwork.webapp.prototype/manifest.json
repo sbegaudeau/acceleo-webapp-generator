@@ -1,0 +1,23 @@
+{
+	"name": "Project Management",
+	"version": "1.0",
+	"description": "Projects and Users management system",
+	"browser_action": {
+		"default_icon": "images/icon19.png",
+		"default_title": "Google Mail",
+		"default_popup": "popup.html"
+	},
+	"background": { "scripts": [
+						"js/libs/jquery/jquery-min.js",
+						"js/libs/underscore/underscore-min.js",
+						"js/libs/backbone/backbone-min.js",
+						"js/libs/require/require.js",
+						"js/views/users/list_users.js",
+						"js/views/projects/list_projects.js"
+					] },
+	"permissions": ["contextMenus"],
+	"content_scripts": [{
+		"matches": ["http://*/*","https://*/*", "file:///*"],
+		"js": ["js/views/users/list_users.js", "js/views/projects/list_projects.js"]
+	}]
+}

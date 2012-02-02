@@ -17,7 +17,12 @@ define(['jQuery','Underscore','Backbone', '../../collections/projects_collection
 			$.get('templates/table.html', function(page) {
 				var templates = $(page).filter('#table-template');
 				if (templates.length == 1) {
-					var tableTemplate = _.template($(templates[0]).html(), {columnNames: ['Name', 'Users'], objects: _.toArray(ProjectsCollection)});
+					var tableTemplate = _.template($(templates[0]).html(), {
+						columnNames: ['Name', 'Users'],
+						columnWidths: [25, 75],
+						attributesToConsider: ['name', 'users'],
+						objects: _.toArray(ProjectsCollection)
+					});
 					self.el.addClass('container').removeClass('main-banner');
 					self.el.html(tableTemplate);
 					self.el.find('input').each(function(i, elem){

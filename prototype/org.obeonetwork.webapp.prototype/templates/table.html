@@ -30,7 +30,7 @@
 				<tr>
 					<th width="3%"></th>
 				<% for (var i = 0; i < columnNames.length; i++) { %>
-					<th class="blue"><%= columnNames[i] %></th>
+					<th class="blue" width="<%=columnWidths[i]%>%" data-num="<%=i%>"><%=columnNames[i]%></th>
 				<% }; %>
 				</tr>
 			</thead>
@@ -39,7 +39,9 @@
 				<tr>
 					<td><input type="checkbox" name="checkBoxDelete" value="option"></td>
 					<% for (var attr in objects[i].attributes) { %>
-					<td class="editable"><%=objects[i].attributes[attr]%></td>
+					<% if (_.include(attributesToConsider, attr)) { %>
+					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><%=objects[i].attributes[attr]%></td>
+					<% } %>
 					<% }; %>
 				</tr>
 				<% }; %>

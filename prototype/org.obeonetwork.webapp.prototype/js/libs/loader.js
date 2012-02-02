@@ -9,7 +9,7 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['order!libs/jquery/jquery-min', 'order!libs/underscore/underscore-min', 'order!libs/backbone/backbone-min'],
+define(['order!libs/jquery/jquery-min', 'order!libs/underscore/underscore-min', 'order!libs/backbone/backbone-min', 'order!libs/backbone/backbone.localStorage'],
 function(){
 	return {
 		Backbone: Backbone.noConflict(), _: _.noConflict(), $: jQuery.noConflict()

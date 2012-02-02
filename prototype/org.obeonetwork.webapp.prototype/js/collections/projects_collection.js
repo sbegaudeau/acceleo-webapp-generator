@@ -11,7 +11,8 @@
 
 define(['jQuery','Underscore','Backbone', '../models/project'], function($, _, Backbone, Project){
 	var ProjectsCollection = Backbone.Collection.extend({
-		model: Project
+		model: Project,
+		localStorage: new Store("org.eclipse.eclipsecon.webapp")
 	});
 	
 	var projectsCollection = new ProjectsCollection

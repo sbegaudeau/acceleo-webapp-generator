@@ -14,6 +14,7 @@ require.config({
 		jQuery: 'libs/jquery/jquery',
 		Underscore: 'libs/underscore/underscore',
 		Backbone: 'libs/backbone/backbone',
+		BackboneStorage: 'libs/backbone/backbone.localStorage',
 		loader: 'libs/loader',
 		templates: '../templates'
 	}
