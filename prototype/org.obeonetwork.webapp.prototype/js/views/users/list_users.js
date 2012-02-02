@@ -16,7 +16,7 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 			var self = this;
 			$.get('templates/table.html', function(page) {
 				var templates = $(page).filter('#table-template');
-				if (templates.length == 1) {
+				if (templates.length === 1) {
 					var tableTemplate = _.template($(templates[0]).html(), {columnNames: ['First Name', 'Last Name', 'Age', 'Email', 'Projects'], objects: _.toArray(UsersCollection)});
 					self.el.addClass('container').removeClass('main-banner');
 					self.el.html(tableTemplate);
@@ -27,5 +27,5 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 			$('#users-tab').addClass('active');
 		}
 	});
-	return new ListUsers;
+	return new ListUsers();
 });

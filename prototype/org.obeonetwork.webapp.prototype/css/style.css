@@ -20,3 +20,7 @@ main-banner {
 	z-index: 1;
 	background-color: blueDark;
 }
+
+.actions-bar {
+	padding-bottom: 20px;
+}

@@ -1,3 +1,4 @@
+<!doctype html>
 <!--
 /********************************************************************************
 ** Copyright (c) 2012 Obeo.
@@ -10,7 +11,6 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 -->
-<!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
@@ -21,9 +21,14 @@
 </head>
 <body>
 	<script id="table-template">
+		<div class="actions-bar">
+			<a class="btn" href="#">New</a>
+			<a class="btn" href="#">Delete</a>
+		</div>
 		<table class="bordered-table zebra-striped">
 			<thead>
 				<tr>
+					<th width="3%"></th>
 				<% for (var i = 0; i < columnNames.length; i++) { %>
 					<th><%= columnNames[i] %></th>
 				<% }; %>
@@ -32,6 +37,7 @@
 			<tbody>
 				<% for (var i = 0; i < objects.length; i++) { %>
 				<tr>
+					<td><input type="checkbox" name="checkBoxDelete" value="option"></td>
 					<% for (var attr in objects[i].attributes) { %>
 					<td><%= objects[i].attributes[attr] %></td>
 					<% }; %>
