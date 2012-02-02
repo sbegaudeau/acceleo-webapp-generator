@@ -9,7 +9,7 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['jQuery','Underscore','Backbone'], function($, _, Backbone){
+define(['jQuery','Underscore','Backbone', '../libs/backbone/backbone.localStorage'], function($, _, Backbone){
 	var User = Backbone.Model.extend({
 		defaults: {
 			firstName: 'First Name',
@@ -41,12 +41,12 @@ define(['jQuery','Underscore','Backbone'], function($, _, Backbone){
 		removeProject: function(project){
 			var projects_array = this.get("projects");
 			for(var i=0; i < projects_array.length; i++){ 
-				if(projects_array[i] == project){
+				if(projects_array[i] === project){
 					projects_array.splice(i,1);
 				}
 			}
 			this.set({projects: projects_array});
 		}
 	});
-	return new User;
+	return new User();
 });

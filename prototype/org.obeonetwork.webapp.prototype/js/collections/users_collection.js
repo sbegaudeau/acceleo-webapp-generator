@@ -15,6 +15,6 @@ define(['jQuery','Underscore','Backbone', '../models/user', '../libs/backbone/ba
 		localStorage: new Store("org.eclipse.eclipsecon.webapp")
 	});
 	
-	var usersCollection = new UsersCollection	
+	var usersCollection = new UsersCollection();
 	return usersCollection;
 });

@@ -22,8 +22,8 @@
 <body>
 	<script id="table-template">
 		<div class="actions-bar">
-			<a class="btn" href="#">New</a>
-			<a class="btn" href="#">Delete</a>
+			<a class="btn" href="#" id="new-btn">New</a>
+			<a class="btn" href="#" id="delete-btn">Delete</a>
 		</div>
 		<table class="bordered-table zebra-striped">
 			<thead>
@@ -37,7 +37,7 @@
 			<tbody>
 				<% for (var i = 0; i < objects.length; i++) { %>
 				<tr>
-					<td><input type="checkbox" name="checkBoxDelete" value="option"></td>
+					<td><input type="checkbox" name="checkBoxDelete" value="option" data-num="<%=i%>"></td>
 					<% for (var attr in objects[i].attributes) { %>
 					<% if (_.include(attributesToConsider, attr)) { %>
 					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><%=objects[i].attributes[attr]%></td>

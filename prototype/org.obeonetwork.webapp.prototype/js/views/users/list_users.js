@@ -16,7 +16,7 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 			var self = this;
 			$.get('templates/table.html', function(page) {
 				var templates = $(page).filter('#table-template');
-				if (templates.length == 1) {
+				if (templates.length === 1) {
 					UsersCollection.fetch();
 					
 					var tableTemplate = _.template($(templates[0]).html(), {
@@ -28,55 +28,88 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 					self.el.addClass('container').removeClass('main-banner');
 					self.el.html(tableTemplate);
 					self.el.find('input').each(function(i, elem){
-						$(elem).hide();
+						if ($(elem).attr('name') !== 'checkBoxDelete') {
+							$(elem).hide();
+						}
 					});
 
 					
 					$('.editable').each(function(i, elem) {						
 						$(elem).bind('click', function(){
-							currentValue = '';
-							if (elem.childNodes.length == 1) {
+							var currentValue = '';
+							if (elem.childNodes.length === 1) {
 								if (elem.childNodes[0] instanceof Text) {									
 									currentValue = $(elem).html();
 								}
 							}
-							data_attribute_name = $(elem).data('attribute-name');
-							if (data_attribute_name == 'firstName') {								
+							var data_attribute_name = $(elem).data('attribute-name');
+							if (data_attribute_name === 'firstName') {								
 								$(elem).html('<input class="large" size="30" type="text"/>');
 								if (currentValue.length > 0) {
 									elem.childNodes[0].value = currentValue;
 								}
-							} else if (data_attribute_name == 'lastName') {
+							} else if (data_attribute_name === 'lastName') {
 								$(elem).html('<input class="large" size="30" type="text"/>');
 								if (currentValue.length > 0) {
 									elem.childNodes[0].value = currentValue;
 								}
-							} else if (data_attribute_name == 'age') {
+							} else if (data_attribute_name === 'age') {
 								
-							} else if (data_attribute_name == 'email') {
+							} else if (data_attribute_name === 'email') {
 								$(elem).html('<input class="large" size="30" type="text"/>');
 								if (currentValue.length > 0) {
 									elem.childNodes[0].value = currentValue;
 								}
-							} else if (data_attribute_name == 'projects') {
+							} else if (data_attribute_name === 'projects') {
 								
 							}
 							
-							firstChild = $(elem).children(':first-child')[0];
+							var firstChild = $(elem).children(':first-child')[0];
 							firstChild.focus();
 							$(firstChild).keypress(function(e){
-								if(e.which == 13) {
-									newValue = firstChild.value;
+								if(e.which === 13) {
+									var newValue = firstChild.value;
 									$(elem).html(newValue);
-									data_num = $(elem).data('num');
-									data_attribute_name = $(elem).data('attribute-name');
-									model = UsersCollection.at(data_num);
+									var data_num = $(elem).data('num');
+									var data_attribute_name = $(elem).data('attribute-name');
+									var model = UsersCollection.at(data_num);
 									var valueToSet = {};
 									valueToSet[data_attribute_name] = newValue;
 									model.save(valueToSet);
 								}
 							});
 						});
+					});
+					$('#new-btn').bind('click', function(){
+						UsersCollection.create({
+							'firstName': 'firstName',
+							'lastName': 'lastName',
+							'age': '0',
+							'email': 'email',
+							'projects': []
+						});
+						ListUsers.prototype.render();
+						return false;
+					});
+					$('#delete-btn').bind('click', function(){
+						var modelArray = [];
+						var i = 0;
+						$('input').each(function(index, elem) {
+							if ($(elem).attr('name') === 'checkBoxDelete' && elem.checked === true) {
+								var data_num = $(elem).data('num');
+								var model = UsersCollection.at(data_num);
+								modelArray[i] = model;
+								i = i + 1;
+							}
+						});
+						
+						for (var c = 0; c < modelArray.length; c++) {
+							var model =	modelArray[c];
+							model.destroy();
+						}
+						
+						ListUsers.prototype.render();
+						return false;
 					});
 				}
 			});
