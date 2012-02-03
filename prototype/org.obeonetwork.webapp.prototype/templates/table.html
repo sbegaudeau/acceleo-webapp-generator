@@ -44,7 +44,7 @@
 					<% if (objects[i].attributes[attr].toString().length === 0) {%>
 					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#<%=attr%>" class="link-placeholder" data-toggle="modal">click to edit</a></td>
 					<% } else { %>
-					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#<%=attr%>" class="link-placeholder" data-toggle="modal"><%=objects[i].attributes[attr]%></a></td>
+					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#<%=attr%>" class="link-placeholder" data-toggle="modal"><%= _.reduce(objects[i].attributes[attr], function(memo, proj){ return memo + proj.name + ' '; }, '')%></a></td>
 					<% } %>
 					<% } else { %>
 					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><%=objects[i].attributes[attr]%></td>
