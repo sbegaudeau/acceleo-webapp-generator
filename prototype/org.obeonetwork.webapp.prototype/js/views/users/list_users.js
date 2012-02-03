@@ -134,7 +134,27 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection', 
 								});
 								$(target).find('.dialogSave').each(function(j, element){
 									$(element).bind('click', function() {
+										var modelArray = [];
+										var i = 0;
+										var currentModel = user.get('projects');
+										$('input').each(function(index, elem) {
+											if ($(elem).attr('name') === 'checkBoxDeleteDialog' && elem.checked === true) {
+												var data_num = $(elem).data('num');
+												var model = ProjectsCollection.at(data_num);
+												modelArray[i] = model;
+												i = i + 1;
+											}
+										});
 										
+										for (var c = 0; c < modelArray.length; c++) {
+											var model =	modelArray[c];
+											currentModel.push(model);
+										}
+										
+										var valueToSet = {};
+										valueToSet['projects'] = currentModel;
+										user.save(valueToSet);
+										ListUsers.prototype.render();
 									});
 								});
 							}
