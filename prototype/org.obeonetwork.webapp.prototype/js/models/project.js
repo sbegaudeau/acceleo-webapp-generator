@@ -29,7 +29,7 @@ define(['jQuery','Underscore','Backbone'], function($, _, Backbone){
 		removeUser: function(user){
 			var users_array = this.get("users");
 			for(var i=0; i < users_array.length; i++){ 
-				if(users_array[i] == user){
+				if (users_array[i] === user){
 					users_array.splice(i,1);
 				}
 			}

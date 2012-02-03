@@ -9,14 +9,15 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['jQuery','Underscore','Backbone', '../../collections/users_collection'], function($, _, Backbone, UsersCollection){
+define(['jQuery','Underscore','Backbone', '../../collections/users_collection', '../../collections/projects_collection'], function($, _, Backbone, UsersCollection, ProjectsCollection){
 	var ListUsers = Backbone.View.extend({
 		el: $("#container"),
 		render: function(){
 			var self = this;
 			$.get('templates/table.html', function(page) {
 				var templates = $(page).filter('#table-template');
-				if (templates.length === 1) {
+				var templates_dialog = $(page).filter('#dialog-template');
+				if (templates.length === 1 && templates_dialog.length === 1) {
 					UsersCollection.fetch();
 					
 					var tableTemplate = _.template($(templates[0]).html(), {
@@ -65,7 +66,7 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 									elem.childNodes[0].value = currentValue;
 								}
 							} else if (data_attribute_name === 'projects') {
-								$('#myModal').modal('show');
+								
 							}
 							
 							var firstChild = $(elem).children(':first-child')[0];
@@ -114,6 +115,30 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 						
 						ListUsers.prototype.render();
 						return false;
+					});
+					$('.link-placeholder').bind('click', function(){
+						var index = $(this.parentNode).data('num');
+						var user = UsersCollection.at(index);
+						var target = $(this).attr('href');
+						$(target).find('.title').each(function(i, elem) {
+							if (target === '#projects') {
+								$(elem).html('Projects');
+								var dialogTemplate = _.template($(templates_dialog[0]).html(), {
+									dialogColumnNames: ['Name'],
+									dialogColumnWidths: [100],
+									attributesToConsider: ['name'],
+									dialogObjects: _.toArray(ProjectsCollection)
+								});
+								$(target).find('.modal-body').each(function(j, element){
+									$(element).html(dialogTemplate);
+								});
+								$(target).find('.dialogSave').each(function(j, element){
+									$(element).bind('click', function() {
+										
+									});
+								});
+							}
+						});
 					});
 				}
 			});
