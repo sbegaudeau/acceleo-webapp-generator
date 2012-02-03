@@ -16,22 +16,18 @@ define(['jQuery',
         'views/home/main',
         'views/error/error',
         'views/dashboard/dashboard',
-        'views/projects/edit_project',
         'views/projects/list_projects',
-        'views/users/edit_user',
         'views/users/list_users',
         'views/misc/about',
         'views/misc/contact'
-], function($, _, Backbone, Login, Main, Error, Dashboard, EditProject, ListProjects, EditUser, ListUsers, About, Contact){
+], function($, _, Backbone, Login, Main, Error, Dashboard, ListProjects, ListUsers, About, Contact){
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			'!/login': 'showLogin',
 			'!/home': 'showMain',
 			'!/dashboard': 'showDashboard',
 			'!/projects': 'showProjects',
-			'!/projects/:projectId': 'editProject',
 			'!/users': 'showUsers',
-			'!/users/:userId': 'editUser',
 			'!/about': 'showAbout',
 			'!/contact': 'showContact',
 			'*pageId': 'defaultAction'
@@ -48,14 +44,8 @@ define(['jQuery',
 		showProjects: function(){
 			ListProjects.render();
 		},
-		editProject: function(projectId){
-			EditProject.render(projectId);
-		},
 		showUsers: function(){
 			ListUsers.render();
-		},
-		editUser: function(userId){
-			EditUser.render(userId);
 		},
 		showAbout: function(){
 			About.render();
@@ -64,7 +54,7 @@ define(['jQuery',
 			Contact.render();
 		},
 		defaultAction: function(pageId){
-			if (pageId.length == 0) {
+			if (pageId.length === 0) {
 				Main.render();
 			} else {				
 				Error.render(pageId); 
@@ -73,7 +63,7 @@ define(['jQuery',
 	});
 	
 	var initialize = function(){
-		var app_router = new AppRouter;
+		var app_router = new AppRouter();
 		Backbone.history.start();
 	};
 	
