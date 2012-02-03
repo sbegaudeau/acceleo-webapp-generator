@@ -16,17 +16,20 @@ define(['jQuery','Underscore','Backbone', '../../collections/projects_collection
 			var self = this;
 			$.get('templates/table.html', function(page) {
 				var templates = $(page).filter('#table-template');
-				if (templates.length == 1) {
+				if (templates.length === 1) {
 					var tableTemplate = _.template($(templates[0]).html(), {
 						columnNames: ['Name', 'Users'],
 						columnWidths: [25, 75],
 						attributesToConsider: ['name', 'users'],
+						attributesToLinkWithPlaceholder: ['users'],
 						objects: _.toArray(ProjectsCollection)
 					});
 					self.el.addClass('container').removeClass('main-banner');
 					self.el.html(tableTemplate);
 					self.el.find('input').each(function(i, elem){
-						$(elem).hide();
+						if ($(elem).attr('name') !== 'checkBoxDelete') {
+							$(elem).hide();
+						}
 					});
 					
 					$('.editable').each(function(i, elem) {
@@ -37,8 +40,8 @@ define(['jQuery','Underscore','Backbone', '../../collections/projects_collection
 							var firstChild = $(elem).children(':first-child')[0];
 							firstChild.focus();
 							$(firstChild).keypress(function(e){
-								if(e.which == 13) {
-									newName = firstChild.value;
+								if(e.which === 13) {
+									var newName = firstChild.value;
 									$(elem).html(newName);
 								}
 							});

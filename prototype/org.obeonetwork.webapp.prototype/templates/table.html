@@ -40,13 +40,33 @@
 					<td><input type="checkbox" name="checkBoxDelete" value="option" data-num="<%=i%>"></td>
 					<% for (var attr in objects[i].attributes) { %>
 					<% if (_.include(attributesToConsider, attr)) { %>
+					<% if (_.include(attributesToLinkWithPlaceholder, attr)) { %>
+					<% if (objects[i].attributes[attr].toString().length === 0) {%>
+					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#">click to edit</a></td>
+					<% } else { %>
+					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#"><%=objects[i].attributes[attr]%></a></td>
+					<% } %>
+					<% } else { %>
 					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><%=objects[i].attributes[attr]%></td>
+					<% } %>
 					<% } %>
 					<% }; %>
 				</tr>
 				<% }; %>
 			</tbody>
 		</table>
+		<div id="myModal" class="modal hide fade">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal" >&times;</a>
+              <h3>Modal Heading</h3>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn btn-primary">Save changes</a>
+              <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            </div>
+          </div>
 	</script>
 </body>
 </html>

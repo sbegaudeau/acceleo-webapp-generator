@@ -23,6 +23,7 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 						columnNames: ['First Name', 'Last Name', 'Age', 'Email', 'Projects'],
 						columnWidths: [20, 20, 5, 15, 40],
 						attributesToConsider: ['firstName', 'lastName', 'age', 'email', 'projects'],
+						attributesToLinkWithPlaceholder: ['projects'],
 						objects: _.toArray(UsersCollection)
 					});
 					self.el.addClass('container').removeClass('main-banner');
@@ -54,14 +55,17 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 									elem.childNodes[0].value = currentValue;
 								}
 							} else if (data_attribute_name === 'age') {
-								
+								$(elem).html('<input type="number" name="age" id="age" min="18" max="120" step="1" value="18">');
+								if (currentValue.length > 0) {
+									elem.childNodes[0].value = currentValue;
+								}
 							} else if (data_attribute_name === 'email') {
 								$(elem).html('<input class="large" size="30" type="text"/>');
 								if (currentValue.length > 0) {
 									elem.childNodes[0].value = currentValue;
 								}
 							} else if (data_attribute_name === 'projects') {
-								
+								$('#myModal').modal('show');
 							}
 							
 							var firstChild = $(elem).children(':first-child')[0];
@@ -84,7 +88,7 @@ define(['jQuery','Underscore','Backbone', '../../collections/users_collection'],
 						UsersCollection.create({
 							'firstName': 'firstName',
 							'lastName': 'lastName',
-							'age': '0',
+							'age': '18',
 							'email': 'email',
 							'projects': []
 						});
