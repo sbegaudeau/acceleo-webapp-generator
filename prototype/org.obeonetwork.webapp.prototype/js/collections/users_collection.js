@@ -9,12 +9,8 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['jQuery','Underscore','Backbone', '../models/user', '../libs/backbone/backbone.localStorage'], function($, _, Backbone, User){
-	var UsersCollection = Backbone.Collection.extend({
-		model: User.Model,
-		localStorage: new Store("org.eclipse.eclipsecon.webapp")
-	});
-	
-	var usersCollection = new UsersCollection();
-	return usersCollection;
+var EclipseCon = EclipseCon || {};
+EclipseCon.UsersCollection = Backbone.Collection.extend({
+	model: EclipseCon.User.Model,
+	localStorage: new Store("eclipsecon.users")
 });

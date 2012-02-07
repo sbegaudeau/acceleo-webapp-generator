@@ -9,13 +9,12 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['jQuery', 'Underscore', 'Backbone', 'router'], function($, _, Backbone, Router){
-	var initialize = function(){
-		window._ = _;
-		Router.initialize();
-	}
+var EclipseCon = EclipseCon || {};
+EclipseCon.languages = new EclipseCon.LanguagesCollection();
+EclipseCon.users = new EclipseCon.UsersCollection();
+EclipseCon.projects = new EclipseCon.ProjectsCollection();
 
-	return {
-		initialize: initialize
-	};
-});
+EclipseCon.languages.fetch();
+EclipseCon.users.fetch();
+EclipseCon.projects.fetch();
+

@@ -9,17 +9,14 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['jQuery','Underscore','Backbone'], function($, _, Backbone){
-	var Dashboard = Backbone.View.extend({
-		el: $("#container"),
-		render: function(){
-			var self = this;
-			self.el.addClass('container').removeClass('main-banner');
-			this.el.html('<b>Dashboard</b>');
-			
-			$('.active').removeClass('active');
-			$('#dashboard-tab').addClass('active');
-		}
-	});
-	return new Dashboard;
+EclipseCon.Dashboard = Backbone.View.extend({
+	el: $("#container"),
+	render: function(){
+		var self = this;
+		self.el.addClass('container').removeClass('main-banner');
+		this.el.html('<b>Dashboard</b>');
+		
+		$('.active').removeClass('active');
+		$('#dashboard-tab').addClass('active');
+	}
 });

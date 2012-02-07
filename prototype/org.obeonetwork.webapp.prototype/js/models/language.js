@@ -10,15 +10,11 @@
 *********************************************************************************/
 
 var EclipseCon = EclipseCon || {};
-EclipseCon.Project = Backbone.Model.extend({
+EclipseCon.Language = Backbone.Model.extend({
 	defaults: {
-		name: 'Project Name',
-		languages : [],
-		users: []
+		name: 'Language Name'
 	},
 	initialize: function(){
 		this.name = this.get('name');
-		this.languages = this.get('languages');
-		this.users = this.get('users');
 	}
 });

@@ -9,16 +9,13 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['jQuery','Underscore','Backbone'], function($, _, Backbone){
-	var Error = Backbone.View.extend({
-		el: $("#container"),
-		render: function(pageId){
-			var self = this;
-			self.el.addClass('container').removeClass('main-banner');
-			this.el.html('<b>404 Page "' + pageId + '" not found</b>');
-			
-			$('.active').removeClass('active');
-		}
-	});
-	return new Error;
+var Error = Backbone.View.extend({
+	el: $("#container"),
+	render: function(pageId){
+		var self = this;
+		self.el.addClass('container').removeClass('main-banner');
+		this.el.html('<b>404 Page "' + pageId + '" not found</b>');
+		
+		$('.active').removeClass('active');
+	}
 });

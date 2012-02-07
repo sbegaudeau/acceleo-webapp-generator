@@ -9,17 +9,8 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['jQuery','Underscore','Backbone'], function($, _, Backbone){
-	var Contact = Backbone.View.extend({
-		el: $("#container"),
-		render: function(){
-			var self = this;
-			self.el.addClass('container').removeClass('main-banner');
-			this.el.html('<b>Contact</b>');
-			
-			$('.active').removeClass('active');
-			$('#contact-tab').addClass('active');
-		}
-	});
-	return new Contact;
+var EclipseCon = EclipseCon || {};
+EclipseCon.LanguagesCollection = Backbone.Collection.extend({
+	model: EclipseCon.Language.Model,
+	localStorage: new Store("eclipsecon.languages")
 });

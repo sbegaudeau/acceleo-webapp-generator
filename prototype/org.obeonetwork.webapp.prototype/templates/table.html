@@ -40,11 +40,11 @@
 					<td><input type="checkbox" name="checkBoxDelete" value="option" data-num="<%=i%>"></td>
 					<% for (var attr in objects[i].attributes) { %>
 					<% if (_.include(attributesToConsider, attr)) { %>
-					<% if (_.include(attributesToLinkWithPlaceholder, attr)) { %>
+					<% if (_.include(Object.keys(attributesToLinkWithPlaceholder), attr)) { %>
 					<% if (objects[i].attributes[attr].toString().length === 0) {%>
 					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#<%=attr%>" class="link-placeholder" data-toggle="modal">click to edit</a></td>
 					<% } else { %>
-					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#<%=attr%>" class="link-placeholder" data-toggle="modal"><%= _.reduce(objects[i].attributes[attr], function(memo, proj){ return memo + proj.name + ' '; }, '')%></a></td>
+					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#<%=attr%>" class="link-placeholder" data-toggle="modal"><%= _.str.join(', ', _.map(objects[i].attributes[attr], function(val){return attributesToLinkWithPlaceholder[attr].get(val).get(linkedAttributesMapping[attr]);})) %></a></td>
 					<% } %>
 					<% } else { %>
 					<td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><%=objects[i].attributes[attr]%></td>
@@ -58,7 +58,7 @@
 		<% if (objects.length !== 0) { %>
 		<% for (var attr in objects[0].attributes) { %>
 		<% if (_.include(attributesToConsider, attr)) { %>
-		<% if (_.include(attributesToLinkWithPlaceholder, attr)) { %>		
+		<% if (_.include(Object.keys(attributesToLinkWithPlaceholder), attr)) { %>		
 		<div id="<%=attr%>" class="modal hide fade" data-attribute-name="<%=attr%>">
 			<div class="modal-header">
 				<a class="close" data-dismiss="modal" >&times;</a>
@@ -87,7 +87,11 @@
 			<tbody>
 				<% for (var i = 0; i < dialogObjects.length; i++) { %>
 				<tr>
+					<% if (_.include(objectsToSelect, dialogObjects[i])) { %>
+					<td><input type="checkbox" name="checkBoxDeleteDialog" value="option" data-num="<%=i%>" checked="true"></td>
+					<% } else { %>
 					<td><input type="checkbox" name="checkBoxDeleteDialog" value="option" data-num="<%=i%>"></td>
+					<% } %>
 					<% for (var attr in dialogObjects[i].attributes) { %>
 					<% if (_.include(attributesToConsider, attr)) { %>
 					<td><%=dialogObjects[i].attributes[attr]%></td>

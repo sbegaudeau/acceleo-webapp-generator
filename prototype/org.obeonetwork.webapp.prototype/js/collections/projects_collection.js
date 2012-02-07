@@ -9,16 +9,9 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['jQuery','Underscore','Backbone', '../models/project'], function($, _, Backbone, Project){
-	var ProjectsCollection = Backbone.Collection.extend({
-		model: Project,
-		localStorage: new Store("org.eclipse.eclipsecon.webapp")
-	});
-	
-	var projectsCollection = new ProjectsCollection
-	var firstProject = Project;
-	firstProject.setName('First Project');
-	projectsCollection.add(firstProject);
-	
-	return projectsCollection;
+var EclipseCon = EclipseCon || {};
+EclipseCon.ProjectsCollection = Backbone.Collection.extend({
+	model: EclipseCon.Project,
+	localStorage: new Store("eclipsecon.projects")
 });
+

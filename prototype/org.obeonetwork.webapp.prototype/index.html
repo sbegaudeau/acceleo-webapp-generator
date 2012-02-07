@@ -1,3 +1,4 @@
+<!doctype html>
 <!--
 /********************************************************************************
 ** Copyright (c) 2012 Obeo.
@@ -10,7 +11,6 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 -->
-<!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
@@ -27,11 +27,14 @@
 	
 	<link rel="stylesheet/less" href="less/bootstrap/bootstrap.less" media="all" />
 	<link rel="stylesheet/less" href="less/style.less" media="all">
+	
 	<script src="js/libs/less/less-1.2.1.min.js"></script>
-
-	<script data-main="js/main" src="js/libs/jquery/jquery-min.js"></script>
-	<script data-main="js/main" src="js/libs/bootstrap/bootstrap.js"></script>
-	<script data-main="js/main" src="js/libs/require/require.js"></script>
+	<script src="js/libs/jquery/jquery-min.js"></script>
+	<script src="js/libs/underscore/underscore-min.js"></script>
+	<script src="js/libs/underscore/underscore.string.js"></script>
+	<script src="js/libs/backbone/backbone-min.js"></script>
+	<script src="js/libs/backbone/backbone.localStorage.js"></script>
+	<script src="js/libs/bootstrap/bootstrap.js"></script>
 	
 </head>
 <body>
@@ -45,14 +48,10 @@
 					<!-- <li id="dashboard-tab"><a href="#!/dashboard">Dashboard</a></li> -->
 					<li id="projects-tab"><a href="#!/projects">Projects</a></li>
 					<li id="users-tab"><a href="#!/users">Users</a></li>
+					<li id="languages-tab"><a href="#!/languages">Languages</a></li>
 					<!-- <li id="about-tab"><a href="#!/about">About</a></li> -->
 					<!-- <li id="contact-tab"><a href="#!/contact">Contact</a></li> -->
 				</ul>
-				<form method="get" id="login_form" class="pull-right">
-					<input class="input-small span3" type="text" value="" name="email" id="login_email" placeholder="Email">
-					<input class="input-small span3" type="password" value="" name="password" id="login_password" placeholder="Password">
-					<button class="btn primary" type="submit" value="login">Login</button>
-				</form>
 			</div>
 		</div>
 	</div>
@@ -66,5 +65,29 @@
 	<footer>
 		@ St&eacute;phane B&eacute;gaudeau, Obeo 2012
 	</footer>
+	
+	<!--
+		The scripts of the application are at the end to speed up the loading
+		and to ensure that the whole page is loaded prior to the launch of the
+		application.
+	-->
+	<script src="js/models/language.js"></script>
+	<script src="js/models/user.js"></script>
+	<script src="js/models/project.js"></script>
+	
+	<script src="js/collections/languages_collection.js"></script>
+	<script src="js/collections/users_collection.js"></script>
+	<script src="js/collections/projects_collection.js"></script>
+	
+	<script src="js/views/home/main.js"></script>
+	<script src="js/views/error/error.js"></script>
+	<script src="js/views/language/list_languages.js"></script>
+	<script src="js/views/users/list_users.js"></script>
+	<script src="js/views/projects/list_projects.js"></script>
+	<script src="js/views/dashboard/dashboard.js"></script>
+	<script src="js/views/misc/about.js"></script>
+	
+	<script src="js/app.js"></script>
+	<script src="js/router.js"></script>
 </body>
 </html>

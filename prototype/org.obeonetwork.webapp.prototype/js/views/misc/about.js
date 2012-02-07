@@ -9,17 +9,14 @@
 **    Stephane Begaudeau (Obeo) - initial API and implementation
 *********************************************************************************/
 
-define(['jQuery','Underscore','Backbone'], function($, _, Backbone){
-	var About = Backbone.View.extend({
-		el: $("#container"),
-		render: function(){
-			var self = this;
-			self.el.addClass('container').removeClass('main-banner');
-			this.el.html('<b>About</b>');
-			
-			$('.active').removeClass('active');
-			$('#about-tab').addClass('active');
-		}
-	});
-	return new About;
+EclipseCon.About = Backbone.View.extend({
+	el: $("#container"),
+	render: function(){
+		var self = this;
+		self.el.addClass('container').removeClass('main-banner');
+		this.el.html('<b>About</b>');
+		
+		$('.active').removeClass('active');
+		$('#about-tab').addClass('active');
+	}
 });
