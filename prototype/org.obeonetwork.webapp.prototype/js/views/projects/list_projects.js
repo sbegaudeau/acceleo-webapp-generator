@@ -147,8 +147,17 @@ EclipseCon.ListProjects = Backbone.View.extend({
 									valueToSet['users'] = modelArray;
 									project.save(valueToSet);
 									
-									
-									
+									$(_.toArray(EclipseCon.users)).each(function(i, elem){
+										if(_.include(modelArray, elem.id)) {
+											var projectIds = elem.get('projects');
+											if (!(_.include(projectIds, project.id))) {												
+												projectIds.push(project.id);
+												elem.save({'projects': projectIds});
+											}
+										} else {
+											elem.save({'projects': _.without(elem.get('projects'), project.id)});
+										}
+									});
 									
 									EclipseCon.router.showProjects();
 								});
