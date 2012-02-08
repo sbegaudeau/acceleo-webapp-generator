@@ -17,5 +17,19 @@
 		"popup": "popup.html"
 	},
 	"permissions": ["tabs", "contextMenus"],
-	"background_page": "background.html"
+	"background_page": "background.html",
+	"content_scripts": [{"matches": ["http://*/*","https://*/*","file:///*/*"],
+						 "js": ["js/jquery/jquery-min.js",
+						 		"js/underscore/underscore-min.js",
+						 		"js/underscore/underscore.string.js",
+						 		"js/backbone/backbone-min.js",
+						 		"js/backbone/backbone.localStorage.js",
+						 		"js/models/language.js",
+						 		"js/models/user.js",
+						 		"js/models/project.js",
+						 		"js/collections/languages_collection.js",
+						 		"js/collections/users_collection.js",
+						 		"js/collections/projects_collection.js",
+						 		"js/contentScript.js"]
+						}]
 }

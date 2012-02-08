@@ -28,6 +28,10 @@ body {
 	overflow-x:hidden;
 }
 
+table {
+	width: 100%;
+}
+
 #content {
 	
 }
