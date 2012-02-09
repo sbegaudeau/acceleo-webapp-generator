@@ -68,6 +68,13 @@ EclipseCon.ListLanguages = Backbone.View.extend({
 				});
 				$('#new-btn').bind('click', function(){
 					EclipseCon.languages.create(new EclipseCon.Language());
+					webkitNotifications.requestPermission(function() {
+						var permission = webkitNotifications.checkPermission();
+						if (permission === 0) {
+							var notification = webkitNotifications.createNotification('images/acceleo.png', 'Project Management', 'New language created');
+							notification.show();
+						}
+					});
 					EclipseCon.router.showLanguages();
 					return false;
 				});

@@ -81,6 +81,13 @@ EclipseCon.ListUsers = Backbone.View.extend({
 				});
 				$('#new-btn').bind('click', function(){
 					EclipseCon.users.create(new EclipseCon.User());
+					webkitNotifications.requestPermission(function() {
+						var permission = webkitNotifications.checkPermission();
+						if (permission === 0) {
+							var notification = webkitNotifications.createNotification('images/acceleo.png', 'Project Management', 'New user created');
+							notification.show();
+						}
+					});
 					EclipseCon.router.showUsers();
 					return false;
 				});

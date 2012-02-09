@@ -1,6 +1,10 @@
 debugger;
 var EclipseCon = EclipseCon || {};
 
+String.prototype.endsWith = function(suffix) {
+    return this.indexOf(suffix, this.length - suffix.length) !== -1;
+};
+
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 	EclipseCon.languages = new EclipseCon.LanguagesCollection();
 	EclipseCon.users = new EclipseCon.UsersCollection();

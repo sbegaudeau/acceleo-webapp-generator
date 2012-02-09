@@ -68,6 +68,13 @@ EclipseCon.ListProjects = Backbone.View.extend({
 				});
 				$('#new-btn').bind('click', function(){
 					EclipseCon.projects.create(new EclipseCon.Project());
+					webkitNotifications.requestPermission(function() {
+						var permission = webkitNotifications.checkPermission();
+						if (permission === 0) {
+							var notification = webkitNotifications.createNotification('images/acceleo.png', 'Project Management', 'New project created');
+							notification.show();
+						}
+					});
 					EclipseCon.router.showProjects();
 					return false;
 				});
