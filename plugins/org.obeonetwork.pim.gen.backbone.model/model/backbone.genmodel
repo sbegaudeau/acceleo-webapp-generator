@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.pim.gen.backbone.model/src-gen"
+    editDirectory="/org.obeonetwork.pim.gen.backbone.model.edit/src-gen" editorDirectory="/org.obeonetwork.pim.gen.backbone.model.editor/src-gen"
+    modelPluginID="org.obeonetwork.pim.gen.backbone.model" modelName="Backbone" nonNLSMarkers="true"
+    testsDirectory="/org.obeonetwork.pim.gen.backbone.model.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" language="">
+  <foreignModel>backbone.ecore</foreignModel>
+  <genPackages prefix="Backbone" basePackage="org.obeonetwork.pim.gen.backbone.model"
+      disposableProviderFactory="true" ecorePackage="backbone.ecore#/">
+    <genClasses ecoreClass="backbone.ecore#//Application">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Application/models"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Application/collections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Application/router"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Application/views"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Application/pages"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="backbone.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute backbone.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="backbone.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Model/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Model/references"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Model/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="backbone.ecore#//Attribute"/>
+    <genClasses ecoreClass="backbone.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference backbone.ecore#//Reference/type"/>
+    </genClasses>
+    <genClasses ecoreClass="backbone.ecore#//Operation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Operation/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="backbone.ecore#//Parameter"/>
+    <genClasses ecoreClass="backbone.ecore#//Collection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference backbone.ecore#//Collection/model"/>
+    </genClasses>
+    <genClasses ecoreClass="backbone.ecore#//Router">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference backbone.ecore#//Router/mappings"/>
+    </genClasses>
+    <genClasses ecoreClass="backbone.ecore#//RouterMapping">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute backbone.ecore#//RouterMapping/path"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference backbone.ecore#//RouterMapping/view"/>
+    </genClasses>
+    <genClasses ecoreClass="backbone.ecore#//View">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference backbone.ecore#//View/operations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference backbone.ecore#//View/page"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="backbone.ecore#//Page"/>
+    <genClasses ecoreClass="backbone.ecore#//ContentPage"/>
+    <genClasses ecoreClass="backbone.ecore#//TemplatePage"/>
+  </genPackages>
+</genmodel:GenModel>
