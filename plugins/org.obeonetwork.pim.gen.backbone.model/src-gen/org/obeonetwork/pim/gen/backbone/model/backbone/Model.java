@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.Model#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.Model#getReferences <em>References</em>}</li>
  *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.Model#getOperations <em>Operations</em>}</li>
+ *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.Model#getApplication <em>Application</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +75,33 @@ public interface Model extends NamedElement {
 	 * @generated
 	 */
 	EList<Operation> getOperations();
+
+	/**
+	 * Returns the value of the '<em><b>Application</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Application#getModels <em>Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Application</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Application</em>' container reference.
+	 * @see #setApplication(Application)
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.BackbonePackage#getModel_Application()
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Application#getModels
+	 * @model opposite="models" required="true" transient="false"
+	 * @generated
+	 */
+	Application getApplication();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Model#getApplication <em>Application</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Application</em>' container reference.
+	 * @see #getApplication()
+	 * @generated
+	 */
+	void setApplication(Application value);
 
 } // Model

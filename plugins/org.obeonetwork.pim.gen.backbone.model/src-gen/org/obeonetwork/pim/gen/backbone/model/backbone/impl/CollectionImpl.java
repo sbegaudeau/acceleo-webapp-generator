@@ -7,12 +7,16 @@
 package org.obeonetwork.pim.gen.backbone.model.backbone.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import org.obeonetwork.pim.gen.backbone.model.backbone.Application;
 import org.obeonetwork.pim.gen.backbone.model.backbone.BackbonePackage;
 import org.obeonetwork.pim.gen.backbone.model.backbone.Collection;
 import org.obeonetwork.pim.gen.backbone.model.backbone.Model;
@@ -25,6 +29,7 @@ import org.obeonetwork.pim.gen.backbone.model.backbone.Model;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.CollectionImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.CollectionImpl#getApplication <em>Application</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,12 +108,99 @@ public class CollectionImpl extends NamedElementImpl implements Collection {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Application getApplication() {
+		if (eContainerFeatureID() != BackbonePackage.COLLECTION__APPLICATION) return null;
+		return (Application)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetApplication(Application newApplication, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newApplication, BackbonePackage.COLLECTION__APPLICATION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setApplication(Application newApplication) {
+		if (newApplication != eInternalContainer() || (eContainerFeatureID() != BackbonePackage.COLLECTION__APPLICATION && newApplication != null)) {
+			if (EcoreUtil.isAncestor(this, newApplication))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newApplication != null)
+				msgs = ((InternalEObject)newApplication).eInverseAdd(this, BackbonePackage.APPLICATION__COLLECTIONS, Application.class, msgs);
+			msgs = basicSetApplication(newApplication, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BackbonePackage.COLLECTION__APPLICATION, newApplication, newApplication));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case BackbonePackage.COLLECTION__APPLICATION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetApplication((Application)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case BackbonePackage.COLLECTION__APPLICATION:
+				return basicSetApplication(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case BackbonePackage.COLLECTION__APPLICATION:
+				return eInternalContainer().eInverseRemove(this, BackbonePackage.APPLICATION__COLLECTIONS, Application.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case BackbonePackage.COLLECTION__MODEL:
 				if (resolve) return getModel();
 				return basicGetModel();
+			case BackbonePackage.COLLECTION__APPLICATION:
+				return getApplication();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +215,9 @@ public class CollectionImpl extends NamedElementImpl implements Collection {
 		switch (featureID) {
 			case BackbonePackage.COLLECTION__MODEL:
 				setModel((Model)newValue);
+				return;
+			case BackbonePackage.COLLECTION__APPLICATION:
+				setApplication((Application)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,6 +234,9 @@ public class CollectionImpl extends NamedElementImpl implements Collection {
 			case BackbonePackage.COLLECTION__MODEL:
 				setModel((Model)null);
 				return;
+			case BackbonePackage.COLLECTION__APPLICATION:
+				setApplication((Application)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,6 +251,8 @@ public class CollectionImpl extends NamedElementImpl implements Collection {
 		switch (featureID) {
 			case BackbonePackage.COLLECTION__MODEL:
 				return model != null;
+			case BackbonePackage.COLLECTION__APPLICATION:
+				return getApplication() != null;
 		}
 		return super.eIsSet(featureID);
 	}

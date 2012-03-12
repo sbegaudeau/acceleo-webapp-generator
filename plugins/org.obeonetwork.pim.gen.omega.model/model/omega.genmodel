@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.pim.gen.omega.model/src-gen"
+    editDirectory="/org.obeonetwork.pim.gen.omega.model.edit/src-gen" editorDirectory="/org.obeonetwork.pim.gen.omega.model.editor/src-gen"
+    modelPluginID="org.obeonetwork.pim.gen.omega.model" modelName="Omega" modelPluginClass=""
+    testsDirectory="/org.obeonetwork.pim.gen.omega.model.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.obeonetwork.pim.gen.backbone.model/model/backbone.genmodel#//backbone ../../org.obeonetwork.pim.gen.bootstrap.model/model/bootstrap.genmodel#//bootstrap">
+  <foreignModel>omega.ecore</foreignModel>
+  <genPackages prefix="Omega" basePackage="org.obeonetwork.pim.gen.omega.model" disposableProviderFactory="true"
+      ecorePackage="omega.ecore#/">
+    <genClasses ecoreClass="omega.ecore#//WebApp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference omega.ecore#//WebApp/site"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference omega.ecore#//WebApp/application"/>
+    </genClasses>
+    <genClasses ecoreClass="omega.ecore#//BackbonePage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference omega.ecore#//BackbonePage/view"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

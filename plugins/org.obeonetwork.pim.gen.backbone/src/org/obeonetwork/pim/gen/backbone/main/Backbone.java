@@ -18,14 +18,11 @@ import java.util.List;
 import org.eclipse.acceleo.engine.event.IAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.generation.strategy.IAcceleoGenerationStrategy;
 import org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator;
-import org.eclipse.acceleo.engine.utils.AcceleoEngineUtils;
-import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.obeonetwork.pim.gen.backbone.BackboneActivator;
 
 /**
  * Entry point of the 'Backbone' generation module.
@@ -256,7 +253,7 @@ public class Backbone extends AbstractAcceleoGenerator {
      * 
      * @return The list of properties file we need to add to the generation context.
      * @see java.util.ResourceBundle#getBundle(String)
-     * @generated
+     * @generated not
      */
     @Override
     public List<String> getProperties() {
@@ -271,6 +268,9 @@ public class Backbone extends AbstractAcceleoGenerator {
          * 
          * To learn more about Properties Files, have a look at the Acceleo Launcher documentation (Help -> Help Contents).
          */
+    	
+    	propertiesFiles.add("platform:/plugin/org.obeonetwork.pim.gen.backbone/org/obeonetwork/pim/gen/backbone/properties/default.properties");
+    	
         return propertiesFiles;
     }
     

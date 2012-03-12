@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<bootstrap:Site xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bootstrap="http://www.obeonetwork.org/2012/bootstrap" xsi:schemaLocation="http://www.obeonetwork.org/2012/bootstrap bootstrap.ecore" title="Bootstrap">
+  <pages title="Scaffolding" description="Bootstrap is built on a responsive 12-column grid. We've also included fixed- and fluid-width layouts based on that system." name="overview">
+    <sections title="Default grid system" description="12 columns with a responsive twist">
+      <widgets xsi:type="bootstrap:Text" title="Offsetting columns" columnNumber="3"/>
+      <widgets xsi:type="bootstrap:Table" title="Table title" striped="true" bordered="true">
+        <columnNames>column 1</columnNames>
+        <columnNames>column 2</columnNames>
+        <rowNames>row 1</rowNames>
+        <rowNames>row 2</rowNames>
+        <rowNames>row 3</rowNames>
+        <rowNames>row 4</rowNames>
+      </widgets>
+      <widgets xsi:type="bootstrap:Text" title="2 cols" columnNumber="2"/>
+    </sections>
+    <sections title="Fluid grid system" description="12 responsive, percent-based columns">
+      <widgets xsi:type="bootstrap:Video" title="video 1" path="http://video-js.zencoder.com/oceans-clip.mp4"/>
+      <widgets xsi:type="bootstrap:Text" title="Another text 3 cols" columnNumber="3"/>
+    </sections>
+    <sections title="Grid customization" description="My gallery description.">
+      <widgets xsi:type="bootstrap:Gallery" title="My new gallery">
+        <imagesPath>http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg</imagesPath>
+        <imagesPath>http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-02.jpg</imagesPath>
+        <imagesPath>http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-03.jpg</imagesPath>
+      </widgets>
+    </sections>
+    <sections title="A lot of pics !" description="New feature...">
+      <widgets xsi:type="bootstrap:ImagesBlock" title="My travel">
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+      </widgets>
+    </sections>
+  </pages>
+  <pages title="Base CSS" description="On top of the scaffolding, basic HTML elements are styled and enhanced with extensible classes to provide a fresh, consistent look and feel." name="other">
+    <sections title="Typography" description="Headings, paragraphs, lists, and other inline type elements">
+      <widgets xsi:type="bootstrap:Text" title="Some text" columnNumber="3"/>
+      <widgets xsi:type="bootstrap:ImagesBlock" title="Great pics!">
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+      </widgets>
+      <widgets xsi:type="bootstrap:Text" title="Other great stuff!" columnNumber="3"/>
+    </sections>
+    <sections title="Code" description=" Inline and block code snippets">
+      <widgets xsi:type="bootstrap:Text" title="Register now !" columnNumber="1"/>
+      <widgets xsi:type="bootstrap:Form" title="Personnal Information">
+        <formWidgets xsi:type="bootstrap:TextArea" label="First Name"/>
+        <formWidgets xsi:type="bootstrap:TextArea" label="Last Name"/>
+        <formWidgets xsi:type="bootstrap:Spinner" label="Country">
+          <values>France</values>
+          <values>USA</values>
+          <values>Canada</values>
+          <values>Germany</values>
+          <values>Great Britain</values>
+        </formWidgets>
+        <formWidgets xsi:type="bootstrap:CheckBox" label="Mood" description="Are you happy?"/>
+      </widgets>
+    </sections>
+  </pages>
+  <mainPage title="Bootstrap, from Twitter" description="Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions."/>
+</bootstrap:Site>

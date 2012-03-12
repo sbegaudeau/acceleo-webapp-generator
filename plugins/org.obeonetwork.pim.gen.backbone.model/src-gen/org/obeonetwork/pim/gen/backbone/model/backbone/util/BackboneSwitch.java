@@ -73,6 +73,7 @@ public class BackboneSwitch<T> extends Switch<T> {
 			case BackbonePackage.APPLICATION: {
 				Application application = (Application)theEObject;
 				T result = caseApplication(application);
+				if (result == null) result = caseNamedElement(application);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,29 +142,6 @@ public class BackboneSwitch<T> extends Switch<T> {
 				View view = (View)theEObject;
 				T result = caseView(view);
 				if (result == null) result = caseNamedElement(view);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BackbonePackage.PAGE: {
-				Page page = (Page)theEObject;
-				T result = casePage(page);
-				if (result == null) result = caseNamedElement(page);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BackbonePackage.CONTENT_PAGE: {
-				ContentPage contentPage = (ContentPage)theEObject;
-				T result = caseContentPage(contentPage);
-				if (result == null) result = casePage(contentPage);
-				if (result == null) result = caseNamedElement(contentPage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BackbonePackage.TEMPLATE_PAGE: {
-				TemplatePage templatePage = (TemplatePage)theEObject;
-				T result = caseTemplatePage(templatePage);
-				if (result == null) result = casePage(templatePage);
-				if (result == null) result = caseNamedElement(templatePage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -333,51 +311,6 @@ public class BackboneSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseView(View object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Page</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Page</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePage(Page object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Content Page</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Content Page</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseContentPage(ContentPage object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Template Page</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Template Page</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTemplatePage(TemplatePage object) {
 		return null;
 	}
 

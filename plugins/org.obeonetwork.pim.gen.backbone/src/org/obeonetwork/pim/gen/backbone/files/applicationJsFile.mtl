@@ -4,21 +4,21 @@
 [import org::obeonetwork::pim::gen::backbone::common::fileUtils /]
 
 [template private applicationJsFilePath(anApplication : Application)]
-app.js
+[anApplication.genJsDirectoryPath()/]/app.js
 [/template]
 
 [template public genApplicationJsFile(anApplication : Application)]
 [file (anApplication.applicationJsFilePath(), false, 'UTF-8')]
 [anApplication.genCopyrightHeader()/]
 
-var [anApplication.name.toUpperFirst()/] = [anApplication.name.toUpperFirst()/] || {};
+var [anApplication.genTypeName()/] = [anApplication.genTypeName()/] || {};
 
 [for (aCollection : Collection | anApplication.collections)]
-[anApplication.name.toUpperFirst()/].[aCollection.name.toLowerFirst()/] = new [anApplication.name.toUpperFirst()/].[aCollection.name.toLowerFirst()/]();
+[anApplication.genTypeName()/].[aCollection.genVarName()/] = new [anApplication.genTypeName()/].[aCollection.genVarName()/]();
 [/for]
 
 [for (aCollection : Collection | anApplication.collections)]
-[anApplication.name.toUpperFirst()/].[aCollection.name.toLowerFirst()/].fetch();
+[anApplication.genTypeName()/].[aCollection.genVarName()/].fetch();
 [/for]
 [/file]
 [/template]

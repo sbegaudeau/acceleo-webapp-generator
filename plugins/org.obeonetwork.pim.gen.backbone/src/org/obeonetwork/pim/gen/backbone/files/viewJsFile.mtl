@@ -4,15 +4,15 @@
 [import org::obeonetwork::pim::gen::backbone::common::fileUtils /]
 
 [template private viewJsFile(aView : View)]
-[aView.name/].js
+[aView.genJsDirectoryPath()/]/[aView.genViewsDirectory()/]/[aView.name/].js
 [/template]
 
 [template public genViewJsFile(aView : View)]
 [file (aView.viewJsFile(), false, 'UTF-8')]
 [aView.genCopyrightHeader()/]
 
-var [aView.application.name.toUpperFirst()/] = [aView.application.name.toUpperFirst()/] || {};
-[aView.application.name.toUpperFirst()/].[aView.name.toUpperFirst()/] = Backbone.View.extend({
+var [aView.application.genTypeName()/] = [aView.application.genTypeName()/] || {};
+[aView.application.genTypeName()/].[aView.genTypeName()/] = Backbone.View.extend({
 	el: $("#container"),
 	render: function(){
 		var self = this;

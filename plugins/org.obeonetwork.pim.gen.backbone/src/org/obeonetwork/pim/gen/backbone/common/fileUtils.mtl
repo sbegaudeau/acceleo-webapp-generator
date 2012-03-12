@@ -4,3 +4,29 @@
 [template public genCopyrightHeader(oclAny : OclAny)]
 [getProperty('copyrightHeader')/]
 [/template]
+
+[template public genJsDirectoryPath(oclAny : OclAny)]
+[getProperty('js-directory-path')/]
+[/template]
+
+
+[template public genViewsDirectory(oclAny : OclAny)]
+[getProperty('views-directory')/]
+[/template]
+
+[template public genCollectionsDirectory(oclAny : OclAny)]
+[getProperty('collections-directory')/]
+[/template]
+
+[template public genModelsDirectory(oclAny : OclAny)]
+[getProperty('models-directory')/]
+[/template]
+
+
+[template public genTypeName(aNamedElement : NamedElement)]
+[aNamedElement.name.toUpperFirst()/]
+[/template]
+
+[template public genVarName(aNamedElement : NamedElement)]
+[aNamedElement.name.toLowerFirst()/]
+[/template]

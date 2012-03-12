@@ -4,25 +4,25 @@
 [import org::obeonetwork::pim::gen::backbone::common::fileUtils /]
 
 [template private routerJsFile(aRouter : Router)]
-[aRouter.name/].js
+[aRouter.genJsDirectoryPath()/]/[aRouter.name/].js
 [/template]
 
 [template public genRouterJsFile(aRouter : Router)]
 [file (aRouter.routerJsFile(), false, 'UTF-8')]
 [aRouter.genCopyrightHeader()/]
 
-var [aRouter.application.name.toUpperFirst()/] = [aRouter.application.name.toUpperFirst()/] || {};
-[aRouter.application.name.toUpperFirst()/].[aRouter.name.toUpperFirst()/] = Backbone.Router.extend({
+var [aRouter.application.genTypeName()/] = [aRouter.application.genTypeName()/] || {};
+[aRouter.application.genTypeName()/].[aRouter.genTypeName()/] = Backbone.Router.extend({
 	routes: {
 		[for (aRouterMapping : RouterMapping | aRouter.mappings) separator(',')]
-		'[aRouterMapping.path/]': 'show[aRouterMapping.view.name.toUpperFirst()/]'
+		'[aRouterMapping.path/]': 'show[aRouterMapping.view.genTypeName()/]'
 		[/for]
 		'*pageId': 'defaultAction'
 	},
 	[for (aRouterMapping : RouterMapping | aRouter.mappings)]
-	show[aRouterMapping.view.name.toUpperFirst()/]: function(){
-		var [aRouterMapping.view.name.toLowerFirst()/] = new [aRouter.application.name.toUpperFirst()/].[aRouterMapping.view.name.toUpperFirst()/]();
-		[aRouterMapping.view.name.toLowerFirst()/].render();
+	show[aRouterMapping.view.genTypeName()/]: function(){
+		var [aRouterMapping.view.genVarName()/] = new [aRouter.application.genTypeName()/].[aRouterMapping.view.genTypeName()/]();
+		[aRouterMapping.view.genVarName()/].render();
 	}
 	[/for]
 	defaultAction: function(pageId){
@@ -30,7 +30,7 @@ var [aRouter.application.name.toUpperFirst()/] = [aRouter.application.name.toUpp
 	}
 });
 
-[aRouter.application.name.toUpperFirst()/].[aRouter.name.toLowerFirst()/] = new [aRouter.application.name.toUpperFirst()/].[aRouter.name.toUpperFirst()/]();
+[aRouter.application.genTypeName()/].[aRouter.genVarName()/] = new [aRouter.application.genTypeName()/].[aRouter.genTypeName()/]();
 Backbone.history.start();
 
 [/file]

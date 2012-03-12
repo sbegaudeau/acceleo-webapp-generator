@@ -9,6 +9,7 @@ package org.obeonetwork.pim.gen.backbone.model.backbone.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -18,10 +19,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.obeonetwork.pim.gen.backbone.model.backbone.Application;
 import org.obeonetwork.pim.gen.backbone.model.backbone.BackbonePackage;
 import org.obeonetwork.pim.gen.backbone.model.backbone.Operation;
-import org.obeonetwork.pim.gen.backbone.model.backbone.Page;
 import org.obeonetwork.pim.gen.backbone.model.backbone.View;
 
 /**
@@ -32,7 +34,7 @@ import org.obeonetwork.pim.gen.backbone.model.backbone.View;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ViewImpl#getOperations <em>Operations</em>}</li>
- *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ViewImpl#getPage <em>Page</em>}</li>
+ *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ViewImpl#getApplication <em>Application</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,16 +50,6 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * @ordered
 	 */
 	protected EList<Operation> operations;
-
-	/**
-	 * The cached value of the '{@link #getPage() <em>Page</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPage()
-	 * @generated
-	 * @ordered
-	 */
-	protected Page page;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,16 +87,40 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Page getPage() {
-		if (page != null && page.eIsProxy()) {
-			InternalEObject oldPage = (InternalEObject)page;
-			page = (Page)eResolveProxy(oldPage);
-			if (page != oldPage) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BackbonePackage.VIEW__PAGE, oldPage, page));
-			}
+	public Application getApplication() {
+		if (eContainerFeatureID() != BackbonePackage.VIEW__APPLICATION) return null;
+		return (Application)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetApplication(Application newApplication, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newApplication, BackbonePackage.VIEW__APPLICATION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setApplication(Application newApplication) {
+		if (newApplication != eInternalContainer() || (eContainerFeatureID() != BackbonePackage.VIEW__APPLICATION && newApplication != null)) {
+			if (EcoreUtil.isAncestor(this, newApplication))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newApplication != null)
+				msgs = ((InternalEObject)newApplication).eInverseAdd(this, BackbonePackage.APPLICATION__VIEWS, Application.class, msgs);
+			msgs = basicSetApplication(newApplication, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return page;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BackbonePackage.VIEW__APPLICATION, newApplication, newApplication));
 	}
 
 	/**
@@ -112,8 +128,15 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Page basicGetPage() {
-		return page;
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case BackbonePackage.VIEW__APPLICATION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetApplication((Application)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -121,11 +144,27 @@ public class ViewImpl extends NamedElementImpl implements View {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPage(Page newPage) {
-		Page oldPage = page;
-		page = newPage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BackbonePackage.VIEW__PAGE, oldPage, page));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case BackbonePackage.VIEW__APPLICATION:
+				return basicSetApplication(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case BackbonePackage.VIEW__APPLICATION:
+				return eInternalContainer().eInverseRemove(this, BackbonePackage.APPLICATION__VIEWS, Application.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -138,9 +177,8 @@ public class ViewImpl extends NamedElementImpl implements View {
 		switch (featureID) {
 			case BackbonePackage.VIEW__OPERATIONS:
 				return getOperations();
-			case BackbonePackage.VIEW__PAGE:
-				if (resolve) return getPage();
-				return basicGetPage();
+			case BackbonePackage.VIEW__APPLICATION:
+				return getApplication();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,8 +196,8 @@ public class ViewImpl extends NamedElementImpl implements View {
 				getOperations().clear();
 				getOperations().addAll((Collection<? extends Operation>)newValue);
 				return;
-			case BackbonePackage.VIEW__PAGE:
-				setPage((Page)newValue);
+			case BackbonePackage.VIEW__APPLICATION:
+				setApplication((Application)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,8 +214,8 @@ public class ViewImpl extends NamedElementImpl implements View {
 			case BackbonePackage.VIEW__OPERATIONS:
 				getOperations().clear();
 				return;
-			case BackbonePackage.VIEW__PAGE:
-				setPage((Page)null);
+			case BackbonePackage.VIEW__APPLICATION:
+				setApplication((Application)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -193,8 +231,8 @@ public class ViewImpl extends NamedElementImpl implements View {
 		switch (featureID) {
 			case BackbonePackage.VIEW__OPERATIONS:
 				return operations != null && !operations.isEmpty();
-			case BackbonePackage.VIEW__PAGE:
-				return page != null;
+			case BackbonePackage.VIEW__APPLICATION:
+				return getApplication() != null;
 		}
 		return super.eIsSet(featureID);
 	}

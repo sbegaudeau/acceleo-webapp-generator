@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.pim.gen.bootstrap.model/src-gen"
+    editDirectory="/org.obeonetwork.pim.gen.bootstrap.model.edit/src-gen" editorDirectory="/org.obeonetwork.pim.gen.bootstrap.model.editor/src-gen"
+    modelPluginID="org.obeonetwork.pim.gen.bootstrap.model" modelName="Bootstrap"
+    modelPluginClass="" nonNLSMarkers="true" testsDirectory="/org.obeonetwork.pim.gen.bootstrap.model.tests/src-gen"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false">
+  <foreignModel>bootstrap.ecore</foreignModel>
+  <genPackages prefix="Bootstrap" basePackage="org.obeonetwork.pim.gen.bootstrap.model"
+      disposableProviderFactory="true" ecorePackage="bootstrap.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="bootstrap.ecore#//SocialKind">
+      <genEnumLiterals ecoreEnumLiteral="bootstrap.ecore#//SocialKind/GOOGLE_PLUS"/>
+      <genEnumLiterals ecoreEnumLiteral="bootstrap.ecore#//SocialKind/FACEBOOK"/>
+      <genEnumLiterals ecoreEnumLiteral="bootstrap.ecore#//SocialKind/TWITTER"/>
+    </genEnums>
+    <genClasses ecoreClass="bootstrap.ecore#//Site">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Site/pages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Site/mainPage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Site/title"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Page">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Page/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Page/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Page/sections"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bootstrap.ecore#//Page/site"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//MainPage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//MainPage/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//MainPage/description"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bootstrap.ecore#//MainPage/site"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Section">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Section/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Section/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Section/widgets"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bootstrap.ecore#//Section/page"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="bootstrap.ecore#//Widget">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Widget/title"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bootstrap.ecore#//Widget/section"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Form">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Form/formWidgets"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/columnNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/rowNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/striped"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Table/bordered"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Text/columnNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Video">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Video/path"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Gallery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Gallery/imagesPath"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//ImagesBlock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//ImagesBlock/imagesPath"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Social">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Social/socialKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Social/userId"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="bootstrap.ecore#//FormWidget">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//FormWidget/label"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bootstrap.ecore#//FormWidget/form"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//TextArea"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Spinner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Spinner/values"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//CheckBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//CheckBox/description"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

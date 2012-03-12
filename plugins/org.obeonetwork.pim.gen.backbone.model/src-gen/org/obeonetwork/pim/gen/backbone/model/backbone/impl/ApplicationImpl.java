@@ -15,16 +15,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.obeonetwork.pim.gen.backbone.model.backbone.Application;
 import org.obeonetwork.pim.gen.backbone.model.backbone.BackbonePackage;
 import org.obeonetwork.pim.gen.backbone.model.backbone.Collection;
 import org.obeonetwork.pim.gen.backbone.model.backbone.Model;
-import org.obeonetwork.pim.gen.backbone.model.backbone.Page;
 import org.obeonetwork.pim.gen.backbone.model.backbone.Router;
 import org.obeonetwork.pim.gen.backbone.model.backbone.View;
 
@@ -39,13 +37,12 @@ import org.obeonetwork.pim.gen.backbone.model.backbone.View;
  *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ApplicationImpl#getCollections <em>Collections</em>}</li>
  *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ApplicationImpl#getRouter <em>Router</em>}</li>
  *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ApplicationImpl#getViews <em>Views</em>}</li>
- *   <li>{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ApplicationImpl#getPages <em>Pages</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ApplicationImpl extends EObjectImpl implements Application {
+public class ApplicationImpl extends NamedElementImpl implements Application {
 	/**
 	 * The cached value of the '{@link #getModels() <em>Models</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -87,16 +84,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	protected EList<View> views;
 
 	/**
-	 * The cached value of the '{@link #getPages() <em>Pages</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPages()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Page> pages;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -122,7 +109,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 */
 	public EList<Model> getModels() {
 		if (models == null) {
-			models = new EObjectContainmentEList<Model>(Model.class, this, BackbonePackage.APPLICATION__MODELS);
+			models = new EObjectContainmentWithInverseEList<Model>(Model.class, this, BackbonePackage.APPLICATION__MODELS, BackbonePackage.MODEL__APPLICATION);
 		}
 		return models;
 	}
@@ -134,7 +121,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 */
 	public EList<Collection> getCollections() {
 		if (collections == null) {
-			collections = new EObjectContainmentEList<Collection>(Collection.class, this, BackbonePackage.APPLICATION__COLLECTIONS);
+			collections = new EObjectContainmentWithInverseEList<Collection>(Collection.class, this, BackbonePackage.APPLICATION__COLLECTIONS, BackbonePackage.COLLECTION__APPLICATION);
 		}
 		return collections;
 	}
@@ -172,9 +159,9 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 		if (newRouter != router) {
 			NotificationChain msgs = null;
 			if (router != null)
-				msgs = ((InternalEObject)router).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BackbonePackage.APPLICATION__ROUTER, null, msgs);
+				msgs = ((InternalEObject)router).eInverseRemove(this, BackbonePackage.ROUTER__APPLICATION, Router.class, msgs);
 			if (newRouter != null)
-				msgs = ((InternalEObject)newRouter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BackbonePackage.APPLICATION__ROUTER, null, msgs);
+				msgs = ((InternalEObject)newRouter).eInverseAdd(this, BackbonePackage.ROUTER__APPLICATION, Router.class, msgs);
 			msgs = basicSetRouter(newRouter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -189,7 +176,7 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 */
 	public EList<View> getViews() {
 		if (views == null) {
-			views = new EObjectContainmentEList<View>(View.class, this, BackbonePackage.APPLICATION__VIEWS);
+			views = new EObjectContainmentWithInverseEList<View>(View.class, this, BackbonePackage.APPLICATION__VIEWS, BackbonePackage.VIEW__APPLICATION);
 		}
 		return views;
 	}
@@ -199,11 +186,22 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Page> getPages() {
-		if (pages == null) {
-			pages = new EObjectContainmentEList<Page>(Page.class, this, BackbonePackage.APPLICATION__PAGES);
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case BackbonePackage.APPLICATION__MODELS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getModels()).basicAdd(otherEnd, msgs);
+			case BackbonePackage.APPLICATION__COLLECTIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCollections()).basicAdd(otherEnd, msgs);
+			case BackbonePackage.APPLICATION__ROUTER:
+				if (router != null)
+					msgs = ((InternalEObject)router).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BackbonePackage.APPLICATION__ROUTER, null, msgs);
+				return basicSetRouter((Router)otherEnd, msgs);
+			case BackbonePackage.APPLICATION__VIEWS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getViews()).basicAdd(otherEnd, msgs);
 		}
-		return pages;
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -222,8 +220,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 				return basicSetRouter(null, msgs);
 			case BackbonePackage.APPLICATION__VIEWS:
 				return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
-			case BackbonePackage.APPLICATION__PAGES:
-				return ((InternalEList<?>)getPages()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -244,8 +240,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 				return getRouter();
 			case BackbonePackage.APPLICATION__VIEWS:
 				return getViews();
-			case BackbonePackage.APPLICATION__PAGES:
-				return getPages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -274,10 +268,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 				getViews().clear();
 				getViews().addAll((java.util.Collection<? extends View>)newValue);
 				return;
-			case BackbonePackage.APPLICATION__PAGES:
-				getPages().clear();
-				getPages().addAll((java.util.Collection<? extends Page>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -302,9 +292,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 			case BackbonePackage.APPLICATION__VIEWS:
 				getViews().clear();
 				return;
-			case BackbonePackage.APPLICATION__PAGES:
-				getPages().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -325,8 +312,6 @@ public class ApplicationImpl extends EObjectImpl implements Application {
 				return router != null;
 			case BackbonePackage.APPLICATION__VIEWS:
 				return views != null && !views.isEmpty();
-			case BackbonePackage.APPLICATION__PAGES:
-				return pages != null && !pages.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

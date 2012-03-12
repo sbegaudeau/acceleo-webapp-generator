@@ -8,6 +8,7 @@ package org.obeonetwork.pim.gen.backbone.model.backbone;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -60,70 +61,6 @@ public interface BackbonePackage extends EPackage {
 	BackbonePackage eINSTANCE = org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ApplicationImpl <em>Application</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.ApplicationImpl
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getApplication()
-	 * @generated
-	 */
-	int APPLICATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Models</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__MODELS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Collections</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__COLLECTIONS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Router</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__ROUTER = 2;
-
-	/**
-	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__VIEWS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Pages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION__PAGES = 4;
-
-	/**
-	 * The number of structural features of the '<em>Application</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLICATION_FEATURE_COUNT = 5;
-
-	/**
 	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.NamedElementImpl <em>Named Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +87,70 @@ public interface BackbonePackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ApplicationImpl <em>Application</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.ApplicationImpl
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getApplication()
+	 * @generated
+	 */
+	int APPLICATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Models</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__MODELS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Collections</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__COLLECTIONS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Router</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__ROUTER = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION__VIEWS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Application</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLICATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ModelImpl <em>Model</em>}' class.
@@ -198,13 +199,22 @@ public interface BackbonePackage extends EPackage {
 	int MODEL__OPERATIONS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Application</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__APPLICATION = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -226,13 +236,31 @@ public interface BackbonePackage extends EPackage {
 	int ATTRIBUTE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__DEFAULT_VALUE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Cardinality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__CARDINALITY = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -254,7 +282,7 @@ public interface BackbonePackage extends EPackage {
 	int REFERENCE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference list.
+	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -263,13 +291,22 @@ public interface BackbonePackage extends EPackage {
 	int REFERENCE__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Cardinality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__CARDINALITY = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int REFERENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.OperationImpl <em>Operation</em>}' class.
@@ -365,13 +402,22 @@ public interface BackbonePackage extends EPackage {
 	int COLLECTION__MODEL = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Application</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLECTION__APPLICATION = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Collection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int COLLECTION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.RouterImpl <em>Router</em>}' class.
@@ -402,13 +448,22 @@ public interface BackbonePackage extends EPackage {
 	int ROUTER__MAPPINGS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Application</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER__APPLICATION = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Router</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ROUTER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.RouterMappingImpl <em>Router Mapping</em>}' class.
@@ -476,13 +531,13 @@ public interface BackbonePackage extends EPackage {
 	int VIEW__OPERATIONS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Page</b></em>' reference.
+	 * The feature id for the '<em><b>Application</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__PAGE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int VIEW__APPLICATION = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>View</em>' class.
@@ -494,88 +549,14 @@ public interface BackbonePackage extends EPackage {
 	int VIEW_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.PageImpl <em>Page</em>}' class.
+	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.CardinalityKind <em>Cardinality Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.PageImpl
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getPage()
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.CardinalityKind
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getCardinalityKind()
 	 * @generated
 	 */
-	int PAGE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAGE__NAME = NAMED_ELEMENT__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Page</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ContentPageImpl <em>Content Page</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.ContentPageImpl
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getContentPage()
-	 * @generated
-	 */
-	int CONTENT_PAGE = 12;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_PAGE__NAME = PAGE__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Content Page</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTENT_PAGE_FEATURE_COUNT = PAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.TemplatePageImpl <em>Template Page</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.TemplatePageImpl
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getTemplatePage()
-	 * @generated
-	 */
-	int TEMPLATE_PAGE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_PAGE__NAME = PAGE__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Template Page</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_PAGE_FEATURE_COUNT = PAGE_FEATURE_COUNT + 0;
+	int CARDINALITY_KIND = 11;
 
 
 	/**
@@ -631,17 +612,6 @@ public interface BackbonePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getApplication_Views();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Application#getPages <em>Pages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Pages</em>'.
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Application#getPages()
-	 * @see #getApplication()
-	 * @generated
-	 */
-	EReference getApplication_Pages();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.NamedElement <em>Named Element</em>}'.
@@ -708,6 +678,17 @@ public interface BackbonePackage extends EPackage {
 	EReference getModel_Operations();
 
 	/**
+	 * Returns the meta object for the container reference '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Model#getApplication <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Application</em>'.
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Model#getApplication()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Application();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Attribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -716,6 +697,28 @@ public interface BackbonePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Attribute#getDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Attribute#getDefaultValue()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_DefaultValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Attribute#getCardinality <em>Cardinality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cardinality</em>'.
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Attribute#getCardinality()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Cardinality();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Reference <em>Reference</em>}'.
@@ -728,15 +731,26 @@ public interface BackbonePackage extends EPackage {
 	EClass getReference();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Reference#getType <em>Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Reference#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Type</em>'.
+	 * @return the meta object for the reference '<em>Type</em>'.
 	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Reference#getType()
 	 * @see #getReference()
 	 * @generated
 	 */
 	EReference getReference_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Reference#getCardinality <em>Cardinality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cardinality</em>'.
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Reference#getCardinality()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EAttribute getReference_Cardinality();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Operation <em>Operation</em>}'.
@@ -791,6 +805,17 @@ public interface BackbonePackage extends EPackage {
 	EReference getCollection_Model();
 
 	/**
+	 * Returns the meta object for the container reference '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Collection#getApplication <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Application</em>'.
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Collection#getApplication()
+	 * @see #getCollection()
+	 * @generated
+	 */
+	EReference getCollection_Application();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Router <em>Router</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -810,6 +835,17 @@ public interface BackbonePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRouter_Mappings();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Router#getApplication <em>Application</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Application</em>'.
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Router#getApplication()
+	 * @see #getRouter()
+	 * @generated
+	 */
+	EReference getRouter_Application();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.RouterMapping <em>Router Mapping</em>}'.
@@ -865,45 +901,25 @@ public interface BackbonePackage extends EPackage {
 	EReference getView_Operations();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.pim.gen.backbone.model.backbone.View#getPage <em>Page</em>}'.
+	 * Returns the meta object for the container reference '{@link org.obeonetwork.pim.gen.backbone.model.backbone.View#getApplication <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Page</em>'.
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.View#getPage()
+	 * @return the meta object for the container reference '<em>Application</em>'.
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.View#getApplication()
 	 * @see #getView()
 	 * @generated
 	 */
-	EReference getView_Page();
+	EReference getView_Application();
 
 	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Page <em>Page</em>}'.
+	 * Returns the meta object for enum '{@link org.obeonetwork.pim.gen.backbone.model.backbone.CardinalityKind <em>Cardinality Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Page</em>'.
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Page
+	 * @return the meta object for enum '<em>Cardinality Kind</em>'.
+	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.CardinalityKind
 	 * @generated
 	 */
-	EClass getPage();
-
-	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.ContentPage <em>Content Page</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Content Page</em>'.
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.ContentPage
-	 * @generated
-	 */
-	EClass getContentPage();
-
-	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.TemplatePage <em>Template Page</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Template Page</em>'.
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.TemplatePage
-	 * @generated
-	 */
-	EClass getTemplatePage();
+	EEnum getCardinalityKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -970,14 +986,6 @@ public interface BackbonePackage extends EPackage {
 		EReference APPLICATION__VIEWS = eINSTANCE.getApplication_Views();
 
 		/**
-		 * The meta object literal for the '<em><b>Pages</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference APPLICATION__PAGES = eINSTANCE.getApplication_Pages();
-
-		/**
 		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1030,6 +1038,14 @@ public interface BackbonePackage extends EPackage {
 		EReference MODEL__OPERATIONS = eINSTANCE.getModel_Operations();
 
 		/**
+		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__APPLICATION = eINSTANCE.getModel_Application();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.AttributeImpl <em>Attribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1038,6 +1054,22 @@ public interface BackbonePackage extends EPackage {
 		 * @generated
 		 */
 		EClass ATTRIBUTE = eINSTANCE.getAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getAttribute_DefaultValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Cardinality</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__CARDINALITY = eINSTANCE.getAttribute_Cardinality();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -1050,12 +1082,20 @@ public interface BackbonePackage extends EPackage {
 		EClass REFERENCE = eINSTANCE.getReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference REFERENCE__TYPE = eINSTANCE.getReference_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Cardinality</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCE__CARDINALITY = eINSTANCE.getReference_Cardinality();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.OperationImpl <em>Operation</em>}' class.
@@ -1104,6 +1144,14 @@ public interface BackbonePackage extends EPackage {
 		EReference COLLECTION__MODEL = eINSTANCE.getCollection_Model();
 
 		/**
+		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLLECTION__APPLICATION = eINSTANCE.getCollection_Application();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.RouterImpl <em>Router</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1120,6 +1168,14 @@ public interface BackbonePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROUTER__MAPPINGS = eINSTANCE.getRouter_Mappings();
+
+		/**
+		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER__APPLICATION = eINSTANCE.getRouter_Application();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.RouterMappingImpl <em>Router Mapping</em>}' class.
@@ -1166,42 +1222,22 @@ public interface BackbonePackage extends EPackage {
 		EReference VIEW__OPERATIONS = eINSTANCE.getView_Operations();
 
 		/**
-		 * The meta object literal for the '<em><b>Page</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Application</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VIEW__PAGE = eINSTANCE.getView_Page();
+		EReference VIEW__APPLICATION = eINSTANCE.getView_Application();
 
 		/**
-		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.PageImpl <em>Page</em>}' class.
+		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.CardinalityKind <em>Cardinality Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.PageImpl
-		 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getPage()
+		 * @see org.obeonetwork.pim.gen.backbone.model.backbone.CardinalityKind
+		 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getCardinalityKind()
 		 * @generated
 		 */
-		EClass PAGE = eINSTANCE.getPage();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.ContentPageImpl <em>Content Page</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.ContentPageImpl
-		 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getContentPage()
-		 * @generated
-		 */
-		EClass CONTENT_PAGE = eINSTANCE.getContentPage();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.pim.gen.backbone.model.backbone.impl.TemplatePageImpl <em>Template Page</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.TemplatePageImpl
-		 * @see org.obeonetwork.pim.gen.backbone.model.backbone.impl.BackbonePackageImpl#getTemplatePage()
-		 * @generated
-		 */
-		EClass TEMPLATE_PAGE = eINSTANCE.getTemplatePage();
+		EEnum CARDINALITY_KIND = eINSTANCE.getCardinalityKind();
 
 	}
 

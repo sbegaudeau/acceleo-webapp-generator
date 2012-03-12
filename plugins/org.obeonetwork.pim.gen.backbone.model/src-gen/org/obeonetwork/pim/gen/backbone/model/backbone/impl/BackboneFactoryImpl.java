@@ -7,6 +7,7 @@
 package org.obeonetwork.pim.gen.backbone.model.backbone.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -70,10 +71,38 @@ public class BackboneFactoryImpl extends EFactoryImpl implements BackboneFactory
 			case BackbonePackage.ROUTER: return createRouter();
 			case BackbonePackage.ROUTER_MAPPING: return createRouterMapping();
 			case BackbonePackage.VIEW: return createView();
-			case BackbonePackage.CONTENT_PAGE: return createContentPage();
-			case BackbonePackage.TEMPLATE_PAGE: return createTemplatePage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case BackbonePackage.CARDINALITY_KIND:
+				return createCardinalityKindFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case BackbonePackage.CARDINALITY_KIND:
+				return convertCardinalityKindToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -182,9 +211,10 @@ public class BackboneFactoryImpl extends EFactoryImpl implements BackboneFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContentPage createContentPage() {
-		ContentPageImpl contentPage = new ContentPageImpl();
-		return contentPage;
+	public CardinalityKind createCardinalityKindFromString(EDataType eDataType, String initialValue) {
+		CardinalityKind result = CardinalityKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return result;
 	}
 
 	/**
@@ -192,9 +222,8 @@ public class BackboneFactoryImpl extends EFactoryImpl implements BackboneFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplatePage createTemplatePage() {
-		TemplatePageImpl templatePage = new TemplatePageImpl();
-		return templatePage;
+	public String convertCardinalityKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

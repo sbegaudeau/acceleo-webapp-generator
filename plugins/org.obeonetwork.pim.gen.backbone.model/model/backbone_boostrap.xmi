@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<backbone:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:backbone="http://www.obeonetwork.org/2012/backbone" xsi:schemaLocation="http://www.obeonetwork.org/2012/backbone backbone.ecore" name="backboneBootstrap">
+  <router name="urlRouter">
+    <mappings path="./index.html" view="//@views.0"/>
+    <mappings path="../index.html" view="//@views.0"/>
+    <mappings path="./pages/overview.html" view="//@views.1"/>
+    <mappings path="./overview.html" view="//@views.1"/>
+    <mappings path="./pages/other.html" view="//@views.2"/>
+    <mappings path="./other.html" view="//@views.2"/>
+  </router>
+  <views name="home"/>
+  <views name="overview"/>
+  <views name="other"/>
+</backbone:Application>

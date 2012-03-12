@@ -116,18 +116,6 @@ public class BackboneAdapterFactory extends AdapterFactoryImpl {
 				return createViewAdapter();
 			}
 			@Override
-			public Adapter casePage(Page object) {
-				return createPageAdapter();
-			}
-			@Override
-			public Adapter caseContentPage(ContentPage object) {
-				return createContentPageAdapter();
-			}
-			@Override
-			public Adapter caseTemplatePage(TemplatePage object) {
-				return createTemplatePageAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -298,48 +286,6 @@ public class BackboneAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.Page <em>Page</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.Page
-	 * @generated
-	 */
-	public Adapter createPageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.ContentPage <em>Content Page</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.ContentPage
-	 * @generated
-	 */
-	public Adapter createContentPageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.pim.gen.backbone.model.backbone.TemplatePage <em>Template Page</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.pim.gen.backbone.model.backbone.TemplatePage
-	 * @generated
-	 */
-	public Adapter createTemplatePageAdapter() {
 		return null;
 	}
 

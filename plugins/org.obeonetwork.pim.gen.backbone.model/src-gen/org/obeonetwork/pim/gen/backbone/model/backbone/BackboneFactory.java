@@ -116,24 +116,6 @@ public interface BackboneFactory extends EFactory {
 	View createView();
 
 	/**
-	 * Returns a new object of class '<em>Content Page</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Content Page</em>'.
-	 * @generated
-	 */
-	ContentPage createContentPage();
-
-	/**
-	 * Returns a new object of class '<em>Template Page</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Template Page</em>'.
-	 * @generated
-	 */
-	TemplatePage createTemplatePage();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
