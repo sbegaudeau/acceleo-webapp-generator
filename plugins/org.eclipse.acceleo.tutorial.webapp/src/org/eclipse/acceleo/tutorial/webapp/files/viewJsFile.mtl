@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[module viewJsFile('http://www.eclipse.org/acceleo/tutorial/webapp')]
+
+[import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
+
+[template private viewJsFile(anAbstractView : AbstractView)]
+[anAbstractView.genJsDirectoryPath()/]/[anAbstractView.genViewsDirectory()/]/[anAbstractView.name.toLowerFirst()/].js
+[/template]
+
+[template public genViewJsFile(anAbstractView : AbstractView)]
+[file (anAbstractView.viewJsFile(), false, 'UTF-8')]
+[anAbstractView.genCopyrightHeader()/]
+
+var [anAbstractView.application.genTypeName()/] = [anAbstractView.application.genTypeName()/] || {};
+[anAbstractView.application.genTypeName()/].[anAbstractView.genTypeName()/] = Backbone.View.extend({
+	el: $("#container"),
+	render: function(){
+		var self = this;
+		$.get('templates/table.html', function(page) {
+			
+		});
+	}[if (anAbstractView.operations->size() > 0)],[/if]
+	[for (anOperation : Operation | anAbstractView.operations)]
+	[anOperation.name.toLowerFirst()/]: function([anOperation.parameters.name->sep(', ')/]) {
+		
+	}
+	[/for]
+});
+
+[/file]
+[/template]
