@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: webapp,
- webapp.impl,
- webapp.util
+Export-Package: org.eclipse.acceleo.tutorial.webapp,
+ org.eclipse.acceleo.tutorial.webapp.impl,
+ org.eclipse.acceleo.tutorial.webapp.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

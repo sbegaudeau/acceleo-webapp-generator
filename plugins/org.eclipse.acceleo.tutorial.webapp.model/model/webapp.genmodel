@@ -6,7 +6,8 @@
     modelPluginID="org.eclipse.acceleo.tutorial.webapp.model" modelName="Webapp" testsDirectory="/org.eclipse.acceleo.tutorial.webapp.model.tests/src-gen"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false">
   <foreignModel>webapp.ecore</foreignModel>
-  <genPackages prefix="Webapp" disposableProviderFactory="true" ecorePackage="webapp.ecore#/">
+  <genPackages prefix="Webapp" basePackage="org.eclipse.acceleo.tutorial" disposableProviderFactory="true"
+      ecorePackage="webapp.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="webapp.ecore#//CardinalityKind">
       <genEnumLiterals ecoreEnumLiteral="webapp.ecore#//CardinalityKind/ONE"/>
       <genEnumLiterals ecoreEnumLiteral="webapp.ecore#//CardinalityKind/MANY"/>

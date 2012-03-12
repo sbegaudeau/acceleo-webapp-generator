@@ -13,7 +13,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://www.eclipse.org/acceleo/tutorial/webapp"
-            class="webapp.WebappPackage"
+            class="org.eclipse.acceleo.tutorial.webapp.WebappPackage"
             genModel="model/webapp.genmodel"/>
    </extension>
 

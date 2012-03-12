@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.acceleo.tutorial.webapp.model.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: webapp.provider.WebappEditPlugin$Implementation
+Bundle-Activator: org.eclipse.acceleo.tutorial.webapp.provider.WebappEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: webapp.provider
+Export-Package: org.eclipse.acceleo.tutorial.webapp.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.acceleo.tutorial.webapp.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

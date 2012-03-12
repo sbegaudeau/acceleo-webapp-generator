@@ -15,9 +15,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="webapp.presentation.WebappModelWizardID"
+            id="org.eclipse.acceleo.tutorial.webapp.presentation.WebappModelWizardID"
             name="%_UI_WebappModelWizard_label"
-            class="webapp.presentation.WebappModelWizard"
+            class="org.eclipse.acceleo.tutorial.webapp.presentation.WebappModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/WebappModelFile.gif">
          <description>%_UI_WebappModelWizard_description</description>
@@ -27,12 +27,12 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="webapp.presentation.WebappEditorID"
+            id="org.eclipse.acceleo.tutorial.webapp.presentation.WebappEditorID"
             name="%_UI_WebappEditor_label"
             icon="icons/full/obj16/WebappModelFile.gif"
             extensions="webapp"
-            class="webapp.presentation.WebappEditor"
-            contributorClass="webapp.presentation.WebappActionBarContributor">
+            class="org.eclipse.acceleo.tutorial.webapp.presentation.WebappEditor"
+            contributorClass="org.eclipse.acceleo.tutorial.webapp.presentation.WebappActionBarContributor">
       </editor>
    </extension>
 
