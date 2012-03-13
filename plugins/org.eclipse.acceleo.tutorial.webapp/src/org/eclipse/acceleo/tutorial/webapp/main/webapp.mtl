@@ -1,14 +1,34 @@
 [comment encoding = UTF-8 /]
 [module webapp('http://www.eclipse.org/acceleo/tutorial/webapp')]
 
-[import org::eclipse::acceleo::tutorial::webapp::files::applicationJsFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::collectionJsFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::modelJsFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::routerJsFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::viewJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::siteCssFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::jQueryJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::bootstrapCssFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::bootstrapJsFile /]
+
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::lib::underscoreJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::lib::underscoreStringJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::lib::backboneJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::lib::backboneLocalStorageJsFile /]
+
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::applicationJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::collectionJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::modelJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::routerJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::viewJsFile /]
 
 [template public main(anApplication : Application)]
 [comment @main/]
+
+[anApplication.genSiteCssFile()/]
+[anApplication.genJQueryJsFile()/]
+[anApplication.genBootstrapCssFile()/]
+[anApplication.genBootstrapJsFile()/]
+
+[anApplication.genUnderscoreJsFile()/]
+[anApplication.genUnderscoreStringJsFile()/]
+[anApplication.genBackboneJsFile()/]
+[anApplication.genBackboneLocalStorageJsFile()/]
 
 [anApplication.genApplicationJsFile()/]
 [anApplication.models.genModelJsFile()/]
