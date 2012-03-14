@@ -19,8 +19,8 @@ var [aModelView.application.genTypeName()/] = [aModelView.application.genTypeNam
 		var self = this;
 		var myEl = self.el;
 
-		$.get('[aModelView.genTemplatesDirectoryPath()/]/model.html', function(page) {
-			var templates = $(page).filter('#model-template');
+		$.get('[aModelView.genTemplatesDirectoryPath()/]/[aModelView.genVarName()/].html', function(page) {
+			var templates = $(page).filter('#[aModelView.name.reqTextToHtmlId()/]-template');
 			var templates_dialog = $(page).filter('#dialog-template');
 			if (templates.length === 1 && templates_dialog.length === 1) {
 				var tableTemplate = _.template($(templates['['/]0[']'/]).html(), {

@@ -17,7 +17,7 @@
   </head>
   <body>
      <div id="home-template">
-       <div class="inner">
+       <div class="inner jumbotron">
          <h1>Bootstrap, from Twitter</h1>
          <p>Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.</p>
        </div>

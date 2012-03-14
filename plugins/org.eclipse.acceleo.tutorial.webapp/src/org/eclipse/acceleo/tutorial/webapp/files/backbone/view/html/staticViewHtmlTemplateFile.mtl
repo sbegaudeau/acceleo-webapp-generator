@@ -19,6 +19,20 @@
   </head>
   <body>
     <div id="[aStaticView.name.reqTextToHtmlId()/]-template">
+      <header class="jumbotron subhead" id="overview">
+        <h1>[aStaticView.name/]</h1>
+        <p class="lead">[aStaticView.description/]</p>
+        <div class="subnav">
+          <ul class="nav nav-pills">
+            [comment generate the index for sections /]
+            [for (aSection : Section | aStaticView.sections)]
+            <li>
+              <a href="#[aSection.title.reqTextToHtmlId()/]">[aSection.title/]</a>
+            </li>
+            [/for]
+          </ul>  
+        </div>
+      </header>
       [for (aSection : Section | aStaticView.sections)]
       <section id="[aSection.title.reqTextToHtmlId()/]">
         <div class="page-header">

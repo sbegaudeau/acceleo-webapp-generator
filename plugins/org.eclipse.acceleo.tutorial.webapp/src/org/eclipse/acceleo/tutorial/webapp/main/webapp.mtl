@@ -53,7 +53,7 @@
 [/for]
 
 [for (aModelView : ModelView | anApplication.views->filter(ModelView))]
-  [if (i=1)] [anApplication.genModelViewHtmlTemplateFile()/] [/if]
+  [aModelView.genModelViewHtmlTemplateFile()/]
   [aModelView.genModelViewJsFile()/]
 [/for]
 [/template]
