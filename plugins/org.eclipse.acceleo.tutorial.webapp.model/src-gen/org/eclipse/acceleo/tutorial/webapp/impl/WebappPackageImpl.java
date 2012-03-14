@@ -10,7 +10,12 @@ import org.eclipse.acceleo.tutorial.webapp.AbstractView;
 import org.eclipse.acceleo.tutorial.webapp.Application;
 import org.eclipse.acceleo.tutorial.webapp.Attribute;
 import org.eclipse.acceleo.tutorial.webapp.CardinalityKind;
+import org.eclipse.acceleo.tutorial.webapp.CheckBox;
 import org.eclipse.acceleo.tutorial.webapp.Collection;
+import org.eclipse.acceleo.tutorial.webapp.Form;
+import org.eclipse.acceleo.tutorial.webapp.FormWidget;
+import org.eclipse.acceleo.tutorial.webapp.Gallery;
+import org.eclipse.acceleo.tutorial.webapp.ImagesBlock;
 import org.eclipse.acceleo.tutorial.webapp.Model;
 import org.eclipse.acceleo.tutorial.webapp.ModelView;
 import org.eclipse.acceleo.tutorial.webapp.NamedElement;
@@ -19,10 +24,17 @@ import org.eclipse.acceleo.tutorial.webapp.Parameter;
 import org.eclipse.acceleo.tutorial.webapp.Reference;
 import org.eclipse.acceleo.tutorial.webapp.Router;
 import org.eclipse.acceleo.tutorial.webapp.RouterMapping;
+import org.eclipse.acceleo.tutorial.webapp.Section;
+import org.eclipse.acceleo.tutorial.webapp.Spinner;
 import org.eclipse.acceleo.tutorial.webapp.StaticView;
+import org.eclipse.acceleo.tutorial.webapp.Table;
+import org.eclipse.acceleo.tutorial.webapp.Text;
+import org.eclipse.acceleo.tutorial.webapp.TextArea;
+import org.eclipse.acceleo.tutorial.webapp.Video;
 import org.eclipse.acceleo.tutorial.webapp.WebappFactory;
 import org.eclipse.acceleo.tutorial.webapp.WebappPackage;
 
+import org.eclipse.acceleo.tutorial.webapp.Widget;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -128,6 +140,90 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * @generated
 	 */
 	private EClass staticViewEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass widgetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass formEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass videoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass galleryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass imagesBlockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass formWidgetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textAreaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass spinnerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass checkBoxEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -535,6 +631,294 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStaticView_Sections() {
+		return (EReference)staticViewEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSection() {
+		return sectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSection_Title() {
+		return (EAttribute)sectionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSection_Description() {
+		return (EAttribute)sectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSection_Widgets() {
+		return (EReference)sectionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSection_View() {
+		return (EReference)sectionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getWidget() {
+		return widgetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWidget_Title() {
+		return (EAttribute)widgetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWidget_Section() {
+		return (EReference)widgetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getForm() {
+		return formEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getForm_FormWidgets() {
+		return (EReference)formEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTable() {
+		return tableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_ColumnNames() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_RowNames() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_Striped() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_Bordered() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getText() {
+		return textEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getText_ColumnNumber() {
+		return (EAttribute)textEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVideo() {
+		return videoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVideo_Path() {
+		return (EAttribute)videoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGallery() {
+		return galleryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGallery_ImagesPath() {
+		return (EAttribute)galleryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getImagesBlock() {
+		return imagesBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImagesBlock_ImagesPath() {
+		return (EAttribute)imagesBlockEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFormWidget() {
+		return formWidgetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFormWidget_Label() {
+		return (EAttribute)formWidgetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFormWidget_Form() {
+		return (EReference)formWidgetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTextArea() {
+		return textAreaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSpinner() {
+		return spinnerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpinner_Values() {
+		return (EAttribute)spinnerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCheckBox() {
+		return checkBoxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCheckBox_Description() {
+		return (EAttribute)checkBoxEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getCardinalityKind() {
 		return cardinalityKindEEnum;
 	}
@@ -616,6 +1000,50 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		createEReference(modelViewEClass, MODEL_VIEW__MODEL);
 
 		staticViewEClass = createEClass(STATIC_VIEW);
+		createEReference(staticViewEClass, STATIC_VIEW__SECTIONS);
+
+		sectionEClass = createEClass(SECTION);
+		createEAttribute(sectionEClass, SECTION__TITLE);
+		createEAttribute(sectionEClass, SECTION__DESCRIPTION);
+		createEReference(sectionEClass, SECTION__WIDGETS);
+		createEReference(sectionEClass, SECTION__VIEW);
+
+		widgetEClass = createEClass(WIDGET);
+		createEAttribute(widgetEClass, WIDGET__TITLE);
+		createEReference(widgetEClass, WIDGET__SECTION);
+
+		formEClass = createEClass(FORM);
+		createEReference(formEClass, FORM__FORM_WIDGETS);
+
+		tableEClass = createEClass(TABLE);
+		createEAttribute(tableEClass, TABLE__COLUMN_NAMES);
+		createEAttribute(tableEClass, TABLE__ROW_NAMES);
+		createEAttribute(tableEClass, TABLE__STRIPED);
+		createEAttribute(tableEClass, TABLE__BORDERED);
+
+		textEClass = createEClass(TEXT);
+		createEAttribute(textEClass, TEXT__COLUMN_NUMBER);
+
+		videoEClass = createEClass(VIDEO);
+		createEAttribute(videoEClass, VIDEO__PATH);
+
+		galleryEClass = createEClass(GALLERY);
+		createEAttribute(galleryEClass, GALLERY__IMAGES_PATH);
+
+		imagesBlockEClass = createEClass(IMAGES_BLOCK);
+		createEAttribute(imagesBlockEClass, IMAGES_BLOCK__IMAGES_PATH);
+
+		formWidgetEClass = createEClass(FORM_WIDGET);
+		createEAttribute(formWidgetEClass, FORM_WIDGET__LABEL);
+		createEReference(formWidgetEClass, FORM_WIDGET__FORM);
+
+		textAreaEClass = createEClass(TEXT_AREA);
+
+		spinnerEClass = createEClass(SPINNER);
+		createEAttribute(spinnerEClass, SPINNER__VALUES);
+
+		checkBoxEClass = createEClass(CHECK_BOX);
+		createEAttribute(checkBoxEClass, CHECK_BOX__DESCRIPTION);
 
 		// Create enums
 		cardinalityKindEEnum = createEEnum(CARDINALITY_KIND);
@@ -660,6 +1088,15 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		abstractViewEClass.getESuperTypes().add(this.getNamedElement());
 		modelViewEClass.getESuperTypes().add(this.getAbstractView());
 		staticViewEClass.getESuperTypes().add(this.getAbstractView());
+		formEClass.getESuperTypes().add(this.getWidget());
+		tableEClass.getESuperTypes().add(this.getWidget());
+		textEClass.getESuperTypes().add(this.getWidget());
+		videoEClass.getESuperTypes().add(this.getWidget());
+		galleryEClass.getESuperTypes().add(this.getWidget());
+		imagesBlockEClass.getESuperTypes().add(this.getWidget());
+		textAreaEClass.getESuperTypes().add(this.getFormWidget());
+		spinnerEClass.getESuperTypes().add(this.getFormWidget());
+		checkBoxEClass.getESuperTypes().add(this.getFormWidget());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -711,6 +1148,50 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		initEReference(getModelView_Model(), this.getModel(), null, "model", null, 1, 1, ModelView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(staticViewEClass, StaticView.class, "StaticView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStaticView_Sections(), this.getSection(), this.getSection_View(), "sections", null, 1, -1, StaticView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSection_Title(), ecorePackage.getEString(), "title", null, 1, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSection_Description(), ecorePackage.getEString(), "description", null, 1, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSection_Widgets(), this.getWidget(), this.getWidget_Section(), "widgets", null, 1, -1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSection_View(), this.getStaticView(), this.getStaticView_Sections(), "view", null, 1, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(widgetEClass, Widget.class, "Widget", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getWidget_Title(), ecorePackage.getEString(), "title", null, 1, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWidget_Section(), this.getSection(), this.getSection_Widgets(), "section", null, 1, 1, Widget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getForm_FormWidgets(), this.getFormWidget(), this.getFormWidget_Form(), "formWidgets", null, 1, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTable_ColumnNames(), ecorePackage.getEString(), "columnNames", null, 1, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_RowNames(), ecorePackage.getEString(), "rowNames", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Striped(), ecorePackage.getEBoolean(), "striped", null, 1, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_Bordered(), ecorePackage.getEBoolean(), "bordered", null, 1, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getText_ColumnNumber(), ecorePackage.getEInt(), "columnNumber", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVideo_Path(), ecorePackage.getEString(), "path", null, 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(galleryEClass, Gallery.class, "Gallery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGallery_ImagesPath(), ecorePackage.getEString(), "imagesPath", null, 1, -1, Gallery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(imagesBlockEClass, ImagesBlock.class, "ImagesBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImagesBlock_ImagesPath(), ecorePackage.getEString(), "imagesPath", null, 1, -1, ImagesBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(formWidgetEClass, FormWidget.class, "FormWidget", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFormWidget_Label(), ecorePackage.getEString(), "label", null, 0, 1, FormWidget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormWidget_Form(), this.getForm(), this.getForm_FormWidgets(), "form", null, 1, 1, FormWidget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(textAreaEClass, TextArea.class, "TextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(spinnerEClass, Spinner.class, "Spinner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSpinner_Values(), ecorePackage.getEString(), "values", null, 1, -1, Spinner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(checkBoxEClass, CheckBox.class, "CheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCheckBox_Description(), ecorePackage.getEString(), "description", null, 1, 1, CheckBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(cardinalityKindEEnum, CardinalityKind.class, "CardinalityKind");

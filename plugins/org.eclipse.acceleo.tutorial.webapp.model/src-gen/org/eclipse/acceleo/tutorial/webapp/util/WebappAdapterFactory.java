@@ -124,6 +124,54 @@ public class WebappAdapterFactory extends AdapterFactoryImpl {
 				return createStaticViewAdapter();
 			}
 			@Override
+			public Adapter caseSection(Section object) {
+				return createSectionAdapter();
+			}
+			@Override
+			public Adapter caseWidget(Widget object) {
+				return createWidgetAdapter();
+			}
+			@Override
+			public Adapter caseForm(Form object) {
+				return createFormAdapter();
+			}
+			@Override
+			public Adapter caseTable(Table object) {
+				return createTableAdapter();
+			}
+			@Override
+			public Adapter caseText(Text object) {
+				return createTextAdapter();
+			}
+			@Override
+			public Adapter caseVideo(Video object) {
+				return createVideoAdapter();
+			}
+			@Override
+			public Adapter caseGallery(Gallery object) {
+				return createGalleryAdapter();
+			}
+			@Override
+			public Adapter caseImagesBlock(ImagesBlock object) {
+				return createImagesBlockAdapter();
+			}
+			@Override
+			public Adapter caseFormWidget(FormWidget object) {
+				return createFormWidgetAdapter();
+			}
+			@Override
+			public Adapter caseTextArea(TextArea object) {
+				return createTextAreaAdapter();
+			}
+			@Override
+			public Adapter caseSpinner(Spinner object) {
+				return createSpinnerAdapter();
+			}
+			@Override
+			public Adapter caseCheckBox(CheckBox object) {
+				return createCheckBoxAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -322,6 +370,174 @@ public class WebappAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStaticViewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.Section <em>Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Section
+	 * @generated
+	 */
+	public Adapter createSectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.Widget <em>Widget</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Widget
+	 * @generated
+	 */
+	public Adapter createWidgetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.Form <em>Form</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Form
+	 * @generated
+	 */
+	public Adapter createFormAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.Table <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Table
+	 * @generated
+	 */
+	public Adapter createTableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.Text <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Text
+	 * @generated
+	 */
+	public Adapter createTextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.Video <em>Video</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Video
+	 * @generated
+	 */
+	public Adapter createVideoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.Gallery <em>Gallery</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Gallery
+	 * @generated
+	 */
+	public Adapter createGalleryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.ImagesBlock <em>Images Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.ImagesBlock
+	 * @generated
+	 */
+	public Adapter createImagesBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.FormWidget <em>Form Widget</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.FormWidget
+	 * @generated
+	 */
+	public Adapter createFormWidgetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.TextArea <em>Text Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.TextArea
+	 * @generated
+	 */
+	public Adapter createTextAreaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.Spinner <em>Spinner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Spinner
+	 * @generated
+	 */
+	public Adapter createSpinnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.acceleo.tutorial.webapp.CheckBox <em>Check Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.acceleo.tutorial.webapp.CheckBox
+	 * @generated
+	 */
+	public Adapter createCheckBoxAdapter() {
 		return null;
 	}
 

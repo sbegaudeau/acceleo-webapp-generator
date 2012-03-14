@@ -161,6 +161,87 @@ public class WebappSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WebappPackage.SECTION: {
+				Section section = (Section)theEObject;
+				T result = caseSection(section);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.WIDGET: {
+				Widget widget = (Widget)theEObject;
+				T result = caseWidget(widget);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.FORM: {
+				Form form = (Form)theEObject;
+				T result = caseForm(form);
+				if (result == null) result = caseWidget(form);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.TABLE: {
+				Table table = (Table)theEObject;
+				T result = caseTable(table);
+				if (result == null) result = caseWidget(table);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.TEXT: {
+				Text text = (Text)theEObject;
+				T result = caseText(text);
+				if (result == null) result = caseWidget(text);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.VIDEO: {
+				Video video = (Video)theEObject;
+				T result = caseVideo(video);
+				if (result == null) result = caseWidget(video);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.GALLERY: {
+				Gallery gallery = (Gallery)theEObject;
+				T result = caseGallery(gallery);
+				if (result == null) result = caseWidget(gallery);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.IMAGES_BLOCK: {
+				ImagesBlock imagesBlock = (ImagesBlock)theEObject;
+				T result = caseImagesBlock(imagesBlock);
+				if (result == null) result = caseWidget(imagesBlock);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.FORM_WIDGET: {
+				FormWidget formWidget = (FormWidget)theEObject;
+				T result = caseFormWidget(formWidget);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.TEXT_AREA: {
+				TextArea textArea = (TextArea)theEObject;
+				T result = caseTextArea(textArea);
+				if (result == null) result = caseFormWidget(textArea);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.SPINNER: {
+				Spinner spinner = (Spinner)theEObject;
+				T result = caseSpinner(spinner);
+				if (result == null) result = caseFormWidget(spinner);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WebappPackage.CHECK_BOX: {
+				CheckBox checkBox = (CheckBox)theEObject;
+				T result = caseCheckBox(checkBox);
+				if (result == null) result = caseFormWidget(checkBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -357,6 +438,186 @@ public class WebappSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStaticView(StaticView object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Section</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSection(Section object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Widget</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Widget</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWidget(Widget object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Form</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Form</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseForm(Form object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Table</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTable(Table object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseText(Text object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Video</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Video</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVideo(Video object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gallery</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gallery</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGallery(Gallery object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Images Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Images Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImagesBlock(ImagesBlock object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Form Widget</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Form Widget</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFormWidget(FormWidget object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Area</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Area</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextArea(TextArea object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Spinner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Spinner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpinner(Spinner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Check Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Check Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCheckBox(CheckBox object) {
 		return null;
 	}
 

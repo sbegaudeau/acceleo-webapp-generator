@@ -668,13 +668,583 @@ public interface WebappPackage extends EPackage {
 	int STATIC_VIEW__DESCRIPTION = ABSTRACT_VIEW__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Sections</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_VIEW__SECTIONS = ABSTRACT_VIEW_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Static View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATIC_VIEW_FEATURE_COUNT = ABSTRACT_VIEW_FEATURE_COUNT + 0;
+	int STATIC_VIEW_FEATURE_COUNT = ABSTRACT_VIEW_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.SectionImpl <em>Section</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.SectionImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getSection()
+	 * @generated
+	 */
+	int SECTION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__TITLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__WIDGETS = 2;
+
+	/**
+	 * The feature id for the '<em><b>View</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__VIEW = 3;
+
+	/**
+	 * The number of structural features of the '<em>Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_FEATURE_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.WidgetImpl <em>Widget</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WidgetImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getWidget()
+	 * @generated
+	 */
+	int WIDGET = 14;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__TITLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Section</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__SECTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Widget</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.FormImpl <em>Form</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.FormImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getForm()
+	 * @generated
+	 */
+	int FORM = 15;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__TITLE = WIDGET__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Section</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__SECTION = WIDGET__SECTION;
+
+	/**
+	 * The feature id for the '<em><b>Form Widgets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__FORM_WIDGETS = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Form</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.TableImpl <em>Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.TableImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getTable()
+	 * @generated
+	 */
+	int TABLE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TITLE = WIDGET__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Section</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__SECTION = WIDGET__SECTION;
+
+	/**
+	 * The feature id for the '<em><b>Column Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__COLUMN_NAMES = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Row Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ROW_NAMES = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Striped</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__STRIPED = WIDGET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Bordered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__BORDERED = WIDGET_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.TextImpl <em>Text</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.TextImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getText()
+	 * @generated
+	 */
+	int TEXT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__TITLE = WIDGET__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Section</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__SECTION = WIDGET__SECTION;
+
+	/**
+	 * The feature id for the '<em><b>Column Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__COLUMN_NUMBER = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.VideoImpl <em>Video</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.VideoImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getVideo()
+	 * @generated
+	 */
+	int VIDEO = 18;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__TITLE = WIDGET__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Section</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__SECTION = WIDGET__SECTION;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__PATH = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Video</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.GalleryImpl <em>Gallery</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.GalleryImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getGallery()
+	 * @generated
+	 */
+	int GALLERY = 19;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GALLERY__TITLE = WIDGET__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Section</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GALLERY__SECTION = WIDGET__SECTION;
+
+	/**
+	 * The feature id for the '<em><b>Images Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GALLERY__IMAGES_PATH = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Gallery</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GALLERY_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.ImagesBlockImpl <em>Images Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.ImagesBlockImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getImagesBlock()
+	 * @generated
+	 */
+	int IMAGES_BLOCK = 20;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGES_BLOCK__TITLE = WIDGET__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Section</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGES_BLOCK__SECTION = WIDGET__SECTION;
+
+	/**
+	 * The feature id for the '<em><b>Images Path</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGES_BLOCK__IMAGES_PATH = WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Images Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGES_BLOCK_FEATURE_COUNT = WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.FormWidgetImpl <em>Form Widget</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.FormWidgetImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getFormWidget()
+	 * @generated
+	 */
+	int FORM_WIDGET = 21;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_WIDGET__LABEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Form</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_WIDGET__FORM = 1;
+
+	/**
+	 * The number of structural features of the '<em>Form Widget</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM_WIDGET_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.TextAreaImpl <em>Text Area</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.TextAreaImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getTextArea()
+	 * @generated
+	 */
+	int TEXT_AREA = 22;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__LABEL = FORM_WIDGET__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Form</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA__FORM = FORM_WIDGET__FORM;
+
+	/**
+	 * The number of structural features of the '<em>Text Area</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_AREA_FEATURE_COUNT = FORM_WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.SpinnerImpl <em>Spinner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.SpinnerImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getSpinner()
+	 * @generated
+	 */
+	int SPINNER = 23;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__LABEL = FORM_WIDGET__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Form</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__FORM = FORM_WIDGET__FORM;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER__VALUES = FORM_WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Spinner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPINNER_FEATURE_COUNT = FORM_WIDGET_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.CheckBoxImpl <em>Check Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.CheckBoxImpl
+	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getCheckBox()
+	 * @generated
+	 */
+	int CHECK_BOX = 24;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_BOX__LABEL = FORM_WIDGET__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Form</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_BOX__FORM = FORM_WIDGET__FORM;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_BOX__DESCRIPTION = FORM_WIDGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Check Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_BOX_FEATURE_COUNT = FORM_WIDGET_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.CardinalityKind <em>Cardinality Kind</em>}' enum.
@@ -684,7 +1254,7 @@ public interface WebappPackage extends EPackage {
 	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getCardinalityKind()
 	 * @generated
 	 */
-	int CARDINALITY_KIND = 13;
+	int CARDINALITY_KIND = 25;
 
 
 	/**
@@ -1082,6 +1652,346 @@ public interface WebappPackage extends EPackage {
 	EClass getStaticView();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.acceleo.tutorial.webapp.StaticView#getSections <em>Sections</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sections</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.StaticView#getSections()
+	 * @see #getStaticView()
+	 * @generated
+	 */
+	EReference getStaticView_Sections();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Section <em>Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Section</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Section
+	 * @generated
+	 */
+	EClass getSection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.Section#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Section#getTitle()
+	 * @see #getSection()
+	 * @generated
+	 */
+	EAttribute getSection_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.Section#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Section#getDescription()
+	 * @see #getSection()
+	 * @generated
+	 */
+	EAttribute getSection_Description();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.acceleo.tutorial.webapp.Section#getWidgets <em>Widgets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Widgets</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Section#getWidgets()
+	 * @see #getSection()
+	 * @generated
+	 */
+	EReference getSection_Widgets();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.acceleo.tutorial.webapp.Section#getView <em>View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>View</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Section#getView()
+	 * @see #getSection()
+	 * @generated
+	 */
+	EReference getSection_View();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Widget <em>Widget</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Widget</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Widget
+	 * @generated
+	 */
+	EClass getWidget();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.Widget#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Widget#getTitle()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EAttribute getWidget_Title();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.acceleo.tutorial.webapp.Widget#getSection <em>Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Section</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Widget#getSection()
+	 * @see #getWidget()
+	 * @generated
+	 */
+	EReference getWidget_Section();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Form <em>Form</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Form</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Form
+	 * @generated
+	 */
+	EClass getForm();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.acceleo.tutorial.webapp.Form#getFormWidgets <em>Form Widgets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Form Widgets</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Form#getFormWidgets()
+	 * @see #getForm()
+	 * @generated
+	 */
+	EReference getForm_FormWidgets();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Table <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Table
+	 * @generated
+	 */
+	EClass getTable();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.acceleo.tutorial.webapp.Table#getColumnNames <em>Column Names</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Column Names</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Table#getColumnNames()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_ColumnNames();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.acceleo.tutorial.webapp.Table#getRowNames <em>Row Names</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Row Names</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Table#getRowNames()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_RowNames();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.Table#isStriped <em>Striped</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Striped</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Table#isStriped()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Striped();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.Table#isBordered <em>Bordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bordered</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Table#isBordered()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_Bordered();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Text <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Text
+	 * @generated
+	 */
+	EClass getText();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.Text#getColumnNumber <em>Column Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Column Number</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Text#getColumnNumber()
+	 * @see #getText()
+	 * @generated
+	 */
+	EAttribute getText_ColumnNumber();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Video <em>Video</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Video</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Video
+	 * @generated
+	 */
+	EClass getVideo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.Video#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Video#getPath()
+	 * @see #getVideo()
+	 * @generated
+	 */
+	EAttribute getVideo_Path();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Gallery <em>Gallery</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gallery</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Gallery
+	 * @generated
+	 */
+	EClass getGallery();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.acceleo.tutorial.webapp.Gallery#getImagesPath <em>Images Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Images Path</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Gallery#getImagesPath()
+	 * @see #getGallery()
+	 * @generated
+	 */
+	EAttribute getGallery_ImagesPath();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.ImagesBlock <em>Images Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Images Block</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.ImagesBlock
+	 * @generated
+	 */
+	EClass getImagesBlock();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.acceleo.tutorial.webapp.ImagesBlock#getImagesPath <em>Images Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Images Path</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.ImagesBlock#getImagesPath()
+	 * @see #getImagesBlock()
+	 * @generated
+	 */
+	EAttribute getImagesBlock_ImagesPath();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.FormWidget <em>Form Widget</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Form Widget</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.FormWidget
+	 * @generated
+	 */
+	EClass getFormWidget();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.FormWidget#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.FormWidget#getLabel()
+	 * @see #getFormWidget()
+	 * @generated
+	 */
+	EAttribute getFormWidget_Label();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.acceleo.tutorial.webapp.FormWidget#getForm <em>Form</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Form</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.FormWidget#getForm()
+	 * @see #getFormWidget()
+	 * @generated
+	 */
+	EReference getFormWidget_Form();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.TextArea <em>Text Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text Area</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.TextArea
+	 * @generated
+	 */
+	EClass getTextArea();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Spinner <em>Spinner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Spinner</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Spinner
+	 * @generated
+	 */
+	EClass getSpinner();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.acceleo.tutorial.webapp.Spinner#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.Spinner#getValues()
+	 * @see #getSpinner()
+	 * @generated
+	 */
+	EAttribute getSpinner_Values();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.CheckBox <em>Check Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Check Box</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.CheckBox
+	 * @generated
+	 */
+	EClass getCheckBox();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.CheckBox#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.CheckBox#getDescription()
+	 * @see #getCheckBox()
+	 * @generated
+	 */
+	EAttribute getCheckBox_Description();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.acceleo.tutorial.webapp.CardinalityKind <em>Cardinality Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1434,6 +2344,286 @@ public interface WebappPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STATIC_VIEW = eINSTANCE.getStaticView();
+
+		/**
+		 * The meta object literal for the '<em><b>Sections</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATIC_VIEW__SECTIONS = eINSTANCE.getStaticView_Sections();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.SectionImpl <em>Section</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.SectionImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getSection()
+		 * @generated
+		 */
+		EClass SECTION = eINSTANCE.getSection();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECTION__TITLE = eINSTANCE.getSection_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECTION__DESCRIPTION = eINSTANCE.getSection_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Widgets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECTION__WIDGETS = eINSTANCE.getSection_Widgets();
+
+		/**
+		 * The meta object literal for the '<em><b>View</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECTION__VIEW = eINSTANCE.getSection_View();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.WidgetImpl <em>Widget</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WidgetImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getWidget()
+		 * @generated
+		 */
+		EClass WIDGET = eINSTANCE.getWidget();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WIDGET__TITLE = eINSTANCE.getWidget_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Section</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WIDGET__SECTION = eINSTANCE.getWidget_Section();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.FormImpl <em>Form</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.FormImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getForm()
+		 * @generated
+		 */
+		EClass FORM = eINSTANCE.getForm();
+
+		/**
+		 * The meta object literal for the '<em><b>Form Widgets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FORM__FORM_WIDGETS = eINSTANCE.getForm_FormWidgets();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.TableImpl <em>Table</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.TableImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getTable()
+		 * @generated
+		 */
+		EClass TABLE = eINSTANCE.getTable();
+
+		/**
+		 * The meta object literal for the '<em><b>Column Names</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__COLUMN_NAMES = eINSTANCE.getTable_ColumnNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Row Names</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__ROW_NAMES = eINSTANCE.getTable_RowNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Striped</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__STRIPED = eINSTANCE.getTable_Striped();
+
+		/**
+		 * The meta object literal for the '<em><b>Bordered</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__BORDERED = eINSTANCE.getTable_Bordered();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.TextImpl <em>Text</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.TextImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getText()
+		 * @generated
+		 */
+		EClass TEXT = eINSTANCE.getText();
+
+		/**
+		 * The meta object literal for the '<em><b>Column Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT__COLUMN_NUMBER = eINSTANCE.getText_ColumnNumber();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.VideoImpl <em>Video</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.VideoImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getVideo()
+		 * @generated
+		 */
+		EClass VIDEO = eINSTANCE.getVideo();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO__PATH = eINSTANCE.getVideo_Path();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.GalleryImpl <em>Gallery</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.GalleryImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getGallery()
+		 * @generated
+		 */
+		EClass GALLERY = eINSTANCE.getGallery();
+
+		/**
+		 * The meta object literal for the '<em><b>Images Path</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GALLERY__IMAGES_PATH = eINSTANCE.getGallery_ImagesPath();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.ImagesBlockImpl <em>Images Block</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.ImagesBlockImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getImagesBlock()
+		 * @generated
+		 */
+		EClass IMAGES_BLOCK = eINSTANCE.getImagesBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>Images Path</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMAGES_BLOCK__IMAGES_PATH = eINSTANCE.getImagesBlock_ImagesPath();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.FormWidgetImpl <em>Form Widget</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.FormWidgetImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getFormWidget()
+		 * @generated
+		 */
+		EClass FORM_WIDGET = eINSTANCE.getFormWidget();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORM_WIDGET__LABEL = eINSTANCE.getFormWidget_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Form</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FORM_WIDGET__FORM = eINSTANCE.getFormWidget_Form();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.TextAreaImpl <em>Text Area</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.TextAreaImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getTextArea()
+		 * @generated
+		 */
+		EClass TEXT_AREA = eINSTANCE.getTextArea();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.SpinnerImpl <em>Spinner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.SpinnerImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getSpinner()
+		 * @generated
+		 */
+		EClass SPINNER = eINSTANCE.getSpinner();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPINNER__VALUES = eINSTANCE.getSpinner_Values();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.CheckBoxImpl <em>Check Box</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.CheckBoxImpl
+		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getCheckBox()
+		 * @generated
+		 */
+		EClass CHECK_BOX = eINSTANCE.getCheckBox();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHECK_BOX__DESCRIPTION = eINSTANCE.getCheckBox_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.CardinalityKind <em>Cardinality Kind</em>}' enum.

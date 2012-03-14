@@ -3,6 +3,7 @@
 
 [import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
 [import org::eclipse::acceleo::tutorial::webapp::services::stringFormat /]
+[import org::eclipse::acceleo::tutorial::webapp::common::htmlWidget /]
 
 [template private staticViewHtmlTemplateFile(aStaticView : StaticView)]
 [aStaticView.genTemplatesDirectoryPath()/]/[aStaticView.genVarName()/].html
@@ -17,12 +18,20 @@
     <title>Bootstrap, from Twitter</title>
   </head>
   <body>
-     <div id="[aStaticView.name.reqTextToHtmlId()/]-template">
-       <div class="inner">
-         <h1>Static template</h1>
-         <p>Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.</p>
-       </div>
-     </div>
+    <div id="[aStaticView.name.reqTextToHtmlId()/]-template">
+      [for (aSection : Section | aStaticView.sections)]
+      <section id="[aSection.title.reqTextToHtmlId()/]">
+        <div class="page-header">
+          <h1>[aSection.title/] <small>[aSection.description/]</small></h1>
+        </div>
+        [comment generate all widgets of this section /]
+        [for (aWidget : Widget | aSection.widgets)]
+        <h2>[aWidget.title/]</h2>
+        [aWidget.genHtmlWidget()/]
+        [/for]
+      </section>
+      [/for]
+    </div>
   </body>
 </html>
 [/file]

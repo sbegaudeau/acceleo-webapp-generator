@@ -352,6 +352,236 @@ public class WebappItemProviderAdapterFactory extends WebappAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.Section} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SectionItemProvider sectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.Section}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSectionAdapter() {
+		if (sectionItemProvider == null) {
+			sectionItemProvider = new SectionItemProvider(this);
+		}
+
+		return sectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.Form} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FormItemProvider formItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.Form}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFormAdapter() {
+		if (formItemProvider == null) {
+			formItemProvider = new FormItemProvider(this);
+		}
+
+		return formItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.Table} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableItemProvider tableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.Table}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableAdapter() {
+		if (tableItemProvider == null) {
+			tableItemProvider = new TableItemProvider(this);
+		}
+
+		return tableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.Text} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextItemProvider textItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.Text}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextAdapter() {
+		if (textItemProvider == null) {
+			textItemProvider = new TextItemProvider(this);
+		}
+
+		return textItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.Video} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VideoItemProvider videoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.Video}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVideoAdapter() {
+		if (videoItemProvider == null) {
+			videoItemProvider = new VideoItemProvider(this);
+		}
+
+		return videoItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.Gallery} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GalleryItemProvider galleryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.Gallery}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGalleryAdapter() {
+		if (galleryItemProvider == null) {
+			galleryItemProvider = new GalleryItemProvider(this);
+		}
+
+		return galleryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.ImagesBlock} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImagesBlockItemProvider imagesBlockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.ImagesBlock}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImagesBlockAdapter() {
+		if (imagesBlockItemProvider == null) {
+			imagesBlockItemProvider = new ImagesBlockItemProvider(this);
+		}
+
+		return imagesBlockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.TextArea} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextAreaItemProvider textAreaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.TextArea}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextAreaAdapter() {
+		if (textAreaItemProvider == null) {
+			textAreaItemProvider = new TextAreaItemProvider(this);
+		}
+
+		return textAreaItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.Spinner} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpinnerItemProvider spinnerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.Spinner}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpinnerAdapter() {
+		if (spinnerItemProvider == null) {
+			spinnerItemProvider = new SpinnerItemProvider(this);
+		}
+
+		return spinnerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.acceleo.tutorial.webapp.CheckBox} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CheckBoxItemProvider checkBoxItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.acceleo.tutorial.webapp.CheckBox}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCheckBoxAdapter() {
+		if (checkBoxItemProvider == null) {
+			checkBoxItemProvider = new CheckBoxItemProvider(this);
+		}
+
+		return checkBoxItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -462,6 +692,16 @@ public class WebappItemProviderAdapterFactory extends WebappAdapterFactory imple
 		if (routerMappingItemProvider != null) routerMappingItemProvider.dispose();
 		if (modelViewItemProvider != null) modelViewItemProvider.dispose();
 		if (staticViewItemProvider != null) staticViewItemProvider.dispose();
+		if (sectionItemProvider != null) sectionItemProvider.dispose();
+		if (formItemProvider != null) formItemProvider.dispose();
+		if (tableItemProvider != null) tableItemProvider.dispose();
+		if (textItemProvider != null) textItemProvider.dispose();
+		if (videoItemProvider != null) videoItemProvider.dispose();
+		if (galleryItemProvider != null) galleryItemProvider.dispose();
+		if (imagesBlockItemProvider != null) imagesBlockItemProvider.dispose();
+		if (textAreaItemProvider != null) textAreaItemProvider.dispose();
+		if (spinnerItemProvider != null) spinnerItemProvider.dispose();
+		if (checkBoxItemProvider != null) checkBoxItemProvider.dispose();
 	}
 
 }

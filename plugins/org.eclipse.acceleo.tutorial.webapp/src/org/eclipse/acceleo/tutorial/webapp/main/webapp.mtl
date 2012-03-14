@@ -28,7 +28,6 @@
 
 [template public main(anApplication : Application)]
 [comment @main/]
-
 [anApplication.genHtmlFile()/]
 [anApplication.genCssFile()/]
 [anApplication.genJQueryJsFile()/]
@@ -44,7 +43,6 @@
 [anApplication.models.genModelJsFile()/]
 [anApplication.collections.genCollectionJsFile()/]
 [anApplication.router.genRouterJsFile()/]
-
 [anApplication.genHomeViewJsFile()/]
 [anApplication.genErrorViewJsFile()/]
 
@@ -55,11 +53,8 @@
 [/for]
 
 [for (aModelView : ModelView | anApplication.views->filter(ModelView))]
-  [if (i=1)]
-  	[anApplication.genModelViewHtmlTemplateFile()/]
-  [/if]
+  [if (i=1)] [anApplication.genModelViewHtmlTemplateFile()/] [/if]
   [aModelView.genModelViewJsFile()/]
 [/for]
-
 [/template]
 
