@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.acceleo.tutorial.webapp.AbstractView#getOperations <em>Operations</em>}</li>
  *   <li>{@link org.eclipse.acceleo.tutorial.webapp.AbstractView#getApplication <em>Application</em>}</li>
+ *   <li>{@link org.eclipse.acceleo.tutorial.webapp.AbstractView#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,5 +70,31 @@ public interface AbstractView extends NamedElement {
 	 * @generated
 	 */
 	void setApplication(Application value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see org.eclipse.acceleo.tutorial.webapp.WebappPackage#getAbstractView_Description()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.acceleo.tutorial.webapp.AbstractView#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 } // AbstractView

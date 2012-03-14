@@ -4,17 +4,17 @@
 [import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
 
 [template private applicationJsFilePath(anApplication : Application)]
-[anApplication.genJsDirectoryPath()/]/app.js
+[anApplication.genJsDirectoryPath()/]/[anApplication.genVarName()/].js
 [/template]
 
 [template public genApplicationJsFile(anApplication : Application)]
 [file (anApplication.applicationJsFilePath(), false, 'UTF-8')]
-[anApplication.genCopyrightHeader()/]
+[anApplication.genJsCopyrightHeader()/]
 
 var [anApplication.genTypeName()/] = [anApplication.genTypeName()/] || {};
 
 [for (aCollection : Collection | anApplication.collections)]
-[anApplication.genTypeName()/].[aCollection.genVarName()/] = new [anApplication.genTypeName()/].[aCollection.genVarName()/]();
+[anApplication.genTypeName()/].[aCollection.genVarName()/] = new [anApplication.genTypeName()/].[aCollection.genTypeName()/]();
 [/for]
 
 [for (aCollection : Collection | anApplication.collections)]

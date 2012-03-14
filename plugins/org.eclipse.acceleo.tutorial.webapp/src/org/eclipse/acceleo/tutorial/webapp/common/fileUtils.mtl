@@ -1,8 +1,16 @@
 [comment encoding = UTF-8 /]
 [module fileUtils('http://www.eclipse.org/acceleo/tutorial/webapp')]
 
-[template public genCopyrightHeader(oclAny : OclAny)]
-[getProperty('copyrightHeader')/]
+[template public genJsCopyrightHeader(oclAny : OclAny)]
+[getProperty('js-copyrightHeader')/]
+[/template]
+
+[template public genHtmlCopyrightHeader(oclAny : OclAny)]
+[getProperty('html-copyrightHeader')/]
+[/template]
+
+[template public genTemplatesDirectoryPath(oclAny : OclAny)]
+[getProperty('templates-directory-path')/]
 [/template]
 
 [template public genJsDirectoryPath(oclAny : OclAny)]
@@ -33,19 +41,15 @@
 [getProperty('page-directory-path')/]
 [/template]
 
-[template public genMainPageFooterMessage(oclAny : OclAny)]
-[getProperty('main-page-footer-message')/]
-[/template]
-
 [template public genPageFooterMessage(oclAny : OclAny)]
 [getProperty('page-footer-message')/]
 [/template]
 
 
 [template public genTypeName(aNamedElement : NamedElement)]
-[aNamedElement.name.toUpperFirst()/]
+[aNamedElement.name.replaceAll(' ', '').toUpperFirst()/]
 [/template]
 
 [template public genVarName(aNamedElement : NamedElement)]
-[aNamedElement.name.toLowerFirst()/]
+[aNamedElement.name.replaceAll(' ', '').toLowerFirst()/]
 [/template]

@@ -4,12 +4,12 @@
 [import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
 
 [template private modelJsFilePath(aModel : Model)]
-[aModel.genJsDirectoryPath()/]/[aModel.genModelsDirectory()/]/[aModel.name.toLowerFirst()/].js
+[aModel.genJsDirectoryPath()/]/[aModel.genModelsDirectory()/]/[aModel.genVarName()/].js
 [/template]
 
 [template public genModelJsFile(aModel : Model)]
 [file (aModel.modelJsFilePath(), false, 'UTF-8')]
-[aModel.genCopyrightHeader()/]
+[aModel.genJsCopyrightHeader()/]
 
 var [aModel.application.genTypeName()/] = [aModel.application.genTypeName()/] || {};
 [aModel.application.genTypeName()/].[aModel.genTypeName()/] = Backbone.Model.extend({
@@ -25,7 +25,7 @@ var [aModel.application.genTypeName()/] = [aModel.application.genTypeName()/] ||
 		
 	}[if (aModel.operations->size() > 0)],[/if]
 	[for (anOperation : Operation | aModel.operations) separator(',')]
-	[anOperation.name/]: function([anOperation.parameters.name->sep(', ')/]) {
+	[anOperation.genVarName()/]: function([anOperation.parameters.genVarName()->sep(', ')/]) {
 		
 	}
 	[/for]

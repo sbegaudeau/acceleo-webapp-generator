@@ -1,0 +1,111 @@
+[comment encoding = Cp1252 /]
+[module generate('http://www.eclipse.org/acceleo/mtl/3.0')/]
+
+[template public generate(aBlock : Block)]
+<!doctype html>
+<!--
+/********************************************************************************
+** Copyright (c) 2012 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Stephane Begaudeau (Obeo) - initial API and implementation
+*********************************************************************************/
+-->
+<!--['['/]if lt IE 7[']'/]> <html class="no-js ie6 oldie" lang="en"> <!['['/]endif[']'/]-->
+<!--['['/]if IE 7[']'/]>    <html class="no-js ie7 oldie" lang="en"> <!['['/]endif[']'/]-->
+<!--['['/]if IE 8[']'/]>    <html class="no-js ie8 oldie" lang="en"> <!['['/]endif[']'/]-->
+<!--['['/]if gt IE 8[']'/]><!--> <html class="no-js" lang="en"> <!--<!['['/]endif[']'/]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+</head>
+<body>
+  <script id="table-template">
+    <div class="actions-bar">
+      <a class="btn" href="#" id="new-btn">New</a>
+      <a class="btn" href="#" id="delete-btn">Delete</a>
+    </div>
+    <table class="bordered-table zebra-striped">
+      <thead>
+        <tr>
+          <th width="3%"></th>
+          <% for (var i = 0; i < columnNames.length; i++) { %>
+          <th class="blue" width="<%=columnWidths['['/]i[']'/]%>%" data-num="<%=i%>"><%=columnNames['['/]i[']'/]%></th>
+          <% }; %>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var i = 0; i < objects.length; i++) { %>
+        <tr>
+          <td><input type="checkbox" name="checkBoxDelete" value="option" data-num="<%=i%>"></td>
+          <% for (var attr in objects['['/]i[']'/].attributes) { %>
+          <% if (_.include(attributesToConsider, attr)) { %>
+          <% if (_.include(Object.keys(attributesToLinkWithPlaceholder), attr)) { %>
+          <% if (objects['['/]i[']'/].attributes['['/]attr[']'/].toString().length === 0) {%>
+          <td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#<%=attr%>" class="link-placeholder" data-toggle="modal">click to edit</a></td>
+          <% } else { %>
+          <td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><a href="#<%=attr%>" class="link-placeholder" data-toggle="modal"><%= _.str.join(', ', _.map(objects['['/]i[']'/].attributes['['/]attr[']'/], function(val){return attributesToLinkWithPlaceholder['['/]attr[']'/].get(val).get(linkedAttributesMapping['['/]attr[']'/]);})) %></a></td>
+          <% } %>
+          <% } else { %>
+          <td class="editable" data-num="<%=i%>" data-attribute-name="<%=attr%>"><%=objects['['/]i[']'/].attributes['['/]attr[']'/]%></td>
+          <% } %>
+          <% } %>
+          <% }; %>
+        </tr>
+        <% }; %>
+      </tbody>
+    </table>
+    <% if (objects.length !== 0) { %>
+    <% for (var attr in objects['['/]0[']'/].attributes) { %>
+    <% if (_.include(attributesToConsider, attr)) { %>
+    <% if (_.include(Object.keys(attributesToLinkWithPlaceholder), attr)) { %>    
+    <div id="<%=attr%>" class="modal hide fade" data-attribute-name="<%=attr%>">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal" >&times;</a>
+        <h3 class="title">Select the elements wanted</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <a href="#<%=attr%>" class="btn btn-primary dialogSave" data-toggle="modal">Save changes</a>
+        <a href="#" class="btn" data-dismiss="modal" >Close</a>
+      </div>
+    </div>
+    <% } %>
+    <% } %>
+    <% }; %>
+    <% } %>
+  </script>
+  <script id="dialog-template">
+    <table class="bordered-table zebra-striped">
+      <thead>
+        <th width="3%"></th>
+        <% for (var i = 0; i < dialogColumnNames.length; i++) { %>
+        <th class="blue" width="<%=dialogColumnWidths['['/]i[']'/]%>%" data-num="<%=i%>"><%=dialogColumnNames['['/]i[']'/]%></th>
+        <% }; %>
+      </thead>
+      <tbody>
+        <% for (var i = 0; i < dialogObjects.length; i++) { %>
+        <tr>
+          <% if (_.include(objectsToSelect, dialogObjects['['/]i[']'/])) { %>
+          <td><input type="checkbox" name="checkBoxDeleteDialog" value="option" data-num="<%=i%>" checked="true"></td>
+          <% } else { %>
+          <td><input type="checkbox" name="checkBoxDeleteDialog" value="option" data-num="<%=i%>"></td>
+          <% } %>
+          <% for (var attr in dialogObjects['['/]i[']'/].attributes) { %>
+          <% if (_.include(attributesToConsider, attr)) { %>
+          <td><%=dialogObjects['['/]i[']'/].attributes['['/]attr[']'/]%></td>
+          <% } %>
+          <% } %>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </script>
+</body>
+</html>
+[/template]

@@ -1,0 +1,51 @@
+[comment encoding = UTF-8 /]
+[module modelViewJsFile('http://www.eclipse.org/acceleo/tutorial/webapp')]
+
+[import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
+
+[template private modelViewJsFile(aModelView : ModelView)]
+[aModelView.genJsDirectoryPath()/]/[aModelView.genViewsDirectory()/]/[aModelView.genVarName()/].js
+[/template]
+
+[template public genModelViewJsFile(aModelView : ModelView)]
+[file (aModelView.modelViewJsFile(), false, 'UTF-8')]
+[aModelView.genJsCopyrightHeader()/]
+
+var [aModelView.application.genTypeName()/] = [aModelView.application.genTypeName()/] || {};
+[aModelView.application.genTypeName()/].[aModelView.genTypeName()/] = Backbone.View.extend({
+	el: $("#container"),
+	render: function(){
+		var self = this;
+		var myEl = self.el;
+
+		$.get('[aModelView.genTemplatesDirectoryPath()/]/model.html', function(page) {
+			var templates = $(page).filter('#model-template');
+			var templates_dialog = $(page).filter('#dialog-template');
+			if (templates.length === 1 && templates_dialog.length === 1) {
+				var tableTemplate = _.template($(templates['['/]0[']'/]).html(), {
+					columnNames: ['['/]'Name'[']'/],
+					columnWidths: ['['/]100[']'/],
+					attributesToConsider: ['['/]'name'[']'/],
+					attributesToLinkWithPlaceholder: {},
+					linkedAttributesMapping: {},
+					objects: _.toArray([aModelView.application.genTypeName()/].languages)
+				});
+				$(self.el).addClass('container').removeClass('main-banner');
+				$(self.el).html(tableTemplate);
+				$(self.el).find('input').each(function(i, elem){
+					if ($(elem).attr('name') !== 'checkBoxDelete') {
+						$(elem).hide();
+					}
+				});
+			}
+		});
+	}[if (aModelView.operations->size() > 0)],[/if]
+	[for (anOperation : Operation | aModelView.operations)]
+	[anOperation.genVarName()/]: function([anOperation.parameters.genVarName()->sep(', ')/]) {
+		
+	}
+	[/for]
+});
+
+[/file]
+[/template]

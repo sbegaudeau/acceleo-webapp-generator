@@ -47,8 +47,8 @@
         eType="#//Application" eOpposite="#//Application/collections"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Router" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
-        eType="#//RouterMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" lowerBound="1"
+        upperBound="-1" eType="#//RouterMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="application" lowerBound="1"
         eType="#//Application" eOpposite="#//Application/router"/>
   </eClassifiers>
@@ -61,6 +61,8 @@
         eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="application" lowerBound="1"
         eType="#//Application" eOpposite="#//Application/views"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelView" eSuperTypes="#//AbstractView">
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Model"/>

@@ -1,14 +1,14 @@
 [comment encoding = UTF-8 /]
-[module siteCssFile('http://www.eclipse.org/acceleo/tutorial/webapp')]
+[module cssFile('http://www.eclipse.org/acceleo/tutorial/webapp')]
 
 [import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
 
-[template private cssSiteFile(anApplication : Application)]
-[anApplication.genCssDirectoryPath()/]/[anApplication.name.toLowerFirst()/].css
+[template private cssFile(anApplication : Application)]
+[anApplication.genCssDirectoryPath()/]/[anApplication.genVarName()/].css
 [/template]
 
-[template public genSiteCssFile(anApplication : Application)]
-[file (anApplication.cssSiteFile(), false, 'UTF-8')]
+[template public genCssFile(anApplication : Application)]
+[file (anApplication.cssFile(), false, 'UTF-8')]
 /* Add additional stylesheets below
 -------------------------------------------------- */
 /*

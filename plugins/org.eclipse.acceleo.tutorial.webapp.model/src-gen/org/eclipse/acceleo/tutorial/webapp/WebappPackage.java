@@ -540,13 +540,22 @@ public interface WebappPackage extends EPackage {
 	int ABSTRACT_VIEW__APPLICATION = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_VIEW__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Abstract View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_VIEW_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ABSTRACT_VIEW_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.ModelViewImpl <em>Model View</em>}' class.
@@ -584,6 +593,15 @@ public interface WebappPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODEL_VIEW__APPLICATION = ABSTRACT_VIEW__APPLICATION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_VIEW__DESCRIPTION = ABSTRACT_VIEW__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' reference.
@@ -639,6 +657,15 @@ public interface WebappPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATIC_VIEW__APPLICATION = ABSTRACT_VIEW__APPLICATION;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_VIEW__DESCRIPTION = ABSTRACT_VIEW__DESCRIPTION;
 
 	/**
 	 * The number of structural features of the '<em>Static View</em>' class.
@@ -1013,6 +1040,17 @@ public interface WebappPackage extends EPackage {
 	EReference getAbstractView_Application();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.AbstractView#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.AbstractView#getDescription()
+	 * @see #getAbstractView()
+	 * @generated
+	 */
+	EAttribute getAbstractView_Description();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.ModelView <em>Model View</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1360,6 +1398,14 @@ public interface WebappPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ABSTRACT_VIEW__APPLICATION = eINSTANCE.getAbstractView_Application();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_VIEW__DESCRIPTION = eINSTANCE.getAbstractView_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.ModelViewImpl <em>Model View</em>}' class.

@@ -4,7 +4,7 @@
 [import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
 
 [template private bootstrapJsFile(anApplication : Application)]
-[anApplication.genJsDirectoryPath()/]/bootstrap.js
+[anApplication.genJsDirectoryPath()/]/[anApplication.genJsLibDirectory()/]/bootstrap.js
 [/template]
 
 [template public genBootstrapJsFile(anApplication : Application)]

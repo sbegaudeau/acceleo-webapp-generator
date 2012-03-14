@@ -1,7 +1,8 @@
 [comment encoding = UTF-8 /]
 [module webapp('http://www.eclipse.org/acceleo/tutorial/webapp')]
 
-[import org::eclipse::acceleo::tutorial::webapp::files::siteCssFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::htmlFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::cssFile /]
 [import org::eclipse::acceleo::tutorial::webapp::files::jQueryJsFile /]
 [import org::eclipse::acceleo::tutorial::webapp::files::bootstrapCssFile /]
 [import org::eclipse::acceleo::tutorial::webapp::files::bootstrapJsFile /]
@@ -15,12 +16,21 @@
 [import org::eclipse::acceleo::tutorial::webapp::files::backbone::collectionJsFile /]
 [import org::eclipse::acceleo::tutorial::webapp::files::backbone::modelJsFile /]
 [import org::eclipse::acceleo::tutorial::webapp::files::backbone::routerJsFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::backbone::viewJsFile /]
+
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::view::html::homeViewHtmlTemplateFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::view::html::staticViewHtmlTemplateFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::view::html::modelViewHtmlTemplateFile /]
+
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::view::js::homeViewJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::view::js::errorViewJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::view::js::modelViewJsFile /]
+[import org::eclipse::acceleo::tutorial::webapp::files::backbone::view::js::staticViewJsFile /]
 
 [template public main(anApplication : Application)]
 [comment @main/]
 
-[anApplication.genSiteCssFile()/]
+[anApplication.genHtmlFile()/]
+[anApplication.genCssFile()/]
 [anApplication.genJQueryJsFile()/]
 [anApplication.genBootstrapCssFile()/]
 [anApplication.genBootstrapJsFile()/]
@@ -33,7 +43,23 @@
 [anApplication.genApplicationJsFile()/]
 [anApplication.models.genModelJsFile()/]
 [anApplication.collections.genCollectionJsFile()/]
-[anApplication.views.genViewJsFile()/]
 [anApplication.router.genRouterJsFile()/]
+
+[anApplication.genHomeViewJsFile()/]
+[anApplication.genErrorViewJsFile()/]
+
+[anApplication.genHomeViewHtmlTemplateFile()/]
+[for (aStaticView : StaticView | anApplication.views->filter(StaticView))]
+  [aStaticView.genStaticViewHtmlTemplateFile()/]
+  [aStaticView.genStaticViewJsFile()/]
+[/for]
+
+[for (aModelView : ModelView | anApplication.views->filter(ModelView))]
+  [if (i=1)]
+  	[anApplication.genModelViewHtmlTemplateFile()/]
+  [/if]
+  [aModelView.genModelViewJsFile()/]
+[/for]
+
 [/template]
 

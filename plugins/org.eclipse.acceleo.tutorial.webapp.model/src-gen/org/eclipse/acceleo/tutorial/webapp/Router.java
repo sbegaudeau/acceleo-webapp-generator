@@ -37,7 +37,7 @@ public interface Router extends NamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mappings</em>' containment reference list.
 	 * @see org.eclipse.acceleo.tutorial.webapp.WebappPackage#getRouter_Mappings()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<RouterMapping> getMappings();

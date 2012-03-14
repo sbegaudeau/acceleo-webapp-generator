@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link org.eclipse.acceleo.tutorial.webapp.impl.AbstractViewImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link org.eclipse.acceleo.tutorial.webapp.impl.AbstractViewImpl#getApplication <em>Application</em>}</li>
+ *   <li>{@link org.eclipse.acceleo.tutorial.webapp.impl.AbstractViewImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,6 +51,25 @@ public abstract class AbstractViewImpl extends NamedElementImpl implements Abstr
 	 * @ordered
 	 */
 	protected EList<Operation> operations;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,6 +148,27 @@ public abstract class AbstractViewImpl extends NamedElementImpl implements Abstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebappPackage.ABSTRACT_VIEW__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -179,6 +220,8 @@ public abstract class AbstractViewImpl extends NamedElementImpl implements Abstr
 				return getOperations();
 			case WebappPackage.ABSTRACT_VIEW__APPLICATION:
 				return getApplication();
+			case WebappPackage.ABSTRACT_VIEW__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -199,6 +242,9 @@ public abstract class AbstractViewImpl extends NamedElementImpl implements Abstr
 			case WebappPackage.ABSTRACT_VIEW__APPLICATION:
 				setApplication((Application)newValue);
 				return;
+			case WebappPackage.ABSTRACT_VIEW__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -217,6 +263,9 @@ public abstract class AbstractViewImpl extends NamedElementImpl implements Abstr
 			case WebappPackage.ABSTRACT_VIEW__APPLICATION:
 				setApplication((Application)null);
 				return;
+			case WebappPackage.ABSTRACT_VIEW__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -233,8 +282,26 @@ public abstract class AbstractViewImpl extends NamedElementImpl implements Abstr
 				return operations != null && !operations.isEmpty();
 			case WebappPackage.ABSTRACT_VIEW__APPLICATION:
 				return getApplication() != null;
+			case WebappPackage.ABSTRACT_VIEW__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (description: ");
+		result.append(description);
+		result.append(')');
+		return result.toString();
 	}
 
 } //AbstractViewImpl

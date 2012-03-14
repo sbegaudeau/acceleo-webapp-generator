@@ -499,6 +499,15 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAbstractView_Description() {
+		return (EAttribute)abstractViewEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModelView() {
 		return modelViewEClass;
 	}
@@ -601,6 +610,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		abstractViewEClass = createEClass(ABSTRACT_VIEW);
 		createEReference(abstractViewEClass, ABSTRACT_VIEW__OPERATIONS);
 		createEReference(abstractViewEClass, ABSTRACT_VIEW__APPLICATION);
+		createEAttribute(abstractViewEClass, ABSTRACT_VIEW__DESCRIPTION);
 
 		modelViewEClass = createEClass(MODEL_VIEW);
 		createEReference(modelViewEClass, MODEL_VIEW__MODEL);
@@ -685,7 +695,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		initEReference(getCollection_Application(), this.getApplication(), this.getApplication_Collections(), "application", null, 1, 1, Collection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(routerEClass, Router.class, "Router", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRouter_Mappings(), this.getRouterMapping(), null, "mappings", null, 0, -1, Router.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouter_Mappings(), this.getRouterMapping(), null, "mappings", null, 1, -1, Router.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRouter_Application(), this.getApplication(), this.getApplication_Router(), "application", null, 1, 1, Router.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(routerMappingEClass, RouterMapping.class, "RouterMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -695,6 +705,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		initEClass(abstractViewEClass, AbstractView.class, "AbstractView", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractView_Operations(), this.getOperation(), null, "operations", null, 0, -1, AbstractView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbstractView_Application(), this.getApplication(), this.getApplication_Views(), "application", null, 1, 1, AbstractView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractView_Description(), ecorePackage.getEString(), "description", null, 1, 1, AbstractView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelViewEClass, ModelView.class, "ModelView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelView_Model(), this.getModel(), null, "model", null, 1, 1, ModelView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

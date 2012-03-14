@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
 <webapp:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webapp="http://www.eclipse.org/acceleo/tutorial/webapp" xsi:schemaLocation="http://www.eclipse.org/acceleo/tutorial/webapp webapp.ecore" name="webapp">
-  <router name="routeur">
-    <mappings path="!/home" view="//@views.0"/>
+  <router name="router">
+    <mappings path="!/first" view="//@views.0"/>
     <mappings path="!/notes" view="//@views.1"/>
   </router>
   <collections name="NotesCollection" model="//@models.0"/>
-  <views xsi:type="webapp:StaticView" name="Home"/>
-  <views xsi:type="webapp:ModelView" name="NoteView" model="//@models.0"/>
+  <views xsi:type="webapp:StaticView" name="First page" description="My first static page."/>
+  <views xsi:type="webapp:ModelView" name="NoteView" description="My dynamic note page" model="//@models.0"/>
   <models name="Note">
     <attributes name="description" defaultValue="&quot;Default description&quot;" cardinality="ONE"/>
   </models>

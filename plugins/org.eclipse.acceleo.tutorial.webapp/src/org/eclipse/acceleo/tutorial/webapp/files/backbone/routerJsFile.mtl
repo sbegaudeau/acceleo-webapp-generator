@@ -4,29 +4,37 @@
 [import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
 
 [template private routerJsFile(aRouter : Router)]
-[aRouter.genJsDirectoryPath()/]/[aRouter.name.toLowerFirst()/].js
+[aRouter.genJsDirectoryPath()/]/[aRouter.genVarName()/].js
 [/template]
 
 [template public genRouterJsFile(aRouter : Router)]
 [file (aRouter.routerJsFile(), false, 'UTF-8')]
-[aRouter.genCopyrightHeader()/]
+[aRouter.genJsCopyrightHeader()/]
 
 var [aRouter.application.genTypeName()/] = [aRouter.application.genTypeName()/] || {};
 [aRouter.application.genTypeName()/].[aRouter.genTypeName()/] = Backbone.Router.extend({
 	routes: {
-		[for (aRouterMapping : RouterMapping | aRouter.mappings) separator(',')]
-		'[aRouterMapping.path/]': 'show[aRouterMapping.view.genTypeName()/]'
+		'!/home': 'showHome',
+		[for (aRouterMapping : RouterMapping | aRouter.mappings)]
+		'[aRouterMapping.path/]': 'show[aRouterMapping.view.genTypeName()/]',
 		[/for]
 		'*pageId': 'defaultAction'
+	},
+	showHome: function(){
+		var home = new [aRouter.application.genTypeName()/].Home();
+		home.render();
 	},
 	[for (aRouterMapping : RouterMapping | aRouter.mappings)]
 	show[aRouterMapping.view.genTypeName()/]: function(){
 		var [aRouterMapping.view.genVarName()/] = new [aRouter.application.genTypeName()/].[aRouterMapping.view.genTypeName()/]();
 		[aRouterMapping.view.genVarName()/].render();
-	}
+	},
 	[/for]
 	defaultAction: function(pageId){
-		
+		if (pageId.length === 0) {
+			var home = new [aRouter.application.genTypeName()/].Home();
+			home.render();
+		}
 	}
 });
 

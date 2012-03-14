@@ -3,5 +3,5 @@
 
 
 [query public reqTextToHtmlId(aText : String) : String = 
-	invoke('org.obeonetwork.pim.gen.bootstrap.services.StringFormat', 'convertInHtmlId(java.lang.String)', Sequence{aText})
+	invoke('org.eclipse.acceleo.tutorial.webapp.services.StringFormat', 'convertInHtmlId(java.lang.String)', Sequence{aText})
 /]

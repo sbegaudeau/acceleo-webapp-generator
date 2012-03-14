@@ -1,0 +1,28 @@
+[comment encoding = UTF-8 /]
+[module homeViewHtmlTemplateFile('http://www.eclipse.org/acceleo/tutorial/webapp')]
+
+[import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
+
+[template private homeViewHtmlTemplateFile(aApplication : Application)]
+[aApplication.genTemplatesDirectoryPath()/]/home.html
+[/template]
+
+[template public genHomeViewHtmlTemplateFile(anApplication : Application)]
+[file (anApplication.homeViewHtmlTemplateFile(), false, 'UTF-8')]
+<!DOCTYPE html>
+<html lang="en">
+  <!-- All Right Reserved -->
+  <head>
+    <title>Bootstrap, from Twitter</title>
+  </head>
+  <body>
+     <div id="home-template">
+       <div class="inner">
+         <h1>Bootstrap, from Twitter</h1>
+         <p>Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.</p>
+       </div>
+     </div>
+  </body>
+</html>
+[/file]
+[/template]
