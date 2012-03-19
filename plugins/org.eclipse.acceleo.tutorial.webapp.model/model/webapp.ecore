@@ -65,7 +65,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelView" eSuperTypes="#//AbstractView">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Model"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="collection" lowerBound="1"
+        eType="#//Collection"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StaticView" eSuperTypes="#//AbstractView">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sections" lowerBound="1"

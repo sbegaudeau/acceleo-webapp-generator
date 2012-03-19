@@ -68,7 +68,7 @@
       </widgets>
     </sections>
   </views>
-  <views xsi:type="webapp:ModelView" name="NoteView" description="My dynamic note page" model="//@models.0"/>
+  <views xsi:type="webapp:ModelView" name="NoteView" description="My dynamic note page" collection="//@collections.0"/>
   <models name="Note">
     <attributes name="description" defaultValue="&quot;Default description&quot;" cardinality="ONE"/>
   </models>
