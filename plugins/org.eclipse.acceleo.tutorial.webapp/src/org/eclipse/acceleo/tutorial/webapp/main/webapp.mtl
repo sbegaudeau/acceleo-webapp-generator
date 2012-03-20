@@ -3,14 +3,6 @@
 
 [import org::eclipse::acceleo::tutorial::webapp::files::htmlFile /]
 [import org::eclipse::acceleo::tutorial::webapp::files::cssFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::jQueryJsFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::bootstrapCssFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::bootstrapJsFile /]
-
-[import org::eclipse::acceleo::tutorial::webapp::files::backbone::lib::underscoreJsFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::backbone::lib::underscoreStringJsFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::backbone::lib::backboneJsFile /]
-[import org::eclipse::acceleo::tutorial::webapp::files::backbone::lib::backboneLocalStorageJsFile /]
 
 [import org::eclipse::acceleo::tutorial::webapp::files::backbone::applicationJsFile /]
 [import org::eclipse::acceleo::tutorial::webapp::files::backbone::collectionJsFile /]
@@ -30,14 +22,6 @@
 [comment @main/]
 [anApplication.genHtmlFile()/]
 [anApplication.genCssFile()/]
-[anApplication.genJQueryJsFile()/]
-[anApplication.genBootstrapCssFile()/]
-[anApplication.genBootstrapJsFile()/]
-
-[anApplication.genUnderscoreJsFile()/]
-[anApplication.genUnderscoreStringJsFile()/]
-[anApplication.genBackboneJsFile()/]
-[anApplication.genBackboneLocalStorageJsFile()/]
 
 [anApplication.genApplicationJsFile()/]
 [anApplication.models.genModelJsFile()/]
