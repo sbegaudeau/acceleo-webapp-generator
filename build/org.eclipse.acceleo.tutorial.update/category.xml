@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>   
+   <feature id="org.eclipse.acceleo.sdk" version="0.0.0">
+      <category name="tutorial"/>
+   </feature>   
+   <feature id="org.eclipse.emf.eef.sdk" version="0.0.0">
+      <category name="tutorial"/>
+   </feature>
+   <feature id="org.eclipse.jetty.sdk" version="0.0.0">
+      <category name="tutorial"/>
+   </feature>
+   <feature id="org.eclipse.emf.sdk" version="0.0.0">
+      <category name="tutorial"/>
+   </feature>   
+   <feature id="org.eclipse.wst.jsdt.feature" version="0.0.0">
+      <category name="optional"/>
+   </feature>
+   <feature id="org.eclipse.emf.ecoretools.sdk" version="0.0.0">
+      <category name="optional"/>
+   </feature>
+   <feature id="org.eclipse.egit" version="0.0.0">
+      <category name="optional"/>
+   </feature>
+   <feature id="org.eclipse.pde" version="0.0.0">
+      <category name="optional"/>
+   </feature>
+   <feature id="org.eclipse.jdt" version="0.0.0">
+      <category name="optional"/>
+   </feature>
+   <category-def name="tutorial" label="Acceleo Tutorial EclipseCon 2012"/>
+   <category-def name="optional" label="Optional Tools"/>
+</site>
