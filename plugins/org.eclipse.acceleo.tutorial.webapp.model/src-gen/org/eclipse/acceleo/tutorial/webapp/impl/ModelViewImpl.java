@@ -6,6 +6,7 @@
  */
 package org.eclipse.acceleo.tutorial.webapp.impl;
 
+import org.eclipse.acceleo.tutorial.webapp.Collection;
 import org.eclipse.acceleo.tutorial.webapp.Model;
 import org.eclipse.acceleo.tutorial.webapp.ModelView;
 import org.eclipse.acceleo.tutorial.webapp.WebappPackage;
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.acceleo.tutorial.webapp.impl.ModelViewImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link org.eclipse.acceleo.tutorial.webapp.impl.ModelViewImpl#getCollection <em>Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,15 +33,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ModelViewImpl extends AbstractViewImpl implements ModelView {
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
+	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModel()
+	 * @see #getCollection()
 	 * @generated
 	 * @ordered
 	 */
-	protected Model model;
-
+	protected Collection collection;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,16 +65,16 @@ public class ModelViewImpl extends AbstractViewImpl implements ModelView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Model getModel() {
-		if (model != null && model.eIsProxy()) {
-			InternalEObject oldModel = (InternalEObject)model;
-			model = (Model)eResolveProxy(oldModel);
-			if (model != oldModel) {
+	public Collection getCollection() {
+		if (collection != null && collection.eIsProxy()) {
+			InternalEObject oldCollection = (InternalEObject)collection;
+			collection = (Collection)eResolveProxy(oldCollection);
+			if (collection != oldCollection) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, WebappPackage.MODEL_VIEW__MODEL, oldModel, model));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, WebappPackage.MODEL_VIEW__COLLECTION, oldCollection, collection));
 			}
 		}
-		return model;
+		return collection;
 	}
 
 	/**
@@ -82,8 +82,8 @@ public class ModelViewImpl extends AbstractViewImpl implements ModelView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Model basicGetModel() {
-		return model;
+	public Collection basicGetCollection() {
+		return collection;
 	}
 
 	/**
@@ -91,11 +91,11 @@ public class ModelViewImpl extends AbstractViewImpl implements ModelView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModel(Model newModel) {
-		Model oldModel = model;
-		model = newModel;
+	public void setCollection(Collection newCollection) {
+		Collection oldCollection = collection;
+		collection = newCollection;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WebappPackage.MODEL_VIEW__MODEL, oldModel, model));
+			eNotify(new ENotificationImpl(this, Notification.SET, WebappPackage.MODEL_VIEW__COLLECTION, oldCollection, collection));
 	}
 
 	/**
@@ -106,9 +106,9 @@ public class ModelViewImpl extends AbstractViewImpl implements ModelView {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case WebappPackage.MODEL_VIEW__MODEL:
-				if (resolve) return getModel();
-				return basicGetModel();
+			case WebappPackage.MODEL_VIEW__COLLECTION:
+				if (resolve) return getCollection();
+				return basicGetCollection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,8 +121,8 @@ public class ModelViewImpl extends AbstractViewImpl implements ModelView {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WebappPackage.MODEL_VIEW__MODEL:
-				setModel((Model)newValue);
+			case WebappPackage.MODEL_VIEW__COLLECTION:
+				setCollection((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class ModelViewImpl extends AbstractViewImpl implements ModelView {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WebappPackage.MODEL_VIEW__MODEL:
-				setModel((Model)null);
+			case WebappPackage.MODEL_VIEW__COLLECTION:
+				setCollection((Collection)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class ModelViewImpl extends AbstractViewImpl implements ModelView {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case WebappPackage.MODEL_VIEW__MODEL:
-				return model != null;
+			case WebappPackage.MODEL_VIEW__COLLECTION:
+				return collection != null;
 		}
 		return super.eIsSet(featureID);
 	}

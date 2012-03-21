@@ -226,13 +226,6 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	private EClass checkBoxEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum cardinalityKindEEnum = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -424,15 +417,6 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttribute_Cardinality() {
-		return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getReference() {
 		return referenceEClass;
 	}
@@ -444,15 +428,6 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 */
 	public EReference getReference_Type() {
 		return (EReference)referenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReference_Cardinality() {
-		return (EAttribute)referenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -613,7 +588,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModelView_Model() {
+	public EReference getModelView_Collection() {
 		return (EReference)modelViewEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -919,15 +894,6 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getCardinalityKind() {
-		return cardinalityKindEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public WebappFactory getWebappFactory() {
 		return (WebappFactory)getEFactoryInstance();
 	}
@@ -968,11 +934,9 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__DEFAULT_VALUE);
-		createEAttribute(attributeEClass, ATTRIBUTE__CARDINALITY);
 
 		referenceEClass = createEClass(REFERENCE);
 		createEReference(referenceEClass, REFERENCE__TYPE);
-		createEAttribute(referenceEClass, REFERENCE__CARDINALITY);
 
 		operationEClass = createEClass(OPERATION);
 		createEReference(operationEClass, OPERATION__PARAMETERS);
@@ -997,7 +961,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		createEAttribute(abstractViewEClass, ABSTRACT_VIEW__DESCRIPTION);
 
 		modelViewEClass = createEClass(MODEL_VIEW);
-		createEReference(modelViewEClass, MODEL_VIEW__MODEL);
+		createEReference(modelViewEClass, MODEL_VIEW__COLLECTION);
 
 		staticViewEClass = createEClass(STATIC_VIEW);
 		createEReference(staticViewEClass, STATIC_VIEW__SECTIONS);
@@ -1044,9 +1008,6 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 
 		checkBoxEClass = createEClass(CHECK_BOX);
 		createEAttribute(checkBoxEClass, CHECK_BOX__DESCRIPTION);
-
-		// Create enums
-		cardinalityKindEEnum = createEEnum(CARDINALITY_KIND);
 	}
 
 	/**
@@ -1116,11 +1077,9 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttribute_Cardinality(), this.getCardinalityKind(), "cardinality", "0", 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReference_Type(), this.getModel(), null, "type", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReference_Cardinality(), this.getCardinalityKind(), "cardinality", "0", 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperation_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1145,7 +1104,7 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 		initEAttribute(getAbstractView_Description(), ecorePackage.getEString(), "description", null, 1, 1, AbstractView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelViewEClass, ModelView.class, "ModelView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelView_Model(), this.getModel(), null, "model", null, 1, 1, ModelView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelView_Collection(), this.getCollection(), null, "collection", null, 1, 1, ModelView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(staticViewEClass, StaticView.class, "StaticView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStaticView_Sections(), this.getSection(), this.getSection_View(), "sections", null, 1, -1, StaticView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1192,11 +1151,6 @@ public class WebappPackageImpl extends EPackageImpl implements WebappPackage {
 
 		initEClass(checkBoxEClass, CheckBox.class, "CheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCheckBox_Description(), ecorePackage.getEString(), "description", null, 1, 1, CheckBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		// Initialize enums and add enum literals
-		initEEnum(cardinalityKindEEnum, CardinalityKind.class, "CardinalityKind");
-		addEEnumLiteral(cardinalityKindEEnum, CardinalityKind.ONE);
-		addEEnumLiteral(cardinalityKindEEnum, CardinalityKind.MANY);
 
 		// Create resource
 		createResource(eNS_URI);

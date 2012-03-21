@@ -73,13 +73,13 @@
   <views xsi:type="webapp:ModelView" name="NoteView" description="My dynamic note page" collection="//@collections.0"/>
   <views xsi:type="webapp:ModelView" name="Users admin" description="My users admin" collection="//@collections.1"/>
   <models name="Note">
-    <attributes name="description" defaultValue="&quot;Default description&quot;" cardinality="ONE"/>
-    <references name="Users" type="//@models.1" cardinality="MANY"/>
+    <attributes name="description" defaultValue="&quot;Default description&quot;"/>
+    <references name="Users" type="//@models.1"/>
   </models>
   <models name="User">
-    <attributes name="First Name" defaultValue="&quot;First name&quot;" cardinality="ONE"/>
-    <attributes name="Last Name" defaultValue="&quot;Last name&quot;" cardinality="ONE"/>
-    <attributes name="Age" defaultValue="21" cardinality="ONE"/>
-    <references name="Notes" type="//@models.0" cardinality="MANY"/>
+    <attributes name="First Name" defaultValue="&quot;First name&quot;"/>
+    <attributes name="Last Name" defaultValue="&quot;Last name&quot;"/>
+    <attributes name="Age" defaultValue="21"/>
+    <references name="Notes" type="//@models.0"/>
   </models>
 </webapp:Application>

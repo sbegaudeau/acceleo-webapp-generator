@@ -62,7 +62,6 @@ public class AttributeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDefaultValuePropertyDescriptor(object);
-			addCardinalityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,28 +80,6 @@ public class AttributeItemProvider
 				 getString("_UI_Attribute_defaultValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_defaultValue_feature", "_UI_Attribute_type"),
 				 WebappPackage.Literals.ATTRIBUTE__DEFAULT_VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Cardinality feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCardinalityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Attribute_cardinality_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_cardinality_feature", "_UI_Attribute_type"),
-				 WebappPackage.Literals.ATTRIBUTE__CARDINALITY,
 				 true,
 				 false,
 				 false,
@@ -149,7 +126,6 @@ public class AttributeItemProvider
 
 		switch (notification.getFeatureID(Attribute.class)) {
 			case WebappPackage.ATTRIBUTE__DEFAULT_VALUE:
-			case WebappPackage.ATTRIBUTE__CARDINALITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

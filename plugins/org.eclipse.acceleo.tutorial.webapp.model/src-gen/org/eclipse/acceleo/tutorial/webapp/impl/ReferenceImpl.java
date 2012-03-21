@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.acceleo.tutorial.webapp.impl.ReferenceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.acceleo.tutorial.webapp.impl.ReferenceImpl#getCardinality <em>Cardinality</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,26 +41,6 @@ public class ReferenceImpl extends NamedElementImpl implements Reference {
 	 * @ordered
 	 */
 	protected Model type;
-
-	/**
-	 * The default value of the '{@link #getCardinality() <em>Cardinality</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCardinality()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final CardinalityKind CARDINALITY_EDEFAULT = CardinalityKind.ONE;
-
-	/**
-	 * The cached value of the '{@link #getCardinality() <em>Cardinality</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCardinality()
-	 * @generated
-	 * @ordered
-	 */
-	protected CardinalityKind cardinality = CARDINALITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,35 +104,12 @@ public class ReferenceImpl extends NamedElementImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CardinalityKind getCardinality() {
-		return cardinality;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCardinality(CardinalityKind newCardinality) {
-		CardinalityKind oldCardinality = cardinality;
-		cardinality = newCardinality == null ? CARDINALITY_EDEFAULT : newCardinality;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, WebappPackage.REFERENCE__CARDINALITY, oldCardinality, cardinality));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case WebappPackage.REFERENCE__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
-			case WebappPackage.REFERENCE__CARDINALITY:
-				return getCardinality();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,9 +124,6 @@ public class ReferenceImpl extends NamedElementImpl implements Reference {
 		switch (featureID) {
 			case WebappPackage.REFERENCE__TYPE:
 				setType((Model)newValue);
-				return;
-			case WebappPackage.REFERENCE__CARDINALITY:
-				setCardinality((CardinalityKind)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -187,9 +140,6 @@ public class ReferenceImpl extends NamedElementImpl implements Reference {
 			case WebappPackage.REFERENCE__TYPE:
 				setType((Model)null);
 				return;
-			case WebappPackage.REFERENCE__CARDINALITY:
-				setCardinality(CARDINALITY_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -204,26 +154,8 @@ public class ReferenceImpl extends NamedElementImpl implements Reference {
 		switch (featureID) {
 			case WebappPackage.REFERENCE__TYPE:
 				return type != null;
-			case WebappPackage.REFERENCE__CARDINALITY:
-				return cardinality != CARDINALITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (cardinality: ");
-		result.append(cardinality);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ReferenceImpl

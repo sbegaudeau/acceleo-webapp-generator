@@ -245,22 +245,13 @@ public interface WebappPackage extends EPackage {
 	int ATTRIBUTE__DEFAULT_VALUE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Cardinality</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__CARDINALITY = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -291,22 +282,13 @@ public interface WebappPackage extends EPackage {
 	int REFERENCE__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Cardinality</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__CARDINALITY = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int REFERENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.OperationImpl <em>Operation</em>}' class.
@@ -604,13 +586,13 @@ public interface WebappPackage extends EPackage {
 	int MODEL_VIEW__DESCRIPTION = ABSTRACT_VIEW__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' reference.
+	 * The feature id for the '<em><b>Collection</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_VIEW__MODEL = ABSTRACT_VIEW_FEATURE_COUNT + 0;
+	int MODEL_VIEW__COLLECTION = ABSTRACT_VIEW_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Model View</em>' class.
@@ -1247,17 +1229,6 @@ public interface WebappPackage extends EPackage {
 	int CHECK_BOX_FEATURE_COUNT = FORM_WIDGET_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.acceleo.tutorial.webapp.CardinalityKind <em>Cardinality Kind</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.acceleo.tutorial.webapp.CardinalityKind
-	 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getCardinalityKind()
-	 * @generated
-	 */
-	int CARDINALITY_KIND = 25;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1408,17 +1379,6 @@ public interface WebappPackage extends EPackage {
 	EAttribute getAttribute_DefaultValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.Attribute#getCardinality <em>Cardinality</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cardinality</em>'.
-	 * @see org.eclipse.acceleo.tutorial.webapp.Attribute#getCardinality()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EAttribute getAttribute_Cardinality();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Reference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1438,17 +1398,6 @@ public interface WebappPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getReference_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.acceleo.tutorial.webapp.Reference#getCardinality <em>Cardinality</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cardinality</em>'.
-	 * @see org.eclipse.acceleo.tutorial.webapp.Reference#getCardinality()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EAttribute getReference_Cardinality();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.Operation <em>Operation</em>}'.
@@ -1631,15 +1580,15 @@ public interface WebappPackage extends EPackage {
 	EClass getModelView();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.acceleo.tutorial.webapp.ModelView#getModel <em>Model</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.acceleo.tutorial.webapp.ModelView#getCollection <em>Collection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Model</em>'.
-	 * @see org.eclipse.acceleo.tutorial.webapp.ModelView#getModel()
+	 * @return the meta object for the reference '<em>Collection</em>'.
+	 * @see org.eclipse.acceleo.tutorial.webapp.ModelView#getCollection()
 	 * @see #getModelView()
 	 * @generated
 	 */
-	EReference getModelView_Model();
+	EReference getModelView_Collection();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.acceleo.tutorial.webapp.StaticView <em>Static View</em>}'.
@@ -1992,16 +1941,6 @@ public interface WebappPackage extends EPackage {
 	EAttribute getCheckBox_Description();
 
 	/**
-	 * Returns the meta object for enum '{@link org.eclipse.acceleo.tutorial.webapp.CardinalityKind <em>Cardinality Kind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Cardinality Kind</em>'.
-	 * @see org.eclipse.acceleo.tutorial.webapp.CardinalityKind
-	 * @generated
-	 */
-	EEnum getCardinalityKind();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2144,14 +2083,6 @@ public interface WebappPackage extends EPackage {
 		EAttribute ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getAttribute_DefaultValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Cardinality</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ATTRIBUTE__CARDINALITY = eINSTANCE.getAttribute_Cardinality();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.ReferenceImpl <em>Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2168,14 +2099,6 @@ public interface WebappPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REFERENCE__TYPE = eINSTANCE.getReference_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Cardinality</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE__CARDINALITY = eINSTANCE.getReference_Cardinality();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.OperationImpl <em>Operation</em>}' class.
@@ -2328,12 +2251,12 @@ public interface WebappPackage extends EPackage {
 		EClass MODEL_VIEW = eINSTANCE.getModelView();
 
 		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Collection</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL_VIEW__MODEL = eINSTANCE.getModelView_Model();
+		EReference MODEL_VIEW__COLLECTION = eINSTANCE.getModelView_Collection();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.impl.StaticViewImpl <em>Static View</em>}' class.
@@ -2624,16 +2547,6 @@ public interface WebappPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHECK_BOX__DESCRIPTION = eINSTANCE.getCheckBox_Description();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.acceleo.tutorial.webapp.CardinalityKind <em>Cardinality Kind</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.acceleo.tutorial.webapp.CardinalityKind
-		 * @see org.eclipse.acceleo.tutorial.webapp.impl.WebappPackageImpl#getCardinalityKind()
-		 * @generated
-		 */
-		EEnum CARDINALITY_KIND = eINSTANCE.getCardinalityKind();
 
 	}
 

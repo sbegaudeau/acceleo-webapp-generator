@@ -59,25 +59,25 @@ public class ModelViewItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addModelPropertyDescriptor(object);
+			addCollectionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Model feature.
+	 * This adds a property descriptor for the Collection feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addModelPropertyDescriptor(Object object) {
+	protected void addCollectionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModelView_model_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModelView_model_feature", "_UI_ModelView_type"),
-				 WebappPackage.Literals.MODEL_VIEW__MODEL,
+				 getString("_UI_ModelView_collection_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelView_collection_feature", "_UI_ModelView_type"),
+				 WebappPackage.Literals.MODEL_VIEW__COLLECTION,
 				 true,
 				 false,
 				 true,

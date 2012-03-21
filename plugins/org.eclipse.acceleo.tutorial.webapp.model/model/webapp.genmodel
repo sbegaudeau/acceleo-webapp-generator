@@ -8,10 +8,6 @@
   <foreignModel>webapp.ecore</foreignModel>
   <genPackages prefix="Webapp" basePackage="org.eclipse.acceleo.tutorial" disposableProviderFactory="true"
       ecorePackage="webapp.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="webapp.ecore#//CardinalityKind">
-      <genEnumLiterals ecoreEnumLiteral="webapp.ecore#//CardinalityKind/ONE"/>
-      <genEnumLiterals ecoreEnumLiteral="webapp.ecore#//CardinalityKind/MANY"/>
-    </genEnums>
     <genClasses ecoreClass="webapp.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//NamedElement/name"/>
     </genClasses>
@@ -29,11 +25,9 @@
     </genClasses>
     <genClasses ecoreClass="webapp.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Attribute/defaultValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Attribute/cardinality"/>
     </genClasses>
     <genClasses ecoreClass="webapp.ecore#//Reference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//Reference/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Reference/cardinality"/>
     </genClasses>
     <genClasses ecoreClass="webapp.ecore#//Operation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Operation/parameters"/>
@@ -54,10 +48,55 @@
     <genClasses image="false" ecoreClass="webapp.ecore#//AbstractView">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//AbstractView/operations"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference webapp.ecore#//AbstractView/application"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//AbstractView/description"/>
     </genClasses>
     <genClasses ecoreClass="webapp.ecore#//ModelView">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//ModelView/model"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//ModelView/collection"/>
     </genClasses>
-    <genClasses ecoreClass="webapp.ecore#//StaticView"/>
+    <genClasses ecoreClass="webapp.ecore#//StaticView">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//StaticView/sections"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Section">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Section/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Section/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Section/widgets"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference webapp.ecore#//Section/view"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webapp.ecore#//Widget">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Widget/title"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference webapp.ecore#//Widget/section"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Form">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Form/formWidgets"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Table/columnNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Table/rowNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Table/striped"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Table/bordered"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Text/columnNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Video">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Video/path"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Gallery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Gallery/imagesPath"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//ImagesBlock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//ImagesBlock/imagesPath"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webapp.ecore#//FormWidget">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//FormWidget/label"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference webapp.ecore#//FormWidget/form"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//TextArea"/>
+    <genClasses ecoreClass="webapp.ecore#//Spinner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Spinner/values"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//CheckBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//CheckBox/description"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

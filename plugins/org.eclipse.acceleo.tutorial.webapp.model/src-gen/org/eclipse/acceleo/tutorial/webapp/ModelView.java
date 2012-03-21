@@ -15,7 +15,7 @@ package org.eclipse.acceleo.tutorial.webapp;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.acceleo.tutorial.webapp.ModelView#getModel <em>Model</em>}</li>
+ *   <li>{@link org.eclipse.acceleo.tutorial.webapp.ModelView#getCollection <em>Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,29 +25,29 @@ package org.eclipse.acceleo.tutorial.webapp;
  */
 public interface ModelView extends AbstractView {
 	/**
-	 * Returns the value of the '<em><b>Model</b></em>' reference.
+	 * Returns the value of the '<em><b>Collection</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Model</em>' reference isn't clear,
+	 * If the meaning of the '<em>Collection</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model</em>' reference.
-	 * @see #setModel(Model)
-	 * @see org.eclipse.acceleo.tutorial.webapp.WebappPackage#getModelView_Model()
+	 * @return the value of the '<em>Collection</em>' reference.
+	 * @see #setCollection(Collection)
+	 * @see org.eclipse.acceleo.tutorial.webapp.WebappPackage#getModelView_Collection()
 	 * @model required="true"
 	 * @generated
 	 */
-	Model getModel();
+	Collection getCollection();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.acceleo.tutorial.webapp.ModelView#getModel <em>Model</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.acceleo.tutorial.webapp.ModelView#getCollection <em>Collection</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model</em>' reference.
-	 * @see #getModel()
+	 * @param value the new value of the '<em>Collection</em>' reference.
+	 * @see #getCollection()
 	 * @generated
 	 */
-	void setModel(Model value);
+	void setCollection(Collection value);
 
 } // ModelView
