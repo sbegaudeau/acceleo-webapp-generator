@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Webserver
+Bundle-SymbolicName: webserver
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.jetty.http;bundle-version="7.5.1",
+ org.eclipse.jetty.server;bundle-version="7.5.1",
+ org.eclipse.jetty.util;bundle-version="7.5.1",
+ javax.servlet;bundle-version="2.5.0",
+ org.eclipse.jetty.io;bundle-version="7.5.1",
+ org.eclipse.jetty.continuation;bundle-version="7.5.1"
