@@ -19,6 +19,8 @@ var [anApplication.genTypeName()/] = [anApplication.genTypeName()/] || {};
 		
 		$('.active').removeClass('active');
 	}
+	/* [protected ('additional functions */')]
+	/* [/protected] */
 });
 [/file]
 [/template]

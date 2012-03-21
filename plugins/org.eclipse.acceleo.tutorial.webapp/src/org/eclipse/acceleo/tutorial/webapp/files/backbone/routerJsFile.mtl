@@ -30,6 +30,8 @@ var [aRouter.application.genTypeName()/] = [aRouter.application.genTypeName()/] 
 		[aRouterMapping.view.genVarName()/].render();
 	},
 	[/for]
+	/* [protected ('additional routes */')]
+	/* [/protected] */
 	defaultAction: function(pageId){
 		if (pageId.length === 0) {
 			var home = new [aRouter.application.genTypeName()/].Home();

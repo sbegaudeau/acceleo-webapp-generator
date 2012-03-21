@@ -13,13 +13,19 @@
 <html lang="en">
   <!-- All Right Reserved -->
   <head>
-    <title>Bootstrap, from Twitter</title>
+    <title>[anApplication.name/]</title>
   </head>
   <body>
      <div id="home-template">
        <div class="inner jumbotron">
-         <h1>Bootstrap, from Twitter</h1>
+         <!-- [protected ('additional title part -->')]
+         <h1>[anApplication.name/]</h1>
+         <!-- [/protected] -->
+         <!-- [protected ('additional description part -->')]
          <p>Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.</p>
+         <!-- [/protected] -->
+         <!-- [protected ('additional features -->')]
+         <!-- [/protected] -->
        </div>
      </div>
   </body>

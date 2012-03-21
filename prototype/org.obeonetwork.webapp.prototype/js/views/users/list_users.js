@@ -55,9 +55,11 @@ EclipseCon.ListUsers = Backbone.View.extend({
 								elem.childNodes[0].value = currentValue;
 							}
 						} else if (data_attribute_name === 'age') {
-							$(elem).html('<input type="number" name="age" id="age" min="18" max="120" step="1" value="18">');
-							if (currentValue.length > 0) {
-								elem.childNodes[0].value = currentValue;
+							if ($(elem).children(':first-child')[0] === undefined) {
+								$(elem).html('<input type="number" name="age" id="age" min="18" max="120" step="1" value="18">');
+								if (currentValue.length > 0) {
+									elem.childNodes[0].value = currentValue;
+								}
 							}
 						} else if (data_attribute_name === 'projects') {
 						} else if (data_attribute_name === 'languages') {

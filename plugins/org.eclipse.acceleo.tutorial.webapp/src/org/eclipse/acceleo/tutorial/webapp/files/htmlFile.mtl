@@ -60,9 +60,9 @@ index.html
       <a class="brand" href="./index.html">[anApplication.name/]</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li id="home" class="active"><a href="#!/home">Home</a></li>
+          <li id="home-menu" class="active"><a href="#!/home">Home</a></li>
           [for (aRouterMapping : RouterMapping | anApplication.router.mappings)]
-          <li id="[aRouterMapping.view.name.reqTextToHtmlId()/]"><a href="#[aRouterMapping.path/]">[aRouterMapping.view.name.toUpperFirst()/]</a></li>
+          <li id="[aRouterMapping.view.name.reqTextToHtmlId()/]-menu"><a href="#[aRouterMapping.path/]">[aRouterMapping.view.name.toUpperFirst()/]</a></li>
           [/for]
         </ul>
       </div>

@@ -13,8 +13,10 @@
 
 var [aCollection.application.genTypeName()/] = [aCollection.application.genTypeName()/] || {};
 [aCollection.application.genTypeName()/].[aCollection.genTypeName()/] = Backbone.Collection.extend({
-	model: [aCollection.application.genTypeName()/].[aCollection.model.genTypeName()/].Model,
-	localStorage: new Store("[aCollection.application.genVarName()/].[aCollection.model.genVarName()/]")
+	model: [aCollection.application.genTypeName()/].[aCollection.model.genTypeName()/],
+	localStorage: new Store("[aCollection.application.genVarName()/].[aCollection.genVarName()/]")
+	/* [protected ('additional features */')]
+	/*[/protected]*/
 });
 [/file]
 [/template]

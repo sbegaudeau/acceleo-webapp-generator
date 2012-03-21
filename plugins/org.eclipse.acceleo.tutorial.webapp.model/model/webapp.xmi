@@ -4,8 +4,10 @@
     <mappings path="!/first" view="//@views.0"/>
     <mappings path="!/second" view="//@views.1"/>
     <mappings path="!/notes" view="//@views.2"/>
+    <mappings path="!/users" view="//@views.3"/>
   </router>
   <collections name="NotesCollection" model="//@models.0"/>
+  <collections name="UsersCollection" model="//@models.1"/>
   <views xsi:type="webapp:StaticView" name="First page" description="My first static page.">
     <sections title="Default grid system" description="12 columns with a responsive twist">
       <widgets xsi:type="webapp:Text" title="Offsetting columns" columnNumber="3"/>
@@ -69,7 +71,15 @@
     </sections>
   </views>
   <views xsi:type="webapp:ModelView" name="NoteView" description="My dynamic note page" collection="//@collections.0"/>
+  <views xsi:type="webapp:ModelView" name="Users admin" description="My users admin" collection="//@collections.1"/>
   <models name="Note">
     <attributes name="description" defaultValue="&quot;Default description&quot;" cardinality="ONE"/>
+    <references name="Users" type="//@models.1" cardinality="MANY"/>
+  </models>
+  <models name="User">
+    <attributes name="First Name" defaultValue="&quot;First name&quot;" cardinality="ONE"/>
+    <attributes name="Last Name" defaultValue="&quot;Last name&quot;" cardinality="ONE"/>
+    <attributes name="Age" defaultValue="21" cardinality="ONE"/>
+    <references name="Notes" type="//@models.0" cardinality="MANY"/>
   </models>
 </webapp:Application>

@@ -26,8 +26,10 @@ var [aStaticView.application.genTypeName()/] = [aStaticView.application.genTypeN
 		
 					
 		$('.active').removeClass('active');
-		$('#[aStaticView.name.reqTextToHtmlId()/]').addClass('active');
+		$('#[aStaticView.name.reqTextToHtmlId()/]-menu').addClass('active');
 	}
+	/* [protected ('additional functions */')]
+	/* [/protected] */
 });
 [/file]
 [/template]

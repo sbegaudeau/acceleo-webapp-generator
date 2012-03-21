@@ -16,17 +16,21 @@ var [anApplication.genTypeName()/] = [anApplication.genTypeName()/] || {};
 		var self = this;
 		var myEl = self.el;
 		$.get('[anApplication.genTemplatesDirectoryPath()/]/home.html', function(page) {
+			/* [protected ('custom template */')]
 			var templates = $(page).filter('#home-template');
 			if (templates.length === 1) {
 				var mainBannerTemplate = _.template($(templates['['/]0[']'/]).html());
 				$(self.el).html(mainBannerTemplate());
 			}
+			/* [/protected] */
 		});
 		
 					
 		$('.active').removeClass('active');
-		$('#home').addClass('active');
+		$('#home-menu').addClass('active');
 	}
+	/* [protected ('additional functions */')]
+	/* [/protected] */
 });
 [/file]
 [/template]

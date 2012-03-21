@@ -20,5 +20,7 @@ var [anApplication.genTypeName()/] = [anApplication.genTypeName()/] || {};
 [for (aCollection : Collection | anApplication.collections)]
 [anApplication.genTypeName()/].[aCollection.genVarName()/].fetch();
 [/for]
+/* [protected ('additional features */')]
+/*[/protected]*/
 [/file]
 [/template]

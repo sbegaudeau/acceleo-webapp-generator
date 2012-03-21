@@ -27,14 +27,14 @@
             [comment generate the index for sections /]
             [for (aSection : Section | aStaticView.sections)]
             <li>
-              <a href="#[aSection.title.reqTextToHtmlId()/]">[aSection.title/]</a>
+              <a href="#[aSection.title.reqTextToHtmlId()/]-section">[aSection.title/]</a>
             </li>
             [/for]
           </ul>  
         </div>
       </header>
       [for (aSection : Section | aStaticView.sections)]
-      <section id="[aSection.title.reqTextToHtmlId()/]">
+      <section id="[aSection.title.reqTextToHtmlId()/]-section">
         <div class="page-header">
           <h1>[aSection.title/] <small>[aSection.description/]</small></h1>
         </div>

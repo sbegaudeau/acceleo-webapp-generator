@@ -16,7 +16,7 @@
 	[for (aFormWidget : FormWidget | aForm.formWidgets)]
 	<div class="control-group">
 	  [if (not aFormWidget.label.oclIsUndefined())]
-	  <label class="control-label" for="[aFormWidget.label.reqTextToHtmlId()/]">[aFormWidget.label/]</label>
+	  <label class="control-label" for="[aFormWidget.label.reqTextToHtmlId()/]-widget">[aFormWidget.label/]</label>
 	  [/if]
 	  [aFormWidget.genHtmlFormWidget()/]
 	</div>
@@ -116,13 +116,13 @@ voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
 
 [template public genHtmlFormWidget(aTextArea : TextArea)]
 <div class="controls">
-  <input type="text" class="input-xlarge" [if(not aTextArea.label.oclIsUndefined())]id="[aTextArea.label.reqTextToHtmlId()/]"[/if]>
+  <input type="text" class="input-xlarge" [if(not aTextArea.label.oclIsUndefined())]id="[aTextArea.label.reqTextToHtmlId()/]-widget"[/if]>
 </div>       
 [/template]
 
 [template public genHtmlFormWidget(aSpinner : Spinner)]
 <div class="controls">
-  <select multiple="multiple" [if(not aSpinner.label.oclIsUndefined())]id="[aSpinner.label.reqTextToHtmlId()/]"[/if]>
+  <select multiple="multiple" [if(not aSpinner.label.oclIsUndefined())]id="[aSpinner.label.reqTextToHtmlId()/]-widget"[/if]>
   [for (aValue : String | aSpinner.values)]
     <option>[aValue/]</option>
   [/for]
@@ -133,7 +133,7 @@ voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
 [template public genHtmlFormWidget(aCheckBox : CheckBox)]
 <div class="controls">
   <label class="checkbox">
-    <input type="checkbox" [if(not aCheckBox.label.oclIsUndefined())]id="[aCheckBox.label.reqTextToHtmlId()/]"[/if] value="option1">
+    <input type="checkbox" [if(not aCheckBox.label.oclIsUndefined())]id="[aCheckBox.label.reqTextToHtmlId()/]-widget"[/if] value="option1">
 	[aCheckBox.description/]
   </label>
 </div>
