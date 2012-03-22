@@ -18,7 +18,7 @@
 
 [anApplication.genBody()/]
 
-[anApplication.genNavbar()/]
+[comment [anApplication.genNavbar()/]
 
 [anApplication.genSubSections()/]
 
@@ -26,27 +26,103 @@
 
 [anApplication.genSpecificJumbotron()/]
 
-[anApplication.genQuick()/]
+[comment [anApplication.genQuick()/]
 
-[anApplication.genMarketing()/]
+[comment [anApplication.genMarketing()/]
 
-[anApplication.genFooter()/]
+[comment [anApplication.genFooter()/]
 
-[anApplication.genSpecialGrid()/]
+[comment [anApplication.genSpecialGrid()/]
 
-[anApplication.genMiniLayoutPreview()/]
+[comment [anApplication.genMiniLayoutPreview()/]
 
-[anApplication.genPopover()/]
+[comment [anApplication.genPopover()/]
 
-[anApplication.genDownload()/]
+[comment [anApplication.genDownload()/]
 
 [anApplication.genColorSwatche()/]
 
-[anApplication.genMisc()/]
+[comment [anApplication.genMisc()/]
 
-[anApplication.genIcon()/]
+[comment [anApplication.genIcon()/]
 
-[anApplication.genMedia()/]
+[comment [anApplication.genMedia()/]
+
+
+body {
+  padding-top: 40px;
+}
+
+.actions-bar {
+  padding-bottom: 10px;
+}
+.main-banner {
+  padding-top: 20px;
+  min-width: 1000px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  background-image: url(../images/css/carbon_fibre_big.png);
+  color: #e6e6e6;
+}
+.main-banner h1 {
+  color: #e6e6e6;
+}
+.main-banner h2 {
+  color: #e6e6e6;
+}
+.main-banner legend {
+  color: #e6e6e6;
+}
+.main-banner label {
+  color: #e6e6e6;
+}
+.main-banner-container {
+  padding-top: 0;
+  width: 1000px;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+.main-banner-content {
+  display: block;
+  overflow: visible;
+  cursor: default;
+  width: 920px;
+  margin: 0 40px;
+  position: relative;
+  z-index: 1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: left;
+}
+.main-banner-left-content {
+  padding-top: 30px;
+  width: 530px;
+  height: 450px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.main-banner-right-content {
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+  width: 360px;
+  height: 400px;
+}
+.form-stacked div.clearfix.error {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+footer {
+  position: relative;
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
 
 
 table {
@@ -72,6 +148,10 @@ table .blue {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+}
+
+fieldset legend {
+  border-bottom: none;
 }
 
 /*[protected ('additional CSS properties */')]

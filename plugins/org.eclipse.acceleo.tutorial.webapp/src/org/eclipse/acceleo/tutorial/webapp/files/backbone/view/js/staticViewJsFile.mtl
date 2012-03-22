@@ -21,6 +21,7 @@ var [aStaticView.application.genTypeName()/] = [aStaticView.application.genTypeN
 			if (templates.length === 1) {
 				var mainBannerTemplate = _.template($(templates['['/]0[']'/]).html());
 				$(self.el).html(mainBannerTemplate());
+				$(self.el).addClass('container').removeClass('main-banner');
 			}
 		});
 		

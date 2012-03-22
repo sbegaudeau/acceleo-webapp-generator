@@ -96,7 +96,7 @@ $('#new-btn').bind('click', function(){
 	webkitNotifications.requestPermission(function() {
 		var permission = webkitNotifications.checkPermission();
 		if (permission === 0) {
-			var notification = webkitNotifications.createNotification('assets/images/acceleo.png', 'Project Management', 'New [aModelView.collection.model.name/] created');
+			var notification = webkitNotifications.createNotification('assets/images/acceleo.png', '[aModelView.application.name.toUpperFirst()/]', 'New [aModelView.collection.model.name/] created');
 			notification.show();
 		}
 	});
