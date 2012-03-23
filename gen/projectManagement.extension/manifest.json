@@ -1,0 +1,35 @@
+/********************************************************************************
+** Copyright (c) 2012 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Stephane Begaudeau (Obeo) - initial API and implementation
+*********************************************************************************/
+{
+	"name": "Project Management",
+	"version": "1.0",
+	"description": "Project Management Chrome Extension",
+	"browser_action": {
+		"default_icon": "assets/images/acceleo.png",
+		"popup": "popup.html"
+	},
+	"permissions": ["tabs", "contextMenus"],
+	"background_page": "background.html",
+	"content_scripts": [{"matches": ["http://*/*","https://*/*","file:///*/*"],
+						 "js": ["assets/js/lib/jquery.js",
+						 		"assets/js/lib/underscore.js",
+						 		"assets/js/lib/underscore.string.js",
+						 		"assets/js/lib/backbone.js",
+						 		"assets/js/lib/backbone.localStorage.js",
+								"assets/js/models/project.js",
+								"assets/js/models/user.js",
+								"assets/js/models/language.js",
+								"assets/js/collections/projectsCollection.js",
+								"assets/js/collections/usersCollection.js",
+								"assets/js/collections/languagesCollection.js",
+						 		"assets/js/contentScript.js"]
+						}]
+}	

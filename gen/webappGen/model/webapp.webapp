@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ASCII"?>
+<webapp:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:webapp="http://www.eclipse.org/acceleo/tutorial/webapp" name="webapp">
+  <router name="router">
+    <mappings path="!/first" view="//@views.0"/>
+    <mappings path="!/second" view="//@views.1"/>
+    <mappings path="!/notes" view="//@views.2"/>
+    <mappings path="!/users" view="//@views.3"/>
+  </router>
+  <collections name="NotesCollection" model="//@models.0"/>
+  <collections name="UsersCollection" model="//@models.1"/>
+  <views xsi:type="webapp:StaticView" name="First page" description="My first static page.">
+    <sections title="Default grid system" description="12 columns with a responsive twist">
+      <widgets xsi:type="webapp:Text" title="Offsetting columns" columnNumber="3"/>
+      <widgets xsi:type="webapp:Table" title="Table title" striped="true" bordered="true">
+        <columnNames>column 1</columnNames>
+        <columnNames>column 2</columnNames>
+        <rowNames>row 1</rowNames>
+        <rowNames>row 2</rowNames>
+        <rowNames>row 3</rowNames>
+        <rowNames>row 4</rowNames>
+      </widgets>
+      <widgets xsi:type="webapp:Text" title="2 cols" columnNumber="2"/>
+    </sections>
+    <sections title="Fluid grid system" description="12 responsive, percent-based columns">
+      <widgets xsi:type="webapp:Video" title="video 1" path="http://video-js.zencoder.com/oceans-clip.mp4"/>
+      <widgets xsi:type="webapp:Text" title="Another text 3 cols" columnNumber="3"/>
+    </sections>
+    <sections title="Grid customization" description="My gallery description.">
+      <widgets xsi:type="webapp:Gallery" title="My new gallery">
+        <imagesPath>http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg</imagesPath>
+        <imagesPath>http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-02.jpg</imagesPath>
+        <imagesPath>http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-03.jpg</imagesPath>
+      </widgets>
+    </sections>
+    <sections title="A lot of pics !" description="New feature...">
+      <widgets xsi:type="webapp:ImagesBlock" title="My travel">
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+      </widgets>
+    </sections>
+  </views>
+  <views xsi:type="webapp:StaticView" name="Second page" description="My second static page.">
+    <sections title="Typography" description="Headings, paragraphs, lists, and other inline type elements">
+      <widgets xsi:type="webapp:Text" title="Some text" columnNumber="3"/>
+      <widgets xsi:type="webapp:ImagesBlock" title="Great pics!">
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+        <imagesPath>http://placehold.it/360x268</imagesPath>
+      </widgets>
+      <widgets xsi:type="webapp:Text" title="Other great stuff!" columnNumber="3"/>
+    </sections>
+    <sections title="Code" description=" Inline and block code snippets">
+      <widgets xsi:type="webapp:Text" title="Register now !" columnNumber="1"/>
+      <widgets xsi:type="webapp:Form" title="Personnal Information">
+        <formWidgets xsi:type="webapp:TextArea" label="First Name"/>
+        <formWidgets xsi:type="webapp:TextArea" label="Last Name"/>
+        <formWidgets xsi:type="webapp:Spinner" label="Country">
+          <values>France</values>
+          <values>USA</values>
+          <values>Canada</values>
+          <values>Germany</values>
+          <values>Great Britain</values>
+        </formWidgets>
+        <formWidgets xsi:type="webapp:CheckBox" label="Mood" description="Are you happy?"/>
+      </widgets>
+    </sections>
+  </views>
+  <views xsi:type="webapp:ModelView" name="NoteView" description="My dynamic note page" collection="//@collections.0"/>
+  <views xsi:type="webapp:ModelView" name="Users admin" description="My users admin" collection="//@collections.1"/>
+  <models name="Note">
+    <attributes name="description" defaultValue="&quot;Default description&quot;"/>
+    <references name="Users" type="//@models.1"/>
+  </models>
+  <models name="User">
+    <attributes name="First Name" defaultValue="&quot;First name&quot;"/>
+    <attributes name="Last Name" defaultValue="&quot;Last name&quot;"/>
+    <attributes name="Age" defaultValue="21"/>
+    <references name="Notes" type="//@models.0"/>
+  </models>
+</webapp:Application>

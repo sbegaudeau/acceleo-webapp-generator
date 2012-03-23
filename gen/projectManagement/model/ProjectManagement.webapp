@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<webapp:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:webapp="http://www.eclipse.org/acceleo/tutorial/webapp" name="Project Management">
+  <router name="router">
+    <mappings path="!/projects" view="//@views.0"/>
+    <mappings path="!/users" view="//@views.1"/>
+    <mappings path="!/languages" view="//@views.2"/>
+  </router>
+  <collections name="projectsCollection" model="//@models.0"/>
+  <collections name="usersCollection" model="//@models.1"/>
+  <collections name="languagesCollection" model="//@models.2"/>
+  <views xsi:type="webapp:ModelView" name="Projects" description="The projects editor view." collection="//@collections.0"/>
+  <views xsi:type="webapp:ModelView" name="Users" description="The users editor view." collection="//@collections.1"/>
+  <views xsi:type="webapp:ModelView" name="Languages" description="The languages editor view." collection="//@collections.2"/>
+  <models name="Project">
+    <attributes name="Name" defaultValue="&quot;default project name&quot;"/>
+    <references name="Languages" type="//@models.2"/>
+    <references name="Users" type="//@models.1"/>
+  </models>
+  <models name="User">
+    <attributes name="First Name" defaultValue="&quot;default first name&quot;"/>
+    <attributes name="Last Name" defaultValue="&quot;default last name&quot;"/>
+    <attributes name="Age" defaultValue="&quot;21&quot;"/>
+    <references name="Projects" type="//@models.0"/>
+    <references name="Languages" type="//@models.2"/>
+  </models>
+  <models name="Language">
+    <attributes name="Name" defaultValue="&quot;Default language&quot;"/>
+  </models>
+</webapp:Application>

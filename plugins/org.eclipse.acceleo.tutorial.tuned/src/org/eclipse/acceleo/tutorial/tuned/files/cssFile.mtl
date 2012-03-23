@@ -2,7 +2,7 @@
 [module cssFile('http://www.eclipse.org/acceleo/tutorial/webapp') extends org::eclipse::acceleo::tutorial::webapp::files::cssFile]
 
 
-[template protected preCssTemplate (oclAny : OclAny) overrides preCssTemplate]
+[template protected preCssTemplate (oclAny : OclAny) overrides preCssTemplate? (getProperty('extended')='true')]
 .navbar-inner {
   padding-left: 20px;
   padding-right: 20px;
@@ -121,7 +121,7 @@ line-height: 20px;
 
 [/template]
 
-[template protected postCssTemplate (oclAny : OclAny) overrides postCssTemplate]
+[template protected postCssTemplate (oclAny : OclAny) overrides postCssTemplate? (getProperty('extended')='true')]
 
 [/template]
 

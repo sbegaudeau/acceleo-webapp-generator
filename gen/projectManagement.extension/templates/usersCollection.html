@@ -1,0 +1,24 @@
+<body class="languages_page">
+	<div id="content">
+		<ul class="breadcrumb">
+			<li><a href="../popup.html"  data-internal="true">Home</a>  <span class="divider">/</span></li>
+			<li class="active"><a href="usersCollection.html" data-internal="true">usersCollection</a></li>
+		</ul>
+		<table class="table-bordered table-striped">
+			<thead>
+				<% for (var i = 0; i < dialogColumnNames.length; i++) { %>
+				<th class="blue" width="<%=dialogColumnWidths[i]%>%" data-num="<%=i%>"><%=dialogColumnNames[i]%></th>
+				<% }; %>
+			</thead>
+			<tbody>
+				<% for (var i = 0; i < dialogObjects.length; i++) { %>
+				<tr>
+					<% for (var j = 0; j < attributesToConsider.length; j++) { %>
+					<td><%=dialogObjects[i][attributesToConsider[j]]%></td>
+					<% } %>
+				</tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+</body>
