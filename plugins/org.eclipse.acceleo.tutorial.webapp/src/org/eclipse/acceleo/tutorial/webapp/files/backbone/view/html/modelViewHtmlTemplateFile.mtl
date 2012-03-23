@@ -14,18 +14,18 @@
 <html lang="en">
   <!-- All Right Reserved -->
   <head>
-    <title>Bootstrap, from Twitter</title>
+    <title>[aModelView.name.toUpperFirst()/]</title>
   </head>
   <body>
 
   <script id="[aModelView.name.reqTextToHtmlId()/]-template">
     <header class="jumbotron subhead" id="overview">
-      <h1>[aModelView.name/]</h1>
+      <h1>[aModelView.name.toUpperFirst()/]</h1>
       <p class="lead">[aModelView.description/]</p>
     </header>
     <div class="actions-bar">
-      <a class="btn" href="#" id="new-btn">New</a>
-      <a class="btn" href="#" id="delete-btn">Delete</a>
+      <a class="btn btn-primary" href="#" id="new-btn">New</a>
+      <a class="btn btn-danger" href="#" id="delete-btn">Delete</a>
     </div>
     <table class="bordered-table zebra-striped">
       <thead>

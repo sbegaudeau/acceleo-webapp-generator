@@ -1,14 +1,14 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Acceleo WebApp Module IDE Plug-in
-Bundle-SymbolicName: org.eclipse.acceleo.tutorial.webapp.ui;singleton:=true
+Bundle-Name: Acceleo ChromeExtension Module IDE Plug-in
+Bundle-SymbolicName: org.eclipse.acceleo.tutorial.extension.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.eclipse.acceleo.tutorial.webapp.ui.Activator
+Bundle-Activator: org.eclipse.acceleo.tutorial.extension.ui.Activator
 Bundle-Vendor: Eclipse Modeling Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources, 
- org.eclipse.acceleo.tutorial.webapp,
+ org.eclipse.acceleo.tutorial.extension,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.ocl,

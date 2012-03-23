@@ -1,72 +1,151 @@
 [comment encoding = UTF-8 /]
-[module cssFile('http://www.eclipse.org/acceleo/tutorial/webapp')]
+[module cssFile('http://www.eclipse.org/acceleo/tutorial/webapp') extends org::eclipse::acceleo::tutorial::webapp::files::cssFile]
 
-[import org::eclipse::acceleo::tutorial::webapp::common::fileUtils /]
 
-[template private cssFile(anApplication : Application)]
-[anApplication.genCssDirectoryPath()/]/[anApplication.genVarName()/].css
+[template protected preCssTemplate (oclAny : OclAny) overrides preCssTemplate]
+.navbar-inner {
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #AD1D28;
+}
+
+.navbar .brand {
+  padding-top: 12px;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.navbar-inner {
+  background-color: #AD1D28;
+  background-image: -moz-linear-gradient(top, #AD1D28, #AD1D28);
+  background-image: -ms-linear-gradient(top, #AD1D28, #AD1D28);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#AD1D28), to(#AD1D28));
+  background-image: -webkit-linear-gradient(top, #AD1D28, #AD1D28);
+  background-image: -o-linear-gradient(top, #AD1D28, #AD1D28);
+  background-image: linear-gradient(top, #AD1D28, #AD1D28);
+  background-repeat: repeat-x;
+}
+
+.navbar .nav > li > a {
+  float: none;
+  padding: 10px 10px 11px;
+  line-height: 19px;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  padding-top: 17px;
+  padding-bottom: 14px;
+  text-shadow: none;
+}
+
+.navbar .nav .active > a, .navbar .nav .active > a:hover {
+background-color: #D92432;
+color: white;
+text-decoration: none;
+}
+.nav a {
+ color: white;
+}
+
+div.subnav .nav > .active > a:hover, div.subnav .nav > li > a:hover, div.subnav .nav > li.active > a:hover {
+border-right-color: transparent;
+background-color: rgba(256, 256, 256, 0.4);
+color: rgba(256, 256, 256, 0.9);
+}
+
+
+.nav-tabs > li, .nav-pills > li {
+float: left;
+}
+
+.navbar .brand, legend {
+font-family: 'Lobster',cursive;
+}
+
+div.subnav {
+background-color: rgba(42, 99, 105, 0.9);
+background-image: none;
+border: 0px solid transparent;
+border-radius: 0;
+box-shadow: none;
+}
+
+a{color:#fcdd3f;text-decoration:none;}
+a:hover{color:#fcdd3f;text-decoration:underline;}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Lobster',cursive;
+text-rendering: optimizelegibility;
+color:#fff;
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+color: #fff;
+}
+
+li {
+line-height: 20px;
+}
+
+.btn {
+  padding: 12px 16px;
+  border-radius: 0;
+  background-image: none;
+  text-shadow: none;
+  box-shadow: none;
+  background-color: #DDD;
+  border-color: transparent;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btn-danger {
+  background-color: #AD1D28;
+  border-color: transparent;
+  color:#fff;
+}
+
+.btn-primary {
+  background-color: #4D3A7D;
+  border-color: transparent;
+  color:#fff;
+}
+
+.form-actions {
+  background-color: #3CB9C6;
+}
+
 [/template]
 
-[template public genCssFile(anApplication : Application)]
-[file (anApplication.cssFile(), false, 'UTF-8')]
-/* Add additional stylesheets below
--------------------------------------------------- */
-/*
-  Bootstrap's documentation styles
-  Special styles for presenting Bootstrap's documentation and examples
-*/
-/*extended = [getProperty('extended')/]*/
-/*[protected ('additional CSS properties pre */')]
-/*[/protected]*/
+[template protected postCssTemplate (oclAny : OclAny) overrides postCssTemplate]
 
-[anApplication.preCssTemplate()/]
-
-[anApplication.genBody()/]
-
-[anApplication.genSubSections()/]
-
-[anApplication.genJumbotron()/]
-
-[anApplication.genSpecificJumbotron()/]
-
-[anApplication.genColorSwatche()/]
-
-[anApplication.genMainBanner()/]
-
-[anApplication.genForm()/]
-
-[anApplication.genFooter()/]
-
-[anApplication.genTable()/]
-
-[anApplication.postCssTemplate()/]
-
-/*[protected ('additional CSS properties post */')]
-/*[/protected]*/
-
-[/file]
 [/template]
 
-[template protected preCssTemplate (oclAny : OclAny) ]
-[/template]
-
-[template protected postCssTemplate (oclAny : OclAny) ]
-[/template]
-
-[template protected genBody (oclAny : OclAny) ]
+[template protected genBody (oclAny : OclAny) overrides genBody ? (getProperty('extended')='true')]
 /* Body and structure
 -------------------------------------------------- */
 body {
+  background-color: #0F8790;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#12A5B0), to(#0F8790));
+  background-image: -webkit-radial-gradient(circle, #12A5B0, #0F8790);
+  background-image: -moz-radial-gradient(circle, #12A5B0, #0F8790);
+  background-image: -ms-radial-gradient(circle, #12A5B0, #0F8790);
+  background-image: -o-radial-gradient(circle, #12A5B0, #0F8790);
+  background-repeat: no-repeat;
   position: relative;
   padding-top: 90px;
-  padding-top: 40px;
-  background-color: #fff;
   background-repeat: repeat-x;
   background-position: 0 40px;
+  color:#fff;
+  font-family: 'Cabin',Verdana,sans-serif;
 }
 [/template]
 
-[template protected genSubSections (oclAny : OclAny) ]
+[template protected genSubSections (oclAny : OclAny) overrides genSubSections ? (getProperty('extended')='true')]
 /* Space out sub-sections more
 -------------------------------------------------- */
 section {
@@ -85,7 +164,7 @@ hr.soften {
 }
 [/template]
 
-[template protected genJumbotron (oclAny : OclAny) ]
+[template protected genJumbotron (oclAny : OclAny) overrides genJumbotron ? (getProperty('extended')='true')]
 /* Jumbotrons
 -------------------------------------------------- */
 .jumbotron {
@@ -94,15 +173,13 @@ hr.soften {
 .jumbotron h1 {
   margin-bottom: 9px;
   font-size: 81px;
+  font-weight: bold;
   letter-spacing: -1px;
   line-height: 1;
 }
 .jumbotron p {
   margin-bottom: 18px;
-  font-size: 25px;
   font-weight: 300;
-  line-height: 36px;
-  color: #333;
 }
 .jumbotron .btn-large {
   font-size: 20px;
@@ -113,9 +190,8 @@ hr.soften {
      -moz-border-radius: 6px;
           border-radius: 6px;
 }
-.jumbotron .download-info {
-  font-size: 16px;
-  color: #999;
+.jumbotron .btn-large small {
+  font-size: 14px;
 }
 
 /* Masthead (docs home) */
@@ -131,23 +207,20 @@ hr.soften {
   margin-bottom: 18px;
 }
 .masthead p {
-  margin: 0 5% 18px;
+  margin-left: 5%;
+  margin-right: 5%;
   font-size: 30px;
   line-height: 36px;
 }
 [/template]
 
-[template protected genSpecificJumbotron (oclAny : OclAny) ]
-/* Specific jumbotrons
+[template protected genSpecificJumbotron (oclAny : OclAny) overrides genSpecificJumbotron ? (getProperty('extended')='true')]
+* Specific jumbotrons
 ------------------------- */
 /* supporting docs pages */
 .subhead {
   padding-bottom: 0;
-  border-bottom: 0;
-}
-.subhead h1,
-.subhead p {
-  margin-right: 0;
+  margin-bottom: 9px;
 }
 .subhead h1 {
   font-size: 54px;
@@ -178,8 +251,6 @@ hr.soften {
   margin: 0;
   padding-top:    11px;
   padding-bottom: 11px;
-  border-left: 1px solid #f5f5f5;
-  border-right: 1px solid #e5e5e5;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
@@ -216,14 +287,14 @@ hr.soften {
           border-radius: 0 0 4px 4px;
 }
 
-/* Fixed subnav on scroll, but only for 940px and up (sorry IE!) */
-@media (min-width: 940px) {
+/* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
+@media (min-width: 980px) {
   .subnav-fixed {
     position: fixed;
     top: 40px;
     left: 0;
     right: 0;
-    z-index: 1030;
+    z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
     border-color: #d5d5d5;
     border-width: 0 0 1px; /* drop the border on the fixed edges */
     -webkit-border-radius: 0;
@@ -232,6 +303,7 @@ hr.soften {
     -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
        -moz-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
             box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); /* IE6-9 */
   }
   .subnav-fixed .nav {
     width: 938px;
@@ -247,7 +319,7 @@ hr.soften {
 }
 [/template]
 
-[template protected genColorSwatche (oclAny : OclAny) ]
+[template protected genColorSwatche (oclAny : OclAny) overrides genColorSwatche ? (getProperty('extended')='true')]
 /* Color swatches on LESS docs page
 -------------------------------------------------- */
 /* Sets the width of the td */
@@ -272,7 +344,7 @@ hr.soften {
 }
 [/template]
 
-[template protected genMainBanner (oclAny : OclAny) ]
+[template protected genMainBanner (oclAny : OclAny) overrides genMainBanner ? (getProperty('extended')='true')]
 .actions-bar {
   padding-bottom: 10px;
 }
@@ -284,7 +356,7 @@ hr.soften {
   position: relative;
   text-align: center;
   z-index: 1;
-  background-image: url(../images/css/carbon_fibre_big.png);
+  background-color: #3CB9C6;
   color: #e6e6e6;
 }
 .main-banner h1 {
@@ -336,7 +408,7 @@ hr.soften {
 }
 [/template]
 
-[template protected genForm (oclAny : OclAny) ]
+[template protected genForm (oclAny : OclAny) overrides genForm ? (getProperty('extended')='true')]
 .form-stacked div.clearfix.error {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -347,7 +419,7 @@ fieldset legend {
 }
 [/template]
 
-[template protected genFooter (oclAny : OclAny) ]
+[template protected genFooter (oclAny : OclAny) overrides genFooter ? (getProperty('extended')='true')]
 footer {
   position: relative;
   margin: 0 auto 0 auto;
@@ -356,12 +428,18 @@ footer {
 
 [/template]
 
-[template protected genTable (oclAny : OclAny) ]
+[template protected genTable (oclAny : OclAny) overrides genTable ? (getProperty('extended')='true')]
 table {
   width: 100%;
   margin-bottom: 18px;
   padding: 0;
   font-size: 13px;
+  background-color:#fff;
+  color:#333;
+}
+
+table a{
+  color: #08C;
 }
 
 table .blue {

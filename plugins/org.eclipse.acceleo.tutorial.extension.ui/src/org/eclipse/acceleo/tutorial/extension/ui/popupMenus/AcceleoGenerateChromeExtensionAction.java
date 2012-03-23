@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.acceleo.tutorial.webapp.ui.popupMenus;
+package org.eclipse.acceleo.tutorial.extension.ui.popupMenus;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -28,16 +28,16 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.acceleo.tutorial.webapp.ui.Activator;
-import org.eclipse.acceleo.tutorial.webapp.ui.common.GenerateAll;
+import org.eclipse.acceleo.tutorial.extension.ui.Activator;
+import org.eclipse.acceleo.tutorial.extension.ui.common.GenerateAll;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
 
 /**
- * webappGenerator code generation.
+ * ChromeExtension code generation.
  */
-public class AcceleoGeneratewebappGeneratorAction extends ActionDelegate implements IActionDelegate {
+public class AcceleoGenerateChromeExtensionAction extends ActionDelegate implements IActionDelegate {
 	
 	/**
 	 * Selected model files.
@@ -59,7 +59,7 @@ public class AcceleoGeneratewebappGeneratorAction extends ActionDelegate impleme
 	/**{@inheritDoc}
 	 *
 	 * @see org.eclipse.ui.actions.ActionDelegate#run(org.eclipse.jface.action.IAction)
-	 * @generated
+	 * @generated not
 	 */
 	public void run(IAction action) {
 		if (files != null) {
@@ -70,8 +70,15 @@ public class AcceleoGeneratewebappGeneratorAction extends ActionDelegate impleme
 						while (filesIt.hasNext()) {
 							IFile model = (IFile)filesIt.next();
 							URI modelURI = URI.createPlatformResourceURI(model.getFullPath().toString(), true);
+							
 							try {
 								IContainer target = model.getProject();
+								org.eclipse.core.resources.IProject project = org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot().getProject(target.getProject().getName()+".extension");
+								if (!project.exists()) {
+									project.create(monitor);
+								}
+								target = project;
+								
 								GenerateAll generator = new GenerateAll(modelURI, target, getArguments());
 								generator.doGenerate(monitor);
 							} catch (IOException e) {

@@ -15,12 +15,12 @@
 <html lang="en">
   <!-- All Right Reserved -->
   <head>
-    <title>Bootstrap, from Twitter</title>
+    <title>[aStaticView.name.toUpperFirst()/]</title>
   </head>
   <body>
     <div id="[aStaticView.name.reqTextToHtmlId()/]-template">
       <header class="jumbotron subhead" id="overview">
-        <h1>[aStaticView.name/]</h1>
+        <h1>[aStaticView.name.toUpperFirst()/]</h1>
         <p class="lead">[aStaticView.description/]</p>
         <div class="subnav">
           <ul class="nav nav-pills">

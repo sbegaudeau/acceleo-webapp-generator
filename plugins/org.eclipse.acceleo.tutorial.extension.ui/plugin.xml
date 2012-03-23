@@ -6,16 +6,16 @@
             adaptable="true"
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.webapp"
-            id="org.eclipse.acceleo.tutorial.webapp.ui.popupMenus.contribution.IFile">
+            id="org.eclipse.acceleo.tutorial.extension.ui.popupMenus.contribution.IFile">
          <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Text" path="additionsAcceleo">
                <groupMarker name="acceleo"/> 
          </menu>
          <action
-               class="org.eclipse.acceleo.tutorial.webapp.ui.popupMenus.AcceleoGenerateWebAppAction"
+               class="org.eclipse.acceleo.tutorial.extension.ui.popupMenus.AcceleoGenerateChromeExtensionAction"
                enablesFor="+"
-               id="org.eclipse.acceleo.tutorial.webapp.ui.popupMenus.acceleoGenerateWebAppAction"
+               id="org.eclipse.acceleo.tutorial.extension.ui.popupMenus.acceleoGenerateChromeExtensionAction"
                icon="icons/default.gif"
-               label="Generate WebApp"
+               label="Generate ChromeExtension"
                menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
       </objectContribution>
    </extension>

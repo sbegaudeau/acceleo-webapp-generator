@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.eclipse.acceleo.tutorial.webapp.ui.common;
+package org.eclipse.acceleo.tutorial.extension.ui.common;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,12 +23,11 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.osgi.framework.Bundle;
 
 
 /**
- * Main entry point of the 'WebApp' generation module.
+ * Main entry point of the 'ChromeExtension' generation module.
  */
 public class GenerateAll {
 
@@ -80,19 +79,21 @@ public class GenerateAll {
 			targetFolder.getLocation().toFile().mkdirs();
 		}
 		
-		// final URI template0 = getTemplateURI("org.eclipse.acceleo.tutorial.webapp", new Path("/org/eclipse/acceleo/tutorial/webapp/main/webapp.emtl"));
-		// org.eclipse.acceleo.tutorial.webapp.main.Webapp gen0 = new org.eclipse.acceleo.tutorial.webapp.main.Webapp(modelURI, targetFolder.getLocation().toFile(), arguments) {
+		// final URI template0 = getTemplateURI("org.eclipse.acceleo.tutorial.extension", new Path("/org/eclipse/acceleo/tutorial/extension/main/extension.emtl"));
+		// org.eclipse.acceleo.tutorial.extension.main.Extension gen0 = new org.eclipse.acceleo.tutorial.extension.main.Extension(modelURI, targetFolder.getLocation().toFile(), arguments) {
 		//	protected URI createTemplateURI(String entry) {
 		//		return template0;
 		//	}
 		//};
 		//gen0.doGenerate(BasicMonitor.toMonitor(monitor));
 		monitor.subTask("Loading...");
-		org.eclipse.acceleo.tutorial.webapp.main.Webapp gen0 = new org.eclipse.acceleo.tutorial.webapp.main.Webapp(modelURI, targetFolder.getLocation().toFile(), arguments);
+		org.eclipse.acceleo.tutorial.extension.main.Extension gen0 = new org.eclipse.acceleo.tutorial.extension.main.Extension(modelURI, targetFolder.getLocation().toFile(), arguments);
 		monitor.worked(1);
-		String generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil.computeUIProjectID("org.eclipse.acceleo.tutorial.webapp", "org.eclipse.acceleo.tutorial.webapp.main.Webapp", modelURI.toString(), targetFolder.getFullPath().toString(), new ArrayList<String>());
+		String generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil.computeUIProjectID("org.eclipse.acceleo.tutorial.extension", "org.eclipse.acceleo.tutorial.extension.main.Extension", modelURI.toString(), targetFolder.getFullPath().toString(), new ArrayList<String>());
 		gen0.setGenerationID(generationID);
 		gen0.doGenerate(BasicMonitor.toMonitor(monitor));
+			
+		
 	}
 	
 	/**

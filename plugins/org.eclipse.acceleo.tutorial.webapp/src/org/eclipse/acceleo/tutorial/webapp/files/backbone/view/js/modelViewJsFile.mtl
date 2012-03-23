@@ -121,6 +121,7 @@ $('#delete-btn').bind('click', function(){
 
 	[for (aReference : Reference | aModel.references)]
 	[let referencedCollection : Collection = aModelView.application.collections->select(model = aReference.type)->first()]
+	[if (aReference.type.references->select(type = aModel)->size() > 0)]
 	[let oppositeReference : String = aReference.type.references->select(type = aModel)->first().genVarName()]
 	$(_.toArray([aModelView.application.genTypeName()/].[referencedCollection.genVarName()/])).each(function(i, elem){
 		$(elem.get('[oppositeReference/]')).each(function(j, [aModel.genVarName()/]){
@@ -131,6 +132,7 @@ $('#delete-btn').bind('click', function(){
 		});
 	});
 	[/let]
+	[/if]
 	[/let]
 	[/for]
 
@@ -194,9 +196,8 @@ $('.link-placeholder').bind('click', function(){
 	var [aModel.genVarName()/] = [aModelView.application.genTypeName()/].[aModelView.collection.genVarName()/].at(index);
 	var target = $(this).attr('href');
 	$(target).find('.title').each(function(i, elem) {
-		[for (aReference : Reference | aModel.references)]
+		[for (aReference : Reference | aModel.references )]
 		[let referencedCollection : Collection = aModelView.application.collections->select(model = aReference.type)->first()]
-		[let oppositeReference : String = aReference.type.references->select(type = aModel)->first().genVarName()]
 		[if (i=1)]if[else]else if[/if] (target === '#[aReference.genVarName()/]') {
 			$(elem).html('[aReference.name/]');
 			/* [protected ('linkPlaceHolder ' + aReference.name + ' */')]
@@ -236,7 +237,8 @@ $('.link-placeholder').bind('click', function(){
 					var valueToSet = {};
 					valueToSet['['/]'[aReference.genVarName()/]'[']'/] = modelArray;
 					[aModel.genVarName()/].save(valueToSet);
-
+					[if (aReference.type.references->select(type = aModel)->size() > 0)]
+					[let oppositeReference : String = aReference.type.references->select(type = aModel)->first().genVarName()]
 					/* bidirectional link */
 					/* [protected ('bidirectional link ' + aReference.name + ' */')]
 					$(_.toArray([aModelView.application.genTypeName()/].[referencedCollection.genVarName()/])).each(function(i, elem){
@@ -251,11 +253,12 @@ $('.link-placeholder').bind('click', function(){
 						}
 					});
 					/* [/protected] */
+					[/let]
+					[/if]
 					[aModelView.application.genTypeName()/].[aModelView.application.router.genVarName()/].show[aModelView.genTypeName()/]();
 				});
 			});
 		}
-		[/let]
 		[/let]
 		[/for]
 	});
