@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Generate the code of the meta-model">
+   <intro>
+      <description>
+        In this section, we will generate the Java source code matching our meta-model.
+      </description>
+   </intro>
+   <item title="Create the genmodel">
+      <description>
+        Now, create in the same folder as our model a genmodel file. For that, use the new genmodel file
+        wizard. "File" -> "New" -> "Other..." -> "Eclipse Modeling Framework" -> "EMF Generator Model"
+        wizard or use the link below. This model should be named "webapp.genmodel".<br />
+        Select the import of an "Ecore model" and then on the last page of the wizard, use the button
+        to browse the workspace and load the "webapp.ecore" model. Load it and go to the last page to
+        click on "Finish".
+      </description>
+      <command serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.emf.importer.ui.EMFModelWizard)" required="false" translate="">
+    </command>
+   </item>
+   <item title="Generate the code">
+      <description>
+        The "genmodel" allows us to configure the generation of the Java source code of our model. Before
+        the launch of the generation, we need to configure a couple of elements. Open the "webapp.genmodel"
+        file and open the "Properties" view to change some properties. Select the root of the genmodel to
+        edit in the "Properties" view the following properties.<br />
+        <br />
+        <b>Model Output Folder</b><br />
+        change the end of the "Model Directory" to <b>org.eclipsecon.acceleo.tutorial.webapp.model/src-gen</b><br /> 
+        <br />
+        <b>Edit Output Folder</b><br />
+        change the end of the "Edit Directory" to <b>org.eclipsecon.acceleo.tutorial.webapp.model.edit/src-gen</b><br />
+        <br />
+        <b>Editor Output Folder</b><br />
+        change the end of the "Editor Directory" to <b>org.eclipsecon.acceleo.tutorial.webapp.model.editor/src-gen</b><br />
+        <br />
+        You just have to change "...src" by "...src-gen".<br />
+        <br />
+        Now select the package in the genmodel (it should be the only child of the root)<br />
+        <br />
+        <b>Base Package</b><br />
+        change the "Base Package" to <b>org.eclipsecon.acceleo.tutorial</b>
+        <br />
+        Now, right click on the root of the genmodel file and select:<br />
+        - "Generate Model"<br />
+        - "Generate Edit"<br />
+        - "Generate Editor"<br />
+        <br />
+        <b>Catch Up!</b><br />
+        The code generated will now let us manipulate our models programmatically if needed. If you wish to obtain
+        the the code of the tutorial at this moment, click on the link below. It will erase all projects with the
+        following name:<br />
+        - org.eclipse.acceleo.tutorial.webapp.model<br />
+        - org.eclipse.acceleo.tutorial.webapp.model.edit<br />
+        - org.eclipse.acceleo.tutorial.webapp.model.editor<br />
+        If you have used to "org.eclipsecon" namespace as recommended, you should not have any problems.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.acceleo.tutorial.projectUnzipperCommand(org.eclipse.acceleo.tutorial.projectUnzipperPath=platform:/plugin/org.eclipse.acceleo.tutorial/step-2/)"/>
+   </item>
+</cheatsheet>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compositeCheatsheet name="Acceleo tutorials">
+   <taskGroup kind="sequence" name="Create a web application generator" skip="false">
+      <intro>
+         <b>Introduction</b>
+      </intro>
+      <onCompletion>
+         <b>Conclusion</b>
+      </onCompletion>
+      <task kind="cheatsheet" name="Introduction" skip="true">
+         <param name="path" value="WebappTutorial-Introduction.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Create the meta-model" skip="false">
+         <param name="path" value="WebappTutorial-EMF-CreateMetamodel.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Generate the code from the meta-model" skip="false">
+         <param name="path" value="WebappTutorial-EMF-GenerateCode.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Create a basic generator" skip="false">
+         <param name="path" value="WebappTutorial-Acceleo-CreateGenerator.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Improving the generator" skip="false">
+         <param name="path" value="WebappTutorial-Acceleo-ImprovingGenerator.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Advanced features of the generator" skip="false">
+         <param name="path" value="WebappTutorial-Acceleo-AdvancedFeatures.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Deploy the generator" skip="false">
+         <param name="path" value="WebappTutorial-Acceleo-DeployBuild.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Generate an advanced interface for the models" skip="false">
+         <param name="path" value="WebappTutorial-EEF-GenerateUserInterface.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Conclusion" skip="false">
+         <param name="path" value="WebappTutorial-Conclusion.xml">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

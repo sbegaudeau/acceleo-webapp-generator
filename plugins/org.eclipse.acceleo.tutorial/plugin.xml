@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+      <category
+            id="org.eclipse.acceleo"
+            name="%acceleoCheatsheetCategory">
+      </category>
+      <cheatsheet
+            category="org.eclipse.acceleo"
+            composite="true"
+            contentFile="content/WebappTutorial.xml"
+            id="org.eclipse.acceleo.tutorial.cheatsheet.webapp"
+            name="%acceleoCheatsheetWebappName">
+      </cheatsheet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.acceleo.ide.ui.category"
+            defaultHandler="org.eclipse.acceleo.tutorial.AcceleoProjectUnzipper"
+            id="org.eclipse.acceleo.tutorial.projectUnzipperCommand"
+            name="%acceleoProjectUnzipper">
+         <commandParameter
+               id="org.eclipse.acceleo.tutorial.projectUnzipperPath"
+               name="%projectUnzipperPath"
+               optional="false">
+         </commandParameter>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.acceleo.tutorial.category"
+            class="org.eclipse.acceleo.tutorial.wizard.EclipseConWizard"
+            id="org.eclipse.acceleo.tutorial.EclipseConWizard"
+            name="Webapp Project"
+            project="true">
+         <description>
+            Wizard to create new webapp project.
+         </description>
+      </wizard>
+      <category
+            id="org.eclipse.acceleo.tutorial.category"
+            name="AcceleoTutorial">
+      </category>
+   </extension>
+</plugin>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Create the meta-model">
+  <intro>
+    <description>
+      During this section, we will see how we can create an EMF meta-model definining the concepts of our domain.
+    </description>
+  </intro>
+  <item title="Create a new Java project">
+    <description>
+      First of all, start by creating a new Java project. Click on the "File" menu and then navigate to the "New"
+      submenu to open the "Project..." and then select "Java Project" in the new project wizard or click on the
+      link below.<br />
+      <br />
+      Enter <b>org.eclipsecon.acceleo.tutorial.webapp.model</b> for the project name, then click "Finish".<br />
+      <br />
+      If you use the link in the tutorial to unzip the solution in your workspace, you will see that all the projects
+      of the solution will have the namespace "org.eclipse.acceleo.tutorial.webapp". Please do not use this name
+      for your project during the tutorial (each time we will use "eclipsecon" instead of "eclipse" in our namespace).
+    </description>
+    <command serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.jdt.ui.wizards.JavaProjectWizard)" required="false" translate="">
+    </command>
+  </item>
+  <item title="Create the model">
+    <description>
+      At the root of this newly created Java project, create a folder named "<b>model</b>". Inside create a new "Ecore" file
+      named <b>webapp.ecore</b>.<br />
+      <br />
+      In order to create this new file, use the "File" -> "New" -> "Other..." -> "Eclipse Modeling Framework" -> "Ecore Model" wizard or use the link below. <br />
+      Enter the name "webapp.ecore" and click "Finish".
+      <br />
+      An empty ".ecore" file containing only an empty package declaration has been created.
+    </description>
+    <command serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.emf.ecore.presentation.EcoreModelWizardID)" required="false" translate="">
+    </command>
+  </item>
+  <item title="Setup the package">
+    <description>
+      In EMF, the package of the "Ecore" model is a very important concept as it uniquely defines the concept that it
+      contains. We need to setup the root package of our meta-model to be uniquely identified among other metamodels.<br />
+      <br />
+      For that open the "Properties" view thanks to the link below, and select the package element in the "Ecore Editor". The package is the element with
+      the purple icon and no name under the resource visible with the name "platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/model/webapp.ecore"<br />
+      <br />
+      Setup the package using the following settings:<br />
+      - name: webapp<br />
+      - prefix webapp<br />
+      - ns uri: http://www.eclipsecon.org/acceleo/tutorial/webapp/<br />
+      <br />
+    </description>
+    <command serialization="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.ui.views.PropertySheet)" required="false" translate="">
+    </command>
+  </item>
+  <item title="Define the concepts of our meta-model">
+    <description>
+      For the first part of the tutorial, we will only be focused on the generation of the Javascript source code for
+      a basic "backbone.js" application. For those who don't know it, "backbone.js" allows Javascript developers to build
+      Javascript application with a structure containing four major concepts:<br />
+      - model<br />
+      - view<br />
+      - collection (of models)<br />
+      - router<br />
+      <br />
+      The model is a regular entity, the view is in charge of managing the user interface, the collection contains model elements
+      and the router dispatch URLs to views.<br />
+      <br />
+      We will thus integrate the following concepts in our meta-model:<br />
+      - Application (to act as the root of the model)<br />
+      - Model<br />
+      - Attribute (models can have attributes)<br />
+      - Reference (models can have references to other models)<br />
+      - Operation (models can have operations)<br />
+      - Parameter (operations have parameters)<br />
+      - Collection<br />
+      - Router<br />
+      - RouterMapping (the mapping between an URL and a view)<br />
+      - AbstractView<br />
+      - StaticView (for pages that will only display static content)<br />
+      - ModelView (for pages that will display dynamic content)<br />
+      <br />
+      We also create an abstract concept named "NamedElement" in order to use as a superclass of many other classifier of our meta-model.<br />
+      <br />
+      One of the strong point of EMF's APIs is the ability to navigate in your models thanks to "containment" references, thus it is critical
+      to make sure that the structural features (attributes and references) of our concepts are well created.<br />
+      <br />
+      <b>NamedElement</b><br />
+      This concept only contains one attribute named "name" with a type "EString".<br />
+      <br />
+      <b>Parameter</b><br />
+      It inherits from "NamedElement" since parameters need a name.<br />
+      <br />
+      <b>Operation</b><br />
+      It inherits from "NamedElement" and has one "containment" reference named "parameters" that refer to "Parameter" elements.<br />
+      <br />
+      <b>Attribute</b><br />
+      The "Attribute" concepts inherits from "NamedElement" and it has an attribute named "defaultValue" with the type "EString".<br />
+      <br />
+      <b>Reference</b><br />
+      The "Reference" concept inherits from "NamedElement" and has a reference named "type" linking to one and only one Model concept.<br />
+      <br />
+      <b>Model</b><br />
+      The "Model" concept inherits from "NamedElement" and it has three containment references:<br />
+      - "attributes" using the type "Attribute"<br />
+      - "references" using the type "Reference"<br />
+      - "operations" using the type "operation"<br />
+      <br />
+      And one reference:<br />
+      - "application" to the "Application"<br />
+      <br />
+      <b>Collection</b><br />
+      This concept inherits from "NamedElement" and it contains two references:<br />
+      - "model" using the type "Model"<br />
+      - "application" using the type "Application"<br />
+      <br />
+      <b>RouterMapping</b><br />
+      This concept contains one attribute named "path" using the type "EString" and a reference to one "AbstractView" named "view".<br />
+      <br />
+      <b>Router</b><br />
+      This concept inherits from the concept "NamedElement" and it has two references:<br />
+      - "mappings", a containment reference, using the type "RouterMapping"<br />
+      - "application" using the type "Application"<br />
+      <br />
+      <b>AbstractView</b><br />
+      This "abstract" concept inherits from the concept "NamedElement" and it has an attribute named "description" using the type "EString" and
+      two references:<br />
+      - "operations" using the type "Operation"<br />
+      - "application" using the type "Application"<br />
+      <br />
+      <b>ModelView</b><br />
+      This concept inherits from the concept "AbstractView" and it has a reference named "collection" using the type "Collection".
+      <br />
+      <b>StaticView</b><br />
+      This concept inherits from the concept "AbstractView" and it has no attributes or references for now. Since we won't create all the model by ourself.
+      <br />
+      <b>Application</b><br />
+      The root concept of all "webapp" models inherits from "NamedElement" and it contains four containment references:<br />
+      - "router" to contain one and only one "Router". This containment reference is the opposite link of the "application" reference
+      in "Router".<br />
+      - "collections" to contain several "Collection". This reference is the opposite link of the "application" reference in "Collection"<br />
+      - "models" to contain several "Model". This reference is the opposite link of the "application" reference in "Model"<br />
+      - "views" to contain several "AbstractView". This reference is the opposite link to the "application" reference in "AbstractView"<br />
+      <br />
+      For "containment" references make sure that the "containment" attribute is set to "true". For abstract elements, make sure that the "abstract"
+      attribute is set to "true" and for attributes or references that link to a collections of elements, set the attribute "upper bound" to "-1".
+      If the attribute or reference is required, set the lower bound to "1" and the upper bound to "1".<br />
+      <br />
+      <b>Catch Up!</b><br />
+      You can click on the link below to obtain automatically the project "org.eclipse.acceleo.tutorial.webapp.model" containing the
+      model described here. This project may be modified later in the tutorial, so if you modify it, you may lose those modifications.
+    </description>
+    <command
+            required="false"
+            serialization="org.eclipse.acceleo.tutorial.projectUnzipperCommand(org.eclipse.acceleo.tutorial.projectUnzipperPath=platform:/plugin/org.eclipse.acceleo.tutorial/step-1/)"/>
+  </item>
+</cheatsheet>

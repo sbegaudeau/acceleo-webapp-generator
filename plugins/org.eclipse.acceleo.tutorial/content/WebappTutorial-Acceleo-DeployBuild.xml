@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Deploy the generator">
+   <intro>
+      <description>
+         We will now see how to integrate the generator in the Eclipse environment of the end user and how to customize heavily a generation. At the
+         end of this section, you will be able to get a final version of this generator that generate the whole web application and its matching
+         Chrome extension along with an improved version of the meta-model to contain concepts for the CSS framework Bootstrap.<br />
+         <br />
+         We will not explain all the steps that have been involved in the creation of this version of the generator since it is just the steps involved
+         are just variation of concepts already explained or explained below.<br />
+      </description>
+   </intro>
+   <item title="Integration in Eclipse">
+      <description>
+         The end user will never manipulate an Acceleo generator like we did with a launch configuration so we need to build an user interface for our
+         generator. In order to create this user interface, right click on your Acceleo generator project "org.eclipsecon.acceleo.tutorial.webapp" and
+         select "New" -> "Project..." -> "Acceleo Model to Text" -> "Acceleo UI Launcher Project" and click "Next", the name of the project should be
+         initialized with "org.eclipsecon.acceleo.tutorial.webapp.ui", click "Next", then "Next" once again and on the latest page, replace the content of
+         the "Model file name filter" by "*.webapp" since our EMF tooling will create "*.webapp" files. and change the content of "Target folder access"
+         to "IContainer target = model.getProject();". Then click on "Finish".<br />
+         <br />
+         If the generated Java code contains an error, open the class GenerateAll and remove everything after:<br .>
+         EObject model = gen0.getModel();<br />
+		 if (model != null) {<br />
+         <br />
+         The error comes from the Java service class which Acceleo is trying to use as an Acceleo launcher class.<br />
+         <br />
+         Now you can launch a new Eclipse instance to test your generator along with its user interface.<br />
+         <br />
+         Open the launch configuration window thanks to the "Run" -> "Run Configurations" menu. Once the launch configuration window is opened, create a new
+         "Eclipse Application" launch configuration. Make sure that in the "Arguments" tab, you have some parameters in the "VM arguments" text area. Something
+         like this "-Xms100m -Xmx512m -XX:MaxPermSize=900M". Those parameters are necessary to indicate how much memory your Eclipse instance will have access
+         to. After that, click on "Run".<br />
+         <br />
+         In this new Eclipse, create a new webapp tutorial project with the "File" -> "New" -> "Project" -> "Acceleo Tutorial" -> "Webapp Project". Inside
+         the model directory of this project, create a new ".webapp" model thanks to the code generated in "org.eclipsecon.acceleo.tutorial.webapp.edit".
+         Use the "File" -> "New" -> "Other..." -> "Example EMF Model Creation Wizards" -> "Webapp model".<br />
+         <br />
+         Name this model "sample.webapp" and select "Application" as its root element. The press "Finish" to create the file.<br />
+         <br />
+         Give a name to this "Application" root concept and create some content inside. Use the "Validate" action to make sure that your model and its valid.
+         by right clicking on the root element.<br />
+         <br />
+         Then, right click on the model and select "Acceleo Model to Text" and click on "Generate Webapp". In the "assets/js" directory of the webapp project,
+         you should see your content generated.<br />
+         <br />
+         Create a file named "sample.properties" next to your "sample.webapp" model, and inside paste this:<br />
+         javascript-path=assets/js-alt/
+         <br />
+         Relaunch the generation by right clicking on the model and selecting "Acceleo Model to Text" and then "Generate Webapp". Your Javascript files are
+         now generated in another folder, "assets/js-alt". You can add more properties in your generator to let the end user customize the generation.
+         <br />
+      </description>
+   </item>
+   <item title="Dynamic override">
+      <description>
+         Now that you have everything needed to have a working generator, you may deliver it to your end users. There will be a time when one of your customers
+         will require an update of your generator, a quick fix or you may want to re-use an existing generator. When that day come, you can use the overriding
+         mechanism to define new modules while re-using existing templates and queries but in order for your code to be called, you would need a change of the
+         original generator and you may not want to do it.<br />
+         <br />
+         Acceleo provides a mechanism to let you override a part of your generator without any modification of the original generator. This system is called
+         dynamic overriding. Let's override dynamically our existing generator.<br />
+         <br />
+         Create a new Acceleo project named "org.eclipsecon.acceleo.tutorial. In this new project create one module name "modelJsFileExtended" with a template
+         named "modelJsFile", make sure that your depending on the project of the meta-model "org.eclipsecon.acceleo.tutorial.webapp.model" and the project of
+         the original generator "org.eclipsecon.tutorial.acceleo.webapp" in the dependencies tab of your MANIFEST.MF. When it is done, go back to your Acceleo
+         module modelJsFileExtended and make sure that it extends "org::eclipsecon::acceleo::tutorial::webapp::files::modelJsFile" and that the template
+         modelJsFile overrides the template modelJsFile.<br />
+         <br />
+         The module "modelJsFileExtended" should start like this:<br />
+         [module modelJsFileExtended('http://www.eclipse.org/acceleo/tutorial/webapp') extends org::eclipsecon::acceleo::tutorial::webapp::files::modelJsFile]<br />
+         [template public modelJsFile(aModel : Model) overrides modelJsFile ? (getProperty('extended') = 'true')]<br />
+         <br />
+         Now you can enter the content of your choice in the template "modelJsFile". For example:<br />
+         <br />
+         [file (aModel.javascriptPath() + 'models/' + aModel.removeSpaces().concat('.js'), false, 'Cp1252')]<br />
+         [aModel.copyrightHeader()/]<br />
+         <br />
+         var Prefix[aModel.application.name.toUpperFirst()/] = Prefix[aModel.application.name.toUpperFirst()/] || {};<br />
+         Prefix[aModel.application.name.toUpperFirst()/].[aModel.name.toUpperFirst()/] = Backbone.Model.extend({<br />
+         	defaults: {<br />
+         		[for (anAttribute : Attribute | aModel.attributes)]<br />
+         		[anAttribute.name/]: [anAttribute.defaultValue/]<br />
+         		[/for]<br />
+         		[for (aReference : Reference | aModel.references)]<br />
+         		[aReference.name/]: {};<br />
+         		[/for]<br />
+         	},<br />
+         	initialize: function(){<br />
+         		[for (anAttribute : Attribute | aModel.attributes)]<br />
+         		this.[anAttribute.name/] = this.get('[anAttribute.name/]');<br />
+         		[/for]<br />
+         		[for (aReference : Reference | aModel.references)]<br />
+         		this.[aReference.name/] = this.get('[aReference.name/]');<br />
+         		[/for]<br />
+         	}<br />
+         });<br />
+         [/file]<br />
+         <br />
+         In this new version a "Prefix" is generated before the name of the global variable of our application.<br />
+         <br />
+         With the dynamic override, Acceleo can make sure that a given template replace an existing one. In our case we will make sure that this new template
+         replace the original "modelJsFile" but in order to let the user select whether this new template should be used all the time or not we have put in 
+         place a guard that will test if the properties contains the following value:<br />
+         extended = true<br />
+         <br />
+         Now it's time to register our module as using the dynamic override mechanism and then to run. For that, open the MANIFEST.MF file and go to the "extension"
+         tab, click "add" and select  the extension point named "org.eclipse.acceleo.engine.dynamic.templates" and click on "Finish". After that, browse to select
+         the path "src" (it will visit all the sub-directories). All templates overriding another template will be considered as dynamic templates.<br />
+         <br />
+         Right click on the definition of the extension that we have added (org.eclipse.acceleo.engine.dynamic.templates) and add a new "generator". In the
+         field "generatorID", enter the name "org.eclipsecon.acceleo.tutorial.webapp" to indicate that your generator will only dynamically override the Acceleo
+         project with this specific name.<br />
+         <br />
+         Relaunch a new Eclipse runtime and relaunch the generation, nothing should have changed. Open the properties files next to the model and add:<br />
+         extended = true<br />
+         <br />
+         Now relaunch the generation and in the files generated for the model, you should see a "Prefix" before the global domain of the application. We have
+         heavily changed the behavior of the generator without touching the original generator.<br />
+         <br />
+         You can use this mechanism to patch an existing generator or even to create the structure of your generator. Make sure to specify a "generatorID" otherwise
+         you generator will loaded to see if we can use it for the dynamic override with any Acceleo generation.<br />
+         <br />
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.acceleo.tutorial.projectUnzipperCommand(org.eclipse.acceleo.tutorial.projectUnzipperPath=platform:/plugin/org.eclipse.acceleo.tutorial/step-7/)"/>
+   </item>
+</cheatsheet>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Improving the generator">
+   <intro>
+      <description>
+         Now we have created a generator capable of generating most of the code from the prototype, it is now time to transform
+         this generator to use the elements from the input model instead of "blindly" generating the prototype.
+      </description>
+   </intro>
+   <item title="From a static generator to a dynamic one">
+      <description>
+         In order to use the model elements in our generator, we will replace parts of the static code by Acceleo-based expressions.
+         We will take as an example of those modifications the file "modelJsFile.mtl" in order to manipulate an easy module.<br />
+         <br />
+         We can see a reference to "EclipseCon.<b>Language</b>" which is supposed to be the name of the model element, replace it by 
+         "EclipseCon.<b>[aModel.name.toUpperFirst()/]</b>".<br />
+         <br />
+         This file make several references to a concept named "EclipseCon" which is the named of our application, select "EclipseCon"
+         and use "Ctrl+Space" to trigger the quick replacement, press enter and then type instead "[aModel.application.name.toUpperFirst()/]".<br />
+         <br />
+         We can see that a default value is generated for each attribute and references of the "Model" element, here the "Language" concept
+         had only one attribute, so let's put in place the code necessary to generate a default value for any number of attributes.<br />
+         <br />
+         We will need to iterate on all the attributes and for each value, generate the name of the attribute and its default value. First
+         let's iterate on any number of attributes. Replace this:<br />
+         <br />
+         default: {<br />
+         <b>name: 'Language Name'</b><br />
+         },<br />
+         <br />
+         by this:<br />
+         default: {<br />
+         <b>[for (anAttribute : Attribute | aModel.attributes)]</b><br />
+		 <b>name: 'Language Name'</b><br />
+		 <b>[/for]</b><br />
+         },<br />
+         <br />
+         Now we can take into account any number of attributes yet we will always generate the same name and the same default value. Replace the
+         default value "'Language Name'" by an expression using the default value from the "Attribute" element and then replace the name "name" by an
+         OCL expression using the name of the attribute<br />
+         <br />
+         Generate a similar piece of code in the "default" function for the references contained in the "Model" element. We will consider that references
+         should have "{}" for their default value.<br />
+         <br />
+         In the function "initialize", generate the necessary code to make sure that you can take into account any number of attributes and references.<br />
+         <br />
+         This tutorial being focused on the realization of a code generator, you can skip or remove most of the content of the modules "modelViewJsFile" and
+         "homeViewJsFile" since they contain a complex Javascript logic.<br />
+         <br />
+         <b>Exercises</b><br />
+         1- Make the file staticViewJsFile generic<br />
+         2- Make the file collectionJsFile generic<br />
+         3- Make the file routerJsFile generic<br />
+         4- Create an "utility module" named "fileUtils" in the package "org.eclipsecon.acceleo.tutorial.webapp.common" with a template named "copyrightHeader"
+         and make sure to call it to generate the copyright of all the Javascript files generated. In order to be called from any places, use the OCL supertype
+         "OclAny" as the type of the parameter of the template.<br /> 
+         <br />
+         We won't transform all the files, you can have a look at the solution below.<br />
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.acceleo.tutorial.projectUnzipperCommand(org.eclipse.acceleo.tutorial.projectUnzipperPath=platform:/plugin/org.eclipse.acceleo.tutorial/step-5/)"/>
+   </item>
+</cheatsheet>

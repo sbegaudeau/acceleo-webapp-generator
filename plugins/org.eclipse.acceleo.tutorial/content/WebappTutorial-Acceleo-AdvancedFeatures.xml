@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Advanced features of the generator">
+   <intro>
+      <description>
+         Now that we have a basic code generator that can use model element to generate some Javascript files, let's improve this generator.
+         We will not spend our time detailing all the structure of this web application, please have a look at the documentation of backbone.js
+         for more information.
+      </description>
+   </intro>
+   <item title="Properties files">
+      <description>
+         When working with a code generation project, you may want to let your users customize the behavior of the generation, for that Acceleo
+         contains APIs used to manipulate Java ".properties" files. In this section, we will see how to register those properties files, how to access
+         them from the generator and how to let your users override those default value with their own.<br />
+         <br />
+         <b>Create the properties file</b><br />
+         Create a package named "org.eclipsecon.acceleo.tutorial.webapp.properties", inside create a new file named "default.properties". Open this file and
+         place inside the following content:<br />
+         javascript-path = assets/js/<br />
+         <br />
+         <b>Register the properties file</b><br />
+         Do you remember the noticeable method in the Java launcher class? No? Well open the Java launcher class "Webapp.java", and look for a method named
+         "getProperties()". In this method, place the following content:<br />
+         propertiesFiles.add("platform:/plugin/org.eclipsecon.acceleo.tutorial.webapp/org/eclipsecon/acceleo/tutorial/webapp/properties/default.properties");<br />
+         <br />
+         You properties file is now registered in the launcher. 
+         <br />
+         <b>Access it from the generator</b><br />
+         Now that we have registered our properties file, we want to access its values from the generator. Open the module "fileUtils" and create a new 
+         template named "javascriptPath" taking an instance of "OclAny" as a parameter. Inside, use the following code:<br />
+         [getProperty('javascript-path')/]<br />
+         <br />
+         Now replace in the path of the file generated, the static value 'assets/js' entered before by a call to this new template.<br />
+         <br />
+         <b>Let your users override your default values</b><br />
+         We have define a customizable value in a properties file and we are now using it but nobody can change it, unless we give them the source code
+         of our generator, so let's make sure that our end user can load their own values. Open the Java launcher once again and get back to "getProperties".
+         Place the following code <b>before</b> the registration of our properties file.<br />
+         if (EMFPlugin.IS_ECLIPSE_RUNNING &amp;&amp; model != null &amp;&amp; model.eResource() != null) {<br />
+    	 propertiesFiles.addAll(AcceleoEngineUtils.getPropertiesFilesNearModel(model.eResource()));<br />
+    	 }<br />
+    	 With the following code all the ".properties" files located in the same folder as the input model will be loaded for the generation.
+         <br />
+         Please note that the APIs used for the loading of the properties files can also be access programmatically for those who want to submit
+         a Map&lt;String, String&gt;. You can find more information about the use of properties files in Acceleo in the embedded Acceleo documentation ("Help" ->
+         "Help Contents" -> "Acceleo" -> "Acceleo Launcher Documentation"). 
+      </description>
+   </item>
+   <item title="Java services">
+      <description>
+         When working on a large code generator, you will have to handle complex problems that may not be (easily) dealt with by using the Acceleo language.
+         To handle those problems, Acceleo let you call Java services directly from your Acceleo generator. First, let's create a package named
+         "org.eclipsecon.acceleo.tutorial.webapp.services" and inside create a Java class named "WebappServices.java".<br />
+         <br />
+         In this class, create the following method: "removeSpaces(java.lang.String): java.lang.String".<br />
+         <br />
+         In this method, place the following code:<br />
+         return str.replace(" ", "-");<br />
+         <br />
+         This method will be used to ensure that, if the user enter in its model a name containing a space, this space is not generated.<br />
+         Disclaimer: Yes it is absolutely equals to "[aString.substituteAll(' ', '-')/]" and it is very easy to do it with the Acceleo language, I have just
+         selected an easy example for the use of Java services :)<br />
+         <br />
+         Just like with the Java launcher, we need to export the package containing this Java class. Open the MANIFEST.MF, go to the runtime tab and add the package
+         "org.eclipsecon.acceleo.tutorial.webapp.services" to the list of the exported packages.<br />
+         <br />
+         Now use the Acceleo wizard to create a new module file named "webappServices", this time initialize it with the Java service class created.<br />
+         <br />
+         A new module has been created and a query wrapping the Java method has been created. Now use this query each time use are using the name of an element
+         to generate a file. This query creates a warning since it is not "linked" to a model element (its only parameter is a primitive type) and it may create
+         a problem with traceability information. To prevent this warning, you can change its signature to this:<br />
+         <br />
+         [query public removeSpaces(arg0 : NamedElement) : String =<br />
+         invoke('org.eclipse.acceleo.tutorial.webapp.services.WebappServices', 'removeSpaces(java.lang.String)', Sequence{arg0.name})<br />
+         /]<br />
+         <br />
+         The signature of the file block in the module "applicationJsFile" should now look like this:<br />
+         [file (anApplication.javascriptPath() + anApplication.<b>removeSpaces()</b>.concat('.js'), false, 'Cp1252')]<br />
+         <br />
+      </description>
+   </item>
+   <item title="Traceability">
+      <description>
+         Now let's use our input model to relaunch the generation with the Traceability. Open the "Result" view by click on "Window" -> "Show view" -> "Other..."
+         -> "Acceleo" -> "Result". Open the launch configuration of your generator, by going on "Run" -> "Run Configurations" and select this time "contribute
+         traceability information to the result view". Relaunch the generation.<br />
+         <br />
+         Now in the "Result" view, you can see all the files generated, the model elements and the templates and queries involved in the generation of those
+         files.<br />
+         <br />
+         You can have a look at those information if you do not know which elements have been used to generate a specific file.<br />
+      </description>
+   </item>
+   <item title="Profiling">
+      <description>
+         Get back to the launch configuration of your generator and this time activate the profiling. Select where you want to generate the profiling model and
+         relaunch the generation. After the generation, open the profiling model to have a look at the result of the profiling.<br />
+         <br />
+         <b>Catch Up!</b><br />
+         You can get the source code with the latest changes by clicking on the link below and compare it to your work.
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.acceleo.tutorial.projectUnzipperCommand(org.eclipse.acceleo.tutorial.projectUnzipperPath=platform:/plugin/org.eclipse.acceleo.tutorial/step-6/)"/>
+   </item>
+</cheatsheet>

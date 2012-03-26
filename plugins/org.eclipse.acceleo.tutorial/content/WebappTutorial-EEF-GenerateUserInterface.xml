@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Generate an advanced interface for the models">
+   <intro>
+      <description>
+         The Extended Editing Framework (EEF) give you the ability to generate very quickly an advanced user interface.
+      </description>
+   </intro>
+   <item title="Install EEF">
+      <description>
+         You can download EEF from the Eclipse update site of your Eclipse version, for example http://download.eclipse.org/indigo for Eclipse 3.7 Indigo.
+         EEF can be found in the modeling category along with over EMF-based tools.
+      </description>
+   </item>
+   <item title="Generate the EEF models">
+      <description>
+         Right click on your genmodel and select "EEF" -> "Initialize EEF models". Now open the MASNIFEST.MF go to the dependencies tab and add there
+         a dependency to org.eclipse.emf.eef.runtime
+      </description>
+   </item>
+   <item title="Generate a form-based editor">
+      <description>
+         Right click on the "eefgen" model and select generate the edit and editor.
+      </description>
+   </item>
+   <item title="Test the environment">
+      <description>
+         Launch another Eclipse instance to test this new Eclipse based tool.
+      </description>
+   </item>
+</cheatsheet>

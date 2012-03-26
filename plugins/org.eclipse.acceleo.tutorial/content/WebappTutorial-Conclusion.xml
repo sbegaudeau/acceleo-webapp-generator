@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Conclusion">
+   <intro>
+      <description>
+         This concludes our tutorial.
+      </description>
+   </intro>
+   <item title="Review of the environment created">
+      <description>
+         You can now improve your tooling in order to be able to match the generator provided in the solution.
+      </description>
+   </item>
+</cheatsheet>

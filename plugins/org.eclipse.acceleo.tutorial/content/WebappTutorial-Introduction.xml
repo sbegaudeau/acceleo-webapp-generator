@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Create a web application generator">
+  <intro>
+    <description>
+      This cheat sheet contains the detailed explanations of the EMF/Acceleo tutorial realized for EclipseCon USA 2012.
+      During this tutorial, you will see how to create a meta-model for your own domain, how to generate the Java source
+      code allowing you to instantiate models using this meta-model, how to generate a web application from it and how to
+      create an user interface.<br />
+      <br />
+      This tutorial was presented in Reston Virginia by Stephane Begaudeau (leader of Acceleo) and Cedric Brun (committer
+      on Acceleo and member of the Eclipse Architecture Council).
+    </description>
+  </intro>
+  <item title="Presentation of the tools used">
+    <description>
+      This tutorial will explain how to use Eclipse Modeling tools to build a development environment for the creation of
+      web applications. In order to build this environment, we will use the Eclipse Modeling Framework, some projects of
+      the Eclipse Modeling Tools and Acceleo.<br/>
+      <br/>
+      In order to start this tutorial in the best condition, here is the recommended development environment:
+      <br/>
+      - JavaSE-1.6<br/>
+      - The latest release of "Eclipse Modeling Tools"<br/>
+      - The latest release of Acceleo<br/>
+      - The latest release of Jetty<br/>
+      <br />
+      You can get the latest release of the "Eclipse Modeling Tools" on the official website of the Eclipse Foundation
+      www.eclipse.org/downloads. In order to get the latest release of Acceleo, have a look at the download page of the Acceleo
+      project (www.eclipse.org/acceleo) or use the Eclipse Marketplace (Help -> Eclipse Marketplace). <br />
+      <br />
+      The "Eclipse Modeling Tools" bundle contains the latest release of the Eclipse Modeling Framework (EMF) and of the 
+      Object Constraints Language (OCL). If you wish to install those components on an existing Eclipse installation, have
+      a look at the "Modeling" category of the update site of your version of Eclipse:
+      <br />
+      - Eclipse 3.5: http://download.eclipse.org/releases/ganymede<br />
+      - Eclipse 3.6: http://download.eclipse.org/releases/helios<br />
+      - Eclipse 3.7: http://download.eclipse.org/releases/indigo<br />
+      - Eclipse 4.2: http://download.eclipse.org/releases/juno<br />
+      <br />
+      Jetty can also be found in the update site of your version of Eclipse.<br />
+      <br />
+      Even if we recommend an environment using JavaSE-1.6, this tutorial also works with J2SE-1.5 and JavaSE-1.7.
+    </description>
+  </item>
+  <item title="Plan of the tutorial">
+   <description>
+     - Presentation of the technologies used<br />
+     - Creation of the meta-model<br />
+     - Initialization of the generator<br />
+     - Improving the generator<br />
+     - Package the generator<br />
+     - Build an advanced user interface for the models<br />
+     <br />
+     You can follow each steps of the tutorial and try to reproduce them by yourself but if you prefer skipping steps to have a look
+     at the solution, this tutorial contains steps where you can in a single click obtain the current level of the tutorial in
+     your workspace.
+   </description>
+  </item>
+  <item title="Goal of the generator">
+    <description>
+      The generator created in this tutorial will be used to generate a web application based on backbone.js and bootstrap.css. This
+      web application will contain two kind of pages, the first one is composed of static pages displaying widgets while the second
+      one can be used to edit and persist entities.
+    </description>
+  </item>
+  <item title="Eclipse Modeling Framework">
+    <description>
+      The project Eclipse Modeling Framework (EMF) is a framework used to define models, a tool used to generate the code of models in
+      Java and some applications to manipulate models. With EMF, you can define models, they are created by instanciating concepts from
+      other models commonly referred as meta-models (a model is just an instance of a meta-model). With EMF, the "origin" of all models
+      is the "Ecore" meta-model (all models do not inherit from "Ecore" but all EMF models are an instance of an instance ... of an instance
+      of the "Ecore" meta-model. "Ecore" being an instance of itself.<br />
+      <br />
+      "Ecore" can be defined as a minimal meta-model to represent a class diagram. You can find in "Ecore" all the necessary concepts to
+      create "Packages", "Classes", "Attributes" etc. While we could use "Ecore" just like that as the meta-model of all our models
+      during this tutorial, we will define our own meta-model containing concepts that match our domain. This meta-model will be an instance
+      of "Ecore". You can find several implementations of commonly known meta-model as instances of Ecore, for example the Eclipse MDT UML
+      project as recreated the UML meta-model from "Ecore". You can use it to instanciate UML models.
+    </description>
+  </item>
+  <item title="Acceleo">
+    <description>
+      Acceleo is an open source code generator from the Eclipse Foundation that allows you to generate any kind of code from any kind of
+      EMF models. We will use Acceleo to build a web application code generator from our meta-model.
+    </description>
+  </item>
+  <item title="Extended Editing Framework">
+    <description>
+      The Extended Editing Framework (EEF) is an Eclipse Modeling tool used to generate user interface for EMF models. We will use it to
+      generate an advance interface to manipulate our models in the last part of the tutorial.
+    </description>
+  </item>
+</cheatsheet>

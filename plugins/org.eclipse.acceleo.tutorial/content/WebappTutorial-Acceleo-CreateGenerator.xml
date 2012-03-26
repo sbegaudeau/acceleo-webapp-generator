@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet title="Create a basic generator">
+   <intro>
+      <description>
+         During this part, we will now start the create of our Acceleo code generator. After a review of
+         the concept used in Acceleo, we will initialize a generator from a small backbone.js example
+         then we will improve it a little to be able to regenerate the prototype of the backbone.js
+         application.
+      </description>
+   </intro>
+   <item title="Presentation of the prototype">
+      <description>
+        In order to start an Acceleo generator, you can create a new project and start from scratch.
+        This approach is not recommended unless you know perfectly the domain of the code generated
+        and Acceleo since you will have to manage the structure of the generated code and the structure
+        of the generator. To help with this issue, we prefer to use a prototype-based approach in which
+        we start with a small prototype of the kind of application that we want to generate to initialize
+        the generator.<br />
+        <br />
+        In order to run the prototype, use the Java class located in the jetty launcher project. Once launched, you
+        can navigate to the root folder of the prototype named "webapp.prototype" to see the prototype in action.
+        The first page is a static page while the other pages let you manipulate backbone.js "Model" elements.
+        You can create "Users", "Languages" and "Projects", edit them and even delete them. This prototype also come
+        with another project "webapp.prototype.extension" containing a chrome extension to have a look at the data
+        saved while manipulating the application.<br />
+        <br />
+        In order to use the extension, download the chrome web browser, go to the "Tools" -> "Extension" menu, check the
+        developer mode (used to install non packaged extensions and to debug extensions) and load the webapp.extension.prototype
+        as a non packaged extension.<br />
+        <br />
+        You can find the prototype of the application that we want to generate by clicking on the link below.<br />
+        <br />
+      </description>
+      <command
+            required="true"
+            serialization="org.eclipse.acceleo.tutorial.projectUnzipperCommand(org.eclipse.acceleo.tutorial.projectUnzipperPath=platform:/plugin/org.eclipse.acceleo.tutorial/step-3/)"/>
+   </item>
+   <item title="Concepts used in Acceleo">
+      <description>
+        Now it's time to have a look at the concepts used in an Acceleo generator. Acceleo files are called modules and
+        we can separate modules in three categories:<br />
+        - modules that are generating files<br />
+        - modules that contain utility code<br />
+        - the main module, entry point of the generation<br />
+        <br />
+        A module is parameterized by the "ns uri" of the meta-model(s) that we want to take into account, in our case the
+        webapp meta-model. Inside of a module, we can have two kinds of elements:<br />
+        - templates, that generate the code<br />
+        - queries, that can encapsulate complex expressions<br />
+        <br />
+        Acceleo expressions are using a superset of the OCL language, have a look at the documentation to see all operations
+        available "Help" -> "Help Contents" -> "Acceleo"...
+      </description>
+   </item>
+   <item title="Creation of the Acceleo project">
+      <description>
+        Let's create our first Acceleo project, for that open the new Acceleo project wizard. "File" -> "New" -> "Project..." ->
+        "Acceleo" -> "Acceleo Project" or click on the link below. The name of the generator should be <b>org.eclipsecon.acceleo.tutorial.webapp</b>
+        After having entered the name of the project, click on finish.<br />
+      </description>
+      <command serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.acceleo.ide.ui.wizards.newproject.AcceleoNewProjectWizard)" required="false" translate="">
+      </command>
+   </item>
+   <item title="Dependency with the project containing the meta-model">
+      <description>
+        <b>Description of an Acceleo project</b><br />
+        An Acceleo project is an Eclipse plugin project, as such you can find a MANIFEST.MF file in the META-INF folder that defines
+        the dependencies of the generator. Open this file and go to the "dependencies" tab to add a dependency to the project containing
+        the meta-model <b>org.eclipsecon.acceleo.tutorial.webapp.model</b> if you have followed the naming conventions of the tutorial.<br />
+        <br />
+      </description>
+   </item>
+   <item title="Initializing the generator from the prototype">
+      <description>
+        Now let's create the root package of our modules in the generator. For this, create a package named "org.eclipsecon.acceleo.tutorial.webapp.files"
+        in the source folder of the generator. Now we will use the content of the prototype to initialize the generator. In Acceleo, it is strongly
+        recommended to create one module, that will generate a file, for each kind of files. We define "kind of files" by files that have a different
+        goal or structure. In this tutorial, we will not create a module to generate all Javascript files but a module for each kind of Javascript files.<br />
+        <br />
+        <b>Modules to create</b><br />
+        To start with this generator, we will create the following modules in the package previously created:<br />
+        - applicationJsFile.mtl (to generate the app.js file)<br />
+        - collectionJsFile.mtl (to generate all backbone.js collections)<br />
+        - modelJsFile.mtl (to generate all backbone.js models)<br />
+        - routerJsFile.mtl (to generate the router)<br />
+        - viewJsFile.mtl (to generate the view)<br />
+        <br />
+        This structure is a simplified structure of the final generator but the main goal of this tutorial is the explanation of the creation of an
+        Acceleo generator.<br />
+        <br />
+        In order to build each of those files, select the new "Acceleo Module File" wizard and start the creation of each files in the 
+        "org.eclipsecon.acceleo.tutorial.webapp.model.files" package. All of these modules will have the same meta-model URI. To select our webapp
+        meta-model, click on the "+" button and select "Runtime Version" since the meta-model is not registered by an Eclipse plugin as it is just
+        in the workspace and then select the URI "http://www.eclipsecon.org/acceleo/tutorial/webapp/" and press "OK".<br />
+        <br />
+        The naming convention recommended for the name of the module is to use the goal of the generated file concatenated with the kind of file (e.g.
+        modelJsFile, routerJsFile, etc.). Since those modules will generate files, we will initialize them with a template following the same naming
+        convention preceding by "gen". Do not forget to make sure that for each of those modules created the "Generate file" checkbox is checked.
+        Each of those module will be initialized with an example of the files that they are generating. For that, check "Initialize Contents" and select
+        "Copy example content" and select an example from the prototype for each module created.<br />
+        <br />
+        In the end, you should have the following modules generating files:<br />
+        - "applicationJsFile" containing a template named "applicationJsFile" using the type "Application" created from "app.js"<br />
+        - "collectionJsFile" containing a template named "collectionJsFile" using the type "Collection" created from "languages_collection.js"<br />
+        - "modelJsFile" containing a template named "modelJsFile" using the type "Model" created from "languages.js"<br />
+        - "routerJsFile" containing a template named "routerJsFile" using the type "Router" created from "router.js"<br />
+        - "staticViewJsFile" containing a template named "staticViewJsFile" using the type "StaticView" created from "error.js"<br />
+        - "modelViewJsFile" containing a template named "modelViewJsFile" using the type "ModelView" created from "list_users.js"<br />
+        - "homeViewJSFile" containing a template named "homeViewJsFile" using the type "Application" created from "main.js"<br />
+        <br />
+        Change the path, in the file block, of the file to be generated. Models should be generated in a folder named "assets/js/models",
+        collections in "assets/js/collections", views in "assets/js/views" and finally the application and the router in "assets/js/".
+      </description>
+   </item>
+   <item title="Creating the entry point of the generation">
+      <description>
+        We now have the module used to generate most of the content, it is time to create the entry point of the generation. This entry point is an
+        Acceleo module, that we will create in the package "org.eclipsecon.acceleo.tutorial.webapp.main" will be named "webapp".<br />
+        <br />
+        First create the package "org.eclipsecon.acceleo.tutorial.webapp.main", then open the file "MANIFEST.MF" located in the folder "META-INF" and
+        go to the "runtime" tab and add a package to export. Click on "show non-Java packages" and select "org.eclipsecon.acceleo.tutorial.main".<br />
+        <br />
+        It will contain a template named "main" defined using the type "Application". It is strongly recommended to use the root concept of your models
+        as the parameter of the entry point of the generation. Do not forget to check "Main template" before clicking on "Finish". this module will not
+        be initialized from an existing content from the prototype.<br />
+        <br />
+        Open this module with its empty "main" template, you can see the comment "[comment @main/]" which indicates that this module will be used as the
+        entry point of the generation. <b>Do not remove this comment!</b>.<br />
+        <br />
+        Now import all the other modules with the following code, placed under the module definition and before the first template (or query):<br />
+        [import org::eclipsecon::acceleo::tutorial::webapp::files::applicationJsFile/]<br />
+        [import org::eclipsecon::acceleo::tutorial::webapp::files::collectionJsFile/]<br />
+        [import org::eclipsecon::acceleo::tutorial::webapp::files::homeViewJsFile/]<br />
+        [import org::eclipsecon::acceleo::tutorial::webapp::files::modelJsFile/]<br />
+        [import org::eclipsecon::acceleo::tutorial::webapp::files::modelViewJsFile/]<br />
+        [import org::eclipsecon::acceleo::tutorial::webapp::files::routerJsFile/]<br />
+        [import org::eclipsecon::acceleo::tutorial::webapp::files::staticViewJsFile/]<br />
+        <br />
+        In the body of the "main" module, call all the template from those imported modules. You can find here, one way to do this:<br />
+        <br />
+        [template public main(anApplication : Application)]<br />
+        [comment @main/]<br />
+        <br />
+        [anApplication.applicationJsFile()/]<br />
+        [anApplication.homeViewJsFile()/]<br />
+        <br />
+        [anApplication.router.routerJsFile()/]<br />
+        <br />
+        [for (aCollection : Collection | anApplication.collections)]<br />
+        [aCollection.collectionJsFile()/]<br />
+        [/for]<br />
+        <br />
+        [for (anAbstractView : AbstractView | anApplication.views)]<br />
+        [if (anAbstractView.oclIsKindOf(StaticView))]<br />
+        [anAbstractView.oclAsType(StaticView).staticViewJsFile()/]<br />
+        [elseif (anAbstractView.oclIsKindOf(ModelView))]<br />
+        [anAbstractView.oclAsType(ModelView).modelViewJsFile()/]<br />	
+        [/if]<br />
+        [/for]<br />
+        <br />
+        [anApplication.models.modelJsFile()/]<br />
+        <br />
+        [/template]<br />
+        <br />
+      </description>
+   </item>
+   <item title="Review of the Java launcher">
+      <description>
+        The creation of this module comes with a Java class using the same name "Webapp.java". This Java class is used to launch the generation.<br />
+        <br />
+        <b>Description of the Java launcher</b><br />
+        This Java launcher contains several interesting methods, among them you can find:<br />
+        - "getGenerationListeners" to add listeners<br />
+        - "getGenerationStrategy" to change the strategy of the generation, by default the strategy write the content generated in a file<br />
+        - "getProperties" to load properties used to customize the generation, we will see more about this later<br />
+        - "registerPackages" to make sure that your package has been registered, necessary in stand alone<br />
+        - "registerResourceFactores" to let Acceleo know how to open your model, necessary in stand alone<br />
+        <br />
+        We will have a more careful look at some of those methods later in the tutorial.
+      </description>
+   </item>
+   <item title="Creation of a model for our application">
+      <description>
+        In order to launch the generation, we need to create a model representing what we want to generate. The best way to manipulate entities from an
+        ".ecore" model, would be to deploy the code generated "...model, ...edit, ...editor" inside another Eclipse instance and use the wizard and editor
+        generated to create new "webapp" models. This operation is very time consuming if you are working on your meta-model and if you want to test some models.<br />
+        <br />
+        EMF supports another mode to create and edit instances of ".ecore" models call dynamic instances. Without entering in the details, it uses the
+        dynamic APIs of EMD to let the user create and manipulate entities from the ".ecore" model even without the Java code of the model generated. In order
+        to create a dynamic instance of the "webapp" meta-model, open the file "webapp.ecore" which should be located in "org.eclipsecon.acceleo.tutorial.webapp/model/"
+        and right click on the "Application" concept and select "Create Dynamic Instance...". Create this dynamic instance in a file named "webapp.xmi" in the
+        same folder.<br />
+        <br />
+        <b>Editing the model</b><br />
+        Now that we have created our first empty EMF model, instance of our webapp meta-model, it's time to enter some data inside. For this example, we
+        will create the following elements:<br />
+        - one <b>model</b> element named "Language" with an <b>attribute</b> named "Name".<br />
+        - one <b>model</b> element named "User" with three <b>attributes</b> named "First Name", "Last Name" and "Age" and two <b>references</b> named "Projects"
+        and "Languages" linked to the concept "Language" and "Project"<br />
+        - one <b>model</b> element named "Project" with one <b>attributes</b> named "Name" and two <b>references</b> named "Users" and "Languages" linked to the
+        concept "User" and "Language"<br />
+        <br />
+        - one <b>collection</b> element named "LanguagesCollection" linked to the <b>model</b> element "Language"<br />
+        - one <b>collection</b> element named "UsersCollection" linked to the <b>model</b> element "User"<br />
+        - one <b>collection</b> element named "ProjectsCollection" linked to the <b>model</b> element "Project"<br />
+        <br />
+        - one <b>model view</b> element named "Projects" linked to the collection "ProjectsCollection"<br />
+        - one <b>model view</b> element named "Users" linked to the collection "UsersCollection"<br />
+        - one <b>model view</b> element named "Languages" linked to the collection "LanguagesCollection"<br />
+        <br />
+        - one <b>router</b> element named "router" containing three <b>router mapping</b> elements linking the paths "!/projects" to the view "Projects", 
+        "!/users" to the view "Users", "!/languages" to the view "Languages".<br />
+        <br />
+      </description>
+   </item>
+   <item title="Launching the generation">
+      <description>
+        First, create a new empty project named "acceleo-eclipsecon-tutorial" thanks to the "File" -> "New" -> "Project..." -> "General" -> "Project".
+        The code will be generated in this project.<br />
+        <br />
+        Now it's time to launch the generation with our model and our basic generator. As you may see, the generator does not use any model elements and will
+        just regenerate the files from the prototype used to initialize the generator. In order to launch the generation, right click on the main module "webapp.mtl"
+        and select "Run As" -> "Launch Acceleo Application". A new window has been opened (if the window does not appear, you can find it in the "Run" ->
+        "Run Configurations" menu.<br />
+        <br />
+        <b>Configuring the launch</b><br />
+        In the Acceleo launch configuration, you first have to select the project containing the generator, here "org.eclipsecon.acceleo.tutorial.webapp", then
+        choose the Java class created along with the main module ("Webapp.java"). After that, you need to choose the model used for the generation, here "webapp.xmi"
+        located in the project "org.eclipsecon.acceleo.tutorial.webapp" and then select the output folder, here the project "acceleo-eclipsecon-tutorial". Click
+        "Apply" and then "Run".<br />
+        <br />
+        Open the output project ("acceleo-eclipsecon-tutorial") to have a look at the generated code.<br />
+        <br />
+        <b>Catch Up!</b><br />
+        If you want to get the prototype, the generator and the example along with the output folder, click on the link below. Once unzipped in your workspace,
+        if you want to generate the code, right click on the file "acceleo-eclipse-tutorial.launch" and select "Run As" -> "acceleo-eclipse-tutorial". You can 
+        see the generated code in the "acceleo-eclipse-tutorial" folder.<br />
+        <br />
+        Do not try to use the model from the example with your generator as this model as been created from a meta-model with the URI "http://www.eclipse.org/acceleo..."
+        while the generator is defined for a meta-model with the URI "http://www.eclipsecon.org/acceleo/...".
+      </description>
+      <command
+            required="false"
+            serialization="org.eclipse.acceleo.tutorial.projectUnzipperCommand(org.eclipse.acceleo.tutorial.projectUnzipperPath=platform:/plugin/org.eclipse.acceleo.tutorial/step-4/)"/>
+   </item>
+</cheatsheet>
