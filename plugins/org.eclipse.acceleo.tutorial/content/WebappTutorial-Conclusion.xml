@@ -7,7 +7,10 @@
    </intro>
    <item title="Review of the environment created">
       <description>
-         You can now improve your tooling in order to be able to match the generator provided in the solution.
+         You can now improve your tooling in order to be able to match the generator provided in the solution. Click on the link below to get the complete generator.
       </description>
+      <command
+            required="false"
+            serialization="org.eclipse.acceleo.tutorial.projectUnzipperCommand(org.eclipse.acceleo.tutorial.projectUnzipperPath=platform:/plugin/org.eclipse.acceleo.tutorial/step-8/)"/>
    </item>
 </cheatsheet>
